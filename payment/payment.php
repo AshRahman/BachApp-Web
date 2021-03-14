@@ -60,18 +60,25 @@
             {
                 $err_cnum="Card number must contain 16 digits ";
             }
+            else if(strlen($_POST["cnum"])>16)
+            {
+                $err_cnum="Card number should not contain more than 16 digits ";
+            }
             else if(strpos($_POST["cnum"]," "))
             {
                 $err_cnum="Card number should not contain whitespace";
             }
             
-            else if(!is_numeric($_POST["cnum"]) )
+            $cn=$_POST["cnum"];
+            for($i=0;$i<strlen($cn);$i++)
             {
-                $err_cnum="Card number should not contain letters";
-            }
-            else
-            {   
-                $pass=htmlspecialchars($_POST["pass"]);
+                if(!is_numeric($cn[$i]))
+                {
+                    $cn=true;
+                    $err_cnum="Card Number should not contain letters";
+                    break;
+                }
+               
             }
 
 

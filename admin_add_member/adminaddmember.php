@@ -30,22 +30,61 @@
         $phone="";
         $err_phone="";
        
-        
+        $rassign="";
+        $err_rassign="";
 
-        if($_SERVER["REQUEST_METHOD"]=="POST"){
-            if(empty($_POST["name"]))
+
+
+        if($_SERVER["REQUEST_METHOD"]=="POST")
+        {
+//FIRST_NAME VALIDATION
+            if(empty($_POST["fname"]))
             {
-                $err_name="Name required";
+                $err_fname="First Name required";
             }
             
             else
             {   
-                $name=htmlspecialchars($_POST["name"]);
+                $name=htmlspecialchars($_POST["fname"]);
+            }
+           
+            $fv=$_POST["fname"];
+            for($i=0;$i<strlen($fv);$i++)
+            {
+                if(is_numeric($fv[$i]))
+                {
+                  $fv=true;
+                  $err_fname="First Name should not contain Numbers";
+                  break;
+                }
             }
 
+//LAST_NAME VALIDATION
+            if(empty($_POST["lname"]))
+            {
+                $err_lname="Last Name required";
+            }
+            
+            else
+            {   
+                $lname=htmlspecialchars($_POST["lname"]);
+            }
+            
+            $lv=$_POST["lname"];
+            for($i=0;$i<strlen($lv);$i++)
+            {
+                if(is_numeric($lv[$i]))
+                {
+                  $lv=true;
+                  $err_lname="Last Name should not contain Numbers";
+                  break;
+                }
+            }
+
+//USERNAME VALIDATION
             if(empty($_POST["uname"]))
             {
-                $err_uname="Username required";
+                $err_uname="User Name required";
             }
             else if(strlen($_POST["uname"]) < 6){
                 $err_uname="Username must contain more than 6 characters";
@@ -85,6 +124,8 @@
                     $lowt=false;
                 }
             }
+
+//PASSWORD VALIDATION
             $low=$_POST["pass"];
             for($i=0;$i<strlen($up);$i++)
             {
@@ -111,7 +152,7 @@
 
             if(empty($_POST["pass"]))
             {
-                $err_pass="Enter password";
+                $err_pass="Enter Password";
             }
             else if(strlen($_POST["pass"])<8)
             {
@@ -145,16 +186,17 @@
             }
 
 
+//CONFIRM PASSWORD VALIDATION
             if(empty($_POST["pass"]))
             {
-                $err_cpass="Enter password again";
+                $err_cpass="Enter Password again";
             }
             else if($_POST["cpass"]!=$pass)
             {
                 $err_cpass="Password mismatch";
             }
 
-
+//EMAIL VALIDATION
             if(empty($_POST["mail"]))
             {
                 $err_mail="Email required";
@@ -169,100 +211,79 @@
             }
 
 
-            if(empty($_POST["city"])|| empty($_POST["state"])||empty($_POST["zip"] ))
+//NID CARD VALIDATION
+            if(empty($_POST["nid"]))
             {
-                $err_address="Address required";
+                $err_nid="Enter NID number";
             }
+            else if(strlen($_POST["nid"])<10)
+            {
+                $err_nid="NID must contain 10 digits ";
+            }
+            else if(strlen($_POST["nid"])>10)
+            {
+                $err_nid="NID should not contain more than 10 digits ";
+            }
+            else if(strpos($_POST["nid"]," "))
+            {
+                $err_nid="NID should not contain whitespace";
+            }
+
             
-            else if(strpos($_POST["city"]," ")|| strpos($_POST["state"]," ")||strpos($_POST["zip"]," "))
+
+            $nv=$_POST["nid"];
+            for($i=0;$i<strlen($nv);$i++)
             {
-                $err_address="Address should not contain WhiteSpace";
+                if(!is_numeric($nv[$i]))
+                {
+                  $nv=true;
+                  $err_nid="NID should not contain letters";
+                  break;
+                }
             }
 
-            else
-            {   
-                $address=htmlspecialchars($_POST["city"].",".$_POST["state"].",".$_POST["zip"]);
-            }
-
+//PNONE NUMBER VALIDATION
             if(empty($_POST["phone"]))
             {
                 $err_phone="Enter phone number";
             }
-            else if(!is_numeric($_POST["code"])||!is_numeric($_POST["phone"]) )
+            else if(strlen($_POST["phone"])<11)
             {
-                $err_phone="Phone number should not contain letters";
+                $err_phone="Phone number must contain 11 digits ";
+            }
+            else if(strlen($_POST["phone"])>11)
+            {
+                $err_phone="Phone number should not contain more than 11 digits ";
             }
             else
             {
-                $phone= $_POST["code"].$_POST["phone"];
+                $phone= $_POST["phone"];
             }
 
-
-            if(empty($_POST["gender"]))
+            $pv=$_POST["phone"];
+            for($i=0;$i<strlen($pv);$i++)
             {
-                $err_gender="Gender must be selected";
+                if(!is_numeric($pv[$i]))
+                {
+                  $pv=true;
+                  $err_phone="Phone number should not contain letters";
+                  break;
+                }
+            }
+
+//ROLE ASSIGN VALIDATION
+            if(empty($_POST["rassign"]))
+            {
+                $err_rassign="Role must be selected";
             }
             else
             {
-                $gender=$_POST["gender"];
+                $rassign=$_POST["rassign"];
             }
-
-
-            if(empty($_POST["bdate"]))
-            {
-               $err_bdate="!Date must be selected,   ";
-            }
-            else
-            {
-                $bdate=$_POST["bdate"];
-            }
-
-
-            if(empty($_POST["bmonth"]))
-            {
-                $err_bmonth="Month must be selected,   ";
-            }
-            else
-            {
-                $bmonth=$_POST["bmonth"];
-            }
-
-
-            if(empty($_POST["byear"]))
-            {
-                $err_byear="Year must be selected";
-            }
-            else
-            {
-                $byear=$_POST["byear"];
-            }
-
-
-            
-
-            if(!isset($_POST["hear"]))
-            {
-                $err_hear="This must be selected";
-            }
-            else
-            {
-                $hear=$_POST["hear"];
-            }
-
-
-            if(empty($_POST["tarea"]))
-            {
-                $err_bio="Bio should not be empty";
-            }
-            else
-            {
-                $bio=htmlspecialchars($_POST["tarea"]);
-            }
-           
-           
+ 
         
         }
-    ?>
+ ?>
     
 
 
@@ -275,7 +296,7 @@
         <fieldset style ="width:600px">
         <h2 align="center">ADD MEMBER</h2>
             <form action="" method="post">
-                <table>
+                <table align="center">
                     
 
                     <tr>
@@ -292,10 +313,10 @@
 
                     <tr>
                         <td><span>Username:</span></td>
-                        <td><input type="text" name="uname" placeholder ="Username">
+                        <td><input type="text" name="uname" placeholder ="User Name">
                             <span><?php echo $err_uname;?></span></td>
                     </tr>
-                    
+
                     <tr>
                         <td><span>Email:</span></td>
                         <td><input type="text" name="mail" placeholder ="E-mail">
@@ -325,12 +346,24 @@
 
                     <tr>
                         <td><span>Phone:</span></td>
-                        <input type="text" name="phone" placeholder ="Number" size='9'>
+                        <td><input type="text" name="phone" placeholder ="Phone Number">
                         <span><?php echo $err_phone;?></span></td>
                     </tr>
-                
+
+                    <tr>
+                        <td><span>Role:</span></td>
+                        <td><select name ="rassign" style ="width:177px">
+                        <option disabled selected>Choose one</option>
+                        <option>Admin</option>
+                        <option>Renter</option>
+                        <option>Renty</option>
+                        </select></br>
+                        <span><?php echo $err_rassign;?></span></br>
+                    </tr>
                     
-                    
+                    <tr>
+                       <td colspan="3" align="center"><span><input type="submit" value="SUBMIT" ></span></td>
+                    </tr>
                     
                     
 
