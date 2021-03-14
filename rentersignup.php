@@ -160,10 +160,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
+
     if (empty($_POST["saddress"])) {
         $err_saddress = "Please write your address";
         $hasError = true;
     }
+  
 
 
     if (empty($_POST["city"])) {
@@ -281,6 +283,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: red;
             font-size: 20px;
             font-family: consolas;
+
 
         }
     </style>
@@ -429,5 +432,181 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 </body>
+=======
+<html>
+    <head>
+        <style>
+            body{
+                background-color:rgb(240,240,240);
+            }
+            .signup-div{
+                border:1px solid rgb(245,245,245);
+                margin:auto;
+                width:30%;
+                margin-top:5%;
+                background-color:rgb(255,255,255);
+                padding:20px 0px 20px 0px;
+
+            }
+            .my-font{
+                font-size:20px;
+                font-family:consolas;
+            }
+            .btn-sup{
+                background-color:rgb(112,191,65);
+                border:none;
+                color:white;
+                width:100%;
+                border-radius:3px;
+                padding:5px;
+            }
+            .btn-sup:hover{
+                background-color:rgb(100,170,40);
+            }
+            .btn-sup:active{
+                background-color:green;
+            }
+            .err-msg{
+                color:red;
+                font-size:20px;
+                font-family:consolas;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div class="signup-div">
+            <h1 align="center" style="font-family:cambria">Renter Signup</h1>
+            <h4 align="center" style="font-family:cambria">Where Searching House Becomes Easier</h4>
+            
+            <form action="" method="post">
+                <table align="center">
+                    <tr>
+                        <td><span class="my-font">Full Name</span></td>
+                    </tr>
+                    <tr>
+                        
+                        <td><input type="text" name="unamef" value="<?php echo $unamef; ?>" placeholder="First Name">
+                            <span class="err-msg"><?php echo $err_unamef; ?></span></br>
+                            
+                            <input type="text" name="unamel" value="<?php echo $unamel; ?>" placeholder="Last Name">
+                            <span class="err-msg"><?php echo $err_unamel; ?></span>
+                            
+                        </td>
+                            
+                    </tr>
+                    <tr>
+                        <td><span class="my-font">Password</span></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" name="pass" value="<?php echo $pass; ?>" placeholder="Password">
+                        <span class="err-msg"><?php echo $err_pass; ?></span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="my-font">Confirm Password</span></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" name="cpass">
+                            <span class="err-msg"><?php echo $err_cpass; ?></span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="my-font">Gender<span></td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="gender" value="male">Male
+                        <input type="radio" name="gender" value="female">Female
+                            <span class="err-msg"><?php echo $err_gender; ?></span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="my-font">Address</span></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="saddress" value="<?php echo $saddress; ?>" placeholder="Street Address">
+                            <span class="err-msg"><?php echo $err_saddress;?></span></br>
+
+                            <input type="text" name="city" value="<?php echo $city; ?>" placeholder="City">
+                            <span class="err-msg"><?php echo $err_city?></span>
+                            
+                            <input type="text" name="state" value="<?php echo $state; ?>" placeholder="State / Provience">
+                            <span class="err-msg"><?php echo $err_state;?></span></br>
+
+                            <input type="text" size="4" name="postal" value="<?php echo $postal; ?>" placeholder="Zip">
+                            <span class="err-msg"><?php echo $err_postal;?></span>
+                            <span class="err-msg"><?php echo $err_postaln;?></span>
+
+                            <select name="country">
+                                <option disabled selected>Choose one</option>
+                                <option>Afghanistan</option> <option>Albania</option> <option>Australia</option> <option>Bahamas</option>
+                                <option>Bangladesh</option> <option>Belgium</option> <option>Brazil</option> <option>France</option>
+                                <option>Canada</option>USA</option>
+                            </select>
+                            <span class="err-msg"><?php echo $err_country; ?></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="my-font">E-mail</span></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="email" value="<?php echo $email;?>">
+                        <span class="err-msg"><?php echo $err_email;?></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="my-font">Contact Number</span></td>
+                    </tr>
+                    <tr>
+                        <td><input tpye="text" size="3" name="acode" value="<?php echo $acode;?>" placeholder="Code">
+                            <span class="err-msg"><?php echo $err_acode;?></span>
+                            <span class="err-msg"><?php echo $err_acoden;?></span>
+                                                        
+
+                            <input type="text" name="cont" value="<?php echo $cont;?>" placeholder="Phone / Mobile">
+                            <span class="err-msg"><?php echo $err_cont;?></span>
+                            <span class="err-msg"><?php echo $err_contn;?></span>
+                        </td>  
+                    </tr>
+                    <tr>
+                        <td><span class="my-font">Date Of Birth</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="day">
+                                <option disabled selected>Day</option>
+                                    <?php 
+                                        for($i=1; $i<=31; $i++){
+                                            echo "<option>$i</option>";
+                                        }
+                                    ?>
+                            </select>
+
+                            <select name="month">
+                                <option disabled selected>Month</option>
+                                    <?php 
+                                        $months=array("Jan","Feb","Mar","April","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+                                        for($i=0;$i<count($months);$i++){
+                                            echo"<option>$months[$i]</option>";
+                                        }
+                                    ?>
+                            </select>
+
+                            <select name="year">
+                                <option disabled selected>Year</option>
+                                    <?php 
+                                        for($i=1970;$i<=2000;$i++){
+                                            echo"<option>$i</option>";
+                                        }
+                                    ?>
+                            </select><?php echo $err_dob;?><br>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td colspan="2"><input type="submit" class="my-font btn-sup" name="submit" value="Create My Account"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
 
 </html>
