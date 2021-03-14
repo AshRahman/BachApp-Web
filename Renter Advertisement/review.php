@@ -52,13 +52,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <head>
         <style>
             body{
-                background-color:rgb(230,230,230);
+                background-color:rgb(240,240,240);
             }
             .review-div{
-                border:1px solid rgb(245,245,245);
+                border:1px solid black;
                 margin:auto;
                 width:50%;
-                margin-top:5%;
+                margin-top:6%;
                 background-color:rgb(255,255,255);
                 padding:20px;
             }

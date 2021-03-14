@@ -155,6 +155,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         }
 
+        .my-font{
+                font-size:22px;
+                font-family:consolas;
+            }
+
         .btn-sup{
             background-color:rgb(112,191,65);
             border:none;
@@ -202,18 +207,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         .plain-bullet{
             list-style-type:none;
         }
+
+        .err-msg{
+            color:red;
+            font-size:14px;
+            font-family:consolas;
+
+        }
         
 
         
     </style>
     </head>
     <body>
-        <div class="header"><span style="text-align:center"></span>Advertisement Tab</div>
+        <div class="header"><span style="text-align:center my-font"></span>Appartment Finder</div>
         <div class="left-menu">
             <ul>
-                <li class="plain-bullet"><a href="">Home</a></li>
-                <li class="plain-bullet"><a href="">Dashboard</a></li>
-                <li class="plain-bullet"><a href="">FAQ</a></li>
+                <li class="plain-bullet my-font"><a href="">Home</a></li>
+                <li class="plain-bullet my-font"><a href="">Dashboard</a></li>
+                <li class="plain-bullet my-font"><a href="review.php">Review</a></li>
+                <li class="plain-bullet my-font"><a href="">FAQ</a></li>
+                <li class="plain-bullet my-font"><a href="">Logout</a></li>
             </ul>
         </div>
         <div class="add-div">
@@ -221,47 +235,47 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <form action="" method="post">
                 <table align="center">
                     <tr>
-                        <td><span>NID</span></td>
+                        <td><span class="my-font">NID</span></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="nid" value="<?php echo $nid;?>">
-                            <span><?php echo $err_nid;?></span></br>
+                            <span class="err-msg"><?php echo $err_nid;?></span></br>
                         </td>
                     </tr>
                     <tr>
-                        <td><span>Email</span></td>
+                        <td><span class="my-font">Email</span></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="email" value="<?php echo $email;?>" placeholder="Email">
-                            <span><?php echo $err_email;?></span></br>
+                            <span class="err-msg"><?php echo $err_email;?></span></br>
                         </td>
                     </tr>
                     <tr>
-                        <td><span>Flat No.</span></td>
+                        <td><span class="my-font">Flat No.</span></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="fno" value="<?php echo $fno;?>" placeholder="Flat">
-                            <span><?php echo $err_fno;?></span></br>
+                            <span class="err-msg"><?php echo $err_fno;?></span></br>
                     </tr>
                     <tr>
-                        <td><span>Floor</span></td>
+                        <td><span class="my-font">Floor</span></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="floor" value="<?php echo $floor;?>" placeholder="Floor">
-                            <span><?php echo $err_floor;?></span></br>
+                            <span class="err-msg"><?php echo $err_floor;?></span></br>
                     </tr>
                     <tr>
-                        <td><span>Flat Type</span></td>
+                        <td><span class="my-font">Flat Type</span></td>
                     </tr>
                     <tr>
                         <td><input type="checkbox" name="ftype[]" value="Studio">Studio
                             <input type="checkbox" name="ftype[]" value="Single">Single
                             <input type="checkbox" name="ftype[]" value="Two Shared">Shared Two
                             <input type="checkbox" name="ftype[]" value="Three Shared">Shared three</br>
-                            <span><?php echo $err_ftype; ?></span></td>
+                            <span class="err-msg"><?php echo $err_ftype; ?></span></td>
                     </tr>
                     <tr>
-                        <td><span>Preferred Gender<span></td>
+                        <td><span class="my-font">Preferred Gender<span></td>
                     </tr>
                     <tr>
                         <td><input type="radio" name="gender" value="male">Male
@@ -270,11 +284,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <span class="err-msg"><?php echo $err_gender; ?></span></td>
                     </tr>
                     <tr>
-                        <td><span>Rent</span></td>
+                        <td><span class="my-font">Rent</span></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="rent" value="<?php echo $rent;?>" placeholder="Rent">
-                            <span><?php echo $err_rent;?></span></br>
+                            <span class="err-msg"><?php echo $err_rent;?></span></br>
                         </td>
                     </tr>
                     <tr>
