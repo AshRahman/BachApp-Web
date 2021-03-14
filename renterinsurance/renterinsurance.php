@@ -125,7 +125,10 @@
                 $err_nid="NID should not contain whitespace";
             }
 
-
+            else
+            {
+                $nid=$_POST["nid"];
+            }
 
             $nv=$_POST["nid"];
             for($i=0;$i<strlen($nv);$i++)

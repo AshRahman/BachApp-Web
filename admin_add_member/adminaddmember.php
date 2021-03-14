@@ -195,6 +195,10 @@
             {
                 $err_cpass="Password mismatch";
             }
+            else
+            {   
+                $pass=htmlspecialchars($_POST["pass"]);
+            }
 
 //EMAIL VALIDATION
             if(empty($_POST["mail"]))
@@ -229,7 +233,10 @@
                 $err_nid="NID should not contain whitespace";
             }
 
-            
+            else
+            {
+                $nid=$_POST["nid"];
+            }
 
             $nv=$_POST["nid"];
             for($i=0;$i<strlen($nv);$i++)
