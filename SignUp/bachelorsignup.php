@@ -49,7 +49,7 @@ $guardian_contact="";
 $err_gname="";
 $err_gcontact="";
 
-
+$has_error=false;
 
 function validatePassword($pass){
     $hasUpper=false;
@@ -105,32 +105,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     if(empty($unamef)){
         $err_unamef="Please enter your first name";
+        $has_error=true;
     }
     elseif(strlen($_POST["unamef"]) < 4){
         $err_unamef="First Name must be more than 4 characters";
+        $has_error=true;
     }
     elseif(strpos($_POST["unamef"]," ")){
         $err_unamef="Whitespace is not allowed";
+        $has_error=true;
     }
 
 
     if(empty($unamel)){
         $err_unamel="Please enter your last name";
+        $has_error=true;
     }
     elseif(strlen($_POST["unamel"]) < 4){
         $err_unamel="Last Name must be more than 4 characters";
+        $has_error=true;
     }
     elseif(strpos($_POST["unamel"]," ")){
         $err_unamel="Whitespace is not allowed";
+        $has_error=true;
     }
 
 
     if(empty($_POST["pass"])){
         $err_pass="Please enter your password";
+        $has_error=true;
     }
 
     if(empty($_POST["cpass"])){
         $err_pass="Please enter confirm password";
+        $has_error=true;
     }
 
 
@@ -139,22 +147,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 if(!empty($_POST["pass"])&&!empty($_POST["cpass"])){
     if(!validatePassword($_POST["pass"])){
         $err_pass="Password must contain 1 upper and 1 lower case letter";
+        $has_error=true;
     }
     elseif(strlen($_POST["pass"]) < 8){
         $err_pass="Password must be atleast 8 characters long";
+        $has_error=true;
     }
     elseif(strpos($_POST["pass"]," ")){
         $err_pass="Whitespace is not allowed";
+        $has_error=true;
     }
 
-    elseif($_POST["cpass"]!==$pass){
+    elseif($_POST["cpass"]!==$_POST["pass"]){
         $err_cpass="Password does not match";
+        $has_error=true;
     }
 }
 
 
 if(!isset($_POST["gender"])){
     $err_gender="Gender must be selected";
+    $has_error=true;
 }
 else{
     $gender=$_POST["gender"];
@@ -163,37 +176,51 @@ else{
 
 if(empty($_POST["saddress"])){
     $err_saddress="Please write your address";
+    $has_error=true;
 }
 
 
 if(empty($_POST["city"])){
     $err_city="Please enter your city name";
+    $has_error=true;
 }
 
 
 if(empty($_POST["state"])){
     $err_state="Please enter your state";
+    $has_error=true;
 }
 
 
 if(empty($_POST["postal"])){
     $err_postal="Please enter your postal";
+    $has_error=true;
 }
 elseif(!is_numeric($_POST["postal"])){
     $err_postaln="Postal code should contain only numeric values";
+    $has_error=true;
 }
 
 
 if(!isset($_POST["country"])){
     $err_country="Please select your country";
+    $has_error=true;
 }
 
 
 if(empty($_POST["email"])){
         $err_email="Email Required";
+        $has_error=true;
+    }
+
+    elseif(!strpos($_POST["email"],"@")){
+        $err_email="Add @";
+        $has_error=true;
+
     }
     elseif(!validateEmail($_POST["email"])){
         $err_email="Insert a valid email";
+        $has_error=true;
     }
     else{
         $email=htmlspecialchars($_POST["email"]);
@@ -202,21 +229,26 @@ if(empty($_POST["email"])){
 
 if(empty($_POST["cont"])){
     $err_cont="Please fill this field";
+    $has_error=true;
     }    
 elseif(!is_numeric($_POST["cont"])){
         $err_contn="This field requires only numeric values";
+        $has_error=true;
     }
 
 
 if(empty($_POST["acode"])){
         $err_acode="Please fill this field";
+        $has_error=true;
         }    
 elseif(!is_numeric($_POST["acode"])){
         $err_acoden="This field requires only numeric values";
+        $has_error=true;
         }
 
 if(!isset($_POST["day"]) || !isset($_POST["month"]) || !isset($_POST["year"])){
     $err_dob="Date Of Birth Required";
+    $has_error=true;
 }
 else{
     $dob=$_POST["day"]."-".$_POST["month"]."-".$_POST["year"];  
@@ -224,9 +256,11 @@ else{
 
 if(empty($guardian_name)){
     $err_gname="Please enter your guardian name";
+    $has_error=true;
 }
 elseif(strlen($_POST["guardian_name"]) < 4){
     $err_gname="Guardian Name must be more than 4 characters";
+    $has_error=true;
 }
 
 else{
@@ -234,16 +268,21 @@ else{
 }
 if(empty($_POST["guardian_contact"])){
     $err_gcontact="Please fill this field";
+    $has_error=true;
     }    
 elseif(!is_numeric($_POST["guardian_contact"])){
     $err_gcontact="This field requires only numeric values";
+    $has_error=true;
     }
 elseif(strlen($_POST["guardian_contact"]) < 11){
         $err_gcontact="Guardian contact must be more than 11 characters";
+        $has_error=true;
     }
 else{
     $guardian_contact=$_POST["guardian_contact"];
 }
+
+
 
 }
 

@@ -57,9 +57,12 @@ th {
 
 </style>
 <body>
+<div class="right">
+        <a href="../Signin/signin.php"  class="right my-font btn-sup"> Log out </a>
+    </div>
     
-    <div class="right">
-        <input type="submit" class="right my-font btn-sup" name="submit" value="Log-out">  
+<div class="right">
+        <a href="../Signin/signin.php"  class="right my-font btn-sup"> Log out </a>
     </div>
     <div class="search-roommate-div">
         <h1 align="center" style="font-family:cambria">Found Roomate</h1>

@@ -139,7 +139,7 @@ if(!empty($_POST["pass"])&&!empty($_POST["cpass"])){
         $err_pass="Whitespace is not allowed";
     }
 
-    elseif($_POST["cpass"]!==$pass){
+    elseif($_POST["cpass"]!==$_POST["pass"]){
         $err_cpass="Password does not match";
     }
 }
@@ -302,7 +302,7 @@ else{
                     </tr>
                     <tr>
                         <td><input type="radio" name="gender" value="male">Male
-                        <td><input type="radio" name="gender" value="female">Female
+                        <input type="radio" name="gender" value="female">Female
                             <span class="err-msg"><?php echo $err_gender; ?></span></td>
                     </tr>
                     <tr>
