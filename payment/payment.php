@@ -7,7 +7,7 @@
 
         $cnum="";
         $err_cnum="";
-        $err_nn="";
+        
 
         $exmonth="";
         $err_exmonth="";
@@ -112,9 +112,9 @@
             {
                 $err_scode="Enter Security Code";
             }
-            else if(strlen($_POST["scode"])<=6)
+            else if(strlen($_POST["scode"])>=6)
             {
-                $err_scode="Security code must contain 4 to 6 digits ";
+                $err_scode="Security code should contain 4 to 6 digits ";
             }
             else if(strpos($_POST["scode"]," "))
             {
@@ -168,7 +168,7 @@
                    
 
                     <tr>
-                        <td><span>Expaire Date:</span></td>
+                        <td><span>Expiry Date:</span></td>
                         <td><select name ="exmonth" style ="width:177px">
                         <option disabled selected>Month</option>
                         <?php         for($month = 1; $month <= 12; $month++)         echo"<option value = '".$month."'>".$month."</option>";     ?>
