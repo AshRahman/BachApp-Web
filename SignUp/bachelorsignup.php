@@ -293,6 +293,7 @@ else{
         </style>
     </head>
     <body>
+            
         <div class="signup-div">
             <h1 align="center" style="font-family:cambria">Bachelor Signup</h1>
             <h4 align="center" style="font-family:cambria">Where Searching House Becomes Easier</h4>

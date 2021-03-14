@@ -65,6 +65,10 @@
 <html>
 <head>
     <style>
+    .right {
+    display: flex;
+  justify-content: flex-end;
+}
             body{
                 background-color:rgb(240,240,240);
             }
@@ -105,6 +109,9 @@
     <title>Search House</title>
 </head>
     <body>
+    <div class="right">
+        <input type="submit" class="right my-font btn-sup" name="submit" value="Log-out">  
+    </div>
 <div class="search-div">
     <h1 align="center" style="font-family:cambria">Search House</h1>
     <form action="" method="post">

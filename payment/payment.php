@@ -60,18 +60,25 @@
             {
                 $err_cnum="Card number must contain 16 digits ";
             }
+            else if(strlen($_POST["cnum"])>16)
+            {
+                $err_cnum="Card number should not contain more than 16 digits ";
+            }
             else if(strpos($_POST["cnum"]," "))
             {
                 $err_cnum="Card number should not contain whitespace";
             }
             
-            else if(!is_numeric($_POST["cnum"]) )
+            $cn=$_POST["cnum"];
+            for($i=0;$i<strlen($cn);$i++)
             {
-                $err_cnum="Card number should not contain letters";
-            }
-            else
-            {   
-                $pass=htmlspecialchars($_POST["pass"]);
+                if(!is_numeric($cn[$i]))
+                {
+                    $cn=true;
+                    $err_cnum="Card Number should not contain letters";
+                    break;
+                }
+               
             }
 
 
@@ -140,7 +147,37 @@
 
 <html>
 <head></head>
+<style>
+    
+    .right {
+             display: flex;
+             justify-content: flex-end;
+            }
+            .my-font{
+                font-size:20px;
+                font-family:consolas;
+            }
+            .btn-sup{
+                background-color:rgb(112,191,65);
+                border:none;
+                color:white;
+                width:5%;
+                border-radius:3px;
+                padding:5px;
+            }
+            .btn-sup:hover{
+                background-color:rgb(100,170,40);
+            }
+            .btn-sup:active{
+                background-color:green;
+            }
+
+    
+    </style>
 <body>
+<div class="right">
+        <input type="submit" class="right my-font btn-sup" name="submit" value="Log-out">  
+    </div>
 
         <fieldset style ="width:600px">
             <h2 align="center">PAYMENT INFORMATION</h2>

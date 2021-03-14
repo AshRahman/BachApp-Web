@@ -103,11 +103,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 font-family:consolas;
 
             }
+            .right {
+    display: flex;
+  justify-content: flex-end;
+}
         </style>
 <head>
     <title>Search Roommate</title>
 </head>
 <body>
+<div class="right">
+        <input type="submit" class="right my-font btn-sup" name="submit" value="Log-out">  
+    </div>
 
     <div class="roommate-search-div">
     <h1 align="center" style="font-family:cambria">Search roomate/Post Wanting roomate</h1>
