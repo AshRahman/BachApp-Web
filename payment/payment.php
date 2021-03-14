@@ -69,6 +69,11 @@
                 $err_cnum="Card number should not contain whitespace";
             }
             
+            else
+            {
+                $cnum=$_POST["cnum"];
+            }
+
             $cn=$_POST["cnum"];
             for($i=0;$i<strlen($cn);$i++)
             {
