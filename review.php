@@ -1,6 +1,6 @@
 <?php
 
-$user_name="logedin user name";
+$user_name="Logged In User Name";
 $err_user_name="";
 
 $rating="";
@@ -12,6 +12,10 @@ $err_nid="";
 $comment="";
 $err_comment="";
 
+$hasError=false;
+
+
+
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -20,12 +24,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $comment=$_POST["comment"];
 
 
-    if(empty($user_name)){
-        $err_user_name="Please enter your username";
-    }
+    
 
     if(!isset($_POST["rating"])){
         $err_rating="Please give a rating";
+        $hasError=true;
+        
     }
     else{
         $rating=$_POST["rating"];
@@ -33,17 +37,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(empty($_POST["nid"])){
         $err_nid="Please fill this field";
+        $hasError=true;
+        
     }
     elseif(!is_numeric($_POST["nid"])){
         $err_nid="Please insert only numeric value";
+        $hasError=true;
+        
+    }
+    else{
+        $nid=$_POST["nid"];
     }
 
     if(empty($_POST["comment"])){
         $err_comment="Please write your comment";
+        $hasError=true;
+        
     }
     elseif(strlen($_POST["comment"]) > 50){
         $err_comment="Comment must not exceed 50 words";
+        $hasError=true;
+      
     }
+    else{
+        $comment=$_POST["comment"];
+    }
+
+    if($hasError===false){
+        header("Location:http://localhost/BachApp-Web/renteradvertisement.php");
+       
+        
+    }
+
+
+    
 }
 
 ?>
@@ -52,15 +79,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <head>
         <style>
             body{
-                background-color:rgb(240,240,240);
+                background-color:rgb(230,230,230);
             }
             .review-div{
-                border:1px solid black;
+                border:1px solid rgb(245,245,245);
                 margin:auto;
                 width:50%;
-                margin-top:6%;
+                margin-top:5%;
                 background-color:rgb(255,255,255);
-                padding:20px;
+                padding:20px 0px 20px 0px;
             }
 
             .my-font{
@@ -75,25 +102,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             }
 
+            .btn-mine{
+                background-color:rgb(112,191,65);
+                border:none;
+                color:white;
+                width:100%;
+                border-radius:3px;
+                padding:5px;
+            }
+            .btn-mine:hover{
+                background-color:rgb(100,170,40);
+            }
+            .btn-mine:active{
+                background-color:green;
+            }
+
             .header{
-            height:40px;
-            background-color:rgb(40,174,252);
-            position:fixed;
-            top:0;
-            left:0;
-            width:100%; 
-            color:white;
-            text-align:center;
+                height:40px;
+                background-color:rgb(40,174,252);
+                position:fixed;
+                top:0;
+                left:0;
+                width:100%; 
+                color:white;
+                text-align:center;
         }
         </style>
     </head>
     <body>
-    <div class="header"><span style="text-align:center"></span>Advertisement Tab</div>
+    <div class="header"><span style="text-align:center"></span>Apartment Finder</div>
         <div class="review-div">
         <h1 align="center" style="font-family:cambria">Review</h1>
             <form action="" method="post">
                 <table align="center">
-                <tr>
+                    <tr>
                         
                         <td><input type="text" name="user_name" value="<?php echo $user_name; ?>" disabled>
                             <span style="err-msg"><?php echo $err_user_name; ?></span></br>
@@ -134,16 +176,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <td><textarea name="comment" rows="10" cols="50"><?php echo $comment; ?></textarea></br>
                             <span class="err-msg"><?php echo $err_comment; ?></span></td>
                     </tr>
-                    
-
                     <tr>
                         <td colspan="2">
-                            <input type="submit" name="submit" value="OK">
-                        </td>
-                    </tr>
-
-
-
+                        <input type="submit" class="my-font btn-mine" name="submit" value="Submit"></br></br></br>
+                    </tr>  
                 </table>
             </form>
         </div>
