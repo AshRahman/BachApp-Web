@@ -108,7 +108,7 @@
 <div class="search-div">
     <h1 align="center" style="font-family:cambria">Search House</h1>
     <form action="" method="post">
-        <table allign= "center"> 
+        <table align= "center"> 
             <tr>
             <td><span class="my-font">Location</span></td>
 

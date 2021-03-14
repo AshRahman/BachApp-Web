@@ -90,7 +90,16 @@ function validateEmail($email){
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-   
+    $unamef=$_POST["unamef"];
+    $unamel=$_POST["unamel"];
+    $saddress=$_POST["saddress"];
+    $city=$_POST["city"];
+    $state=$_POST["state"];
+    $postal=$_POST["postal"];
+    $acode=$_POST["acode"];
+    $cont=$_POST["cont"];
+    $guardian_name=$_POST["guardian_name"];
+    $guardian_contact=$_POST["guardian_contact"];
     
     
     
