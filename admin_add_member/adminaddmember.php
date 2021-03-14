@@ -357,8 +357,8 @@
                         <option>Admin</option>
                         <option>Renter</option>
                         <option>Renty</option>
-                        </select></br>
-                        <span><?php echo $err_rassign;?></span></br>
+                        </select>
+                        <span><?php echo $err_rassign;?></span>
                     </tr>
                     
                     <tr>
