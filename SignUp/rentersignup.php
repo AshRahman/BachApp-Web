@@ -99,24 +99,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($unamef)) {
         $err_unamef = "Please enter your first name";
         $hasError = true;
-    } elseif (strlen($_POST["unamef"]) < 4) {
+    }
+    elseif (strlen($_POST["unamef"]) < 4) {
         $err_unamef = "First Name must be more than 4 characters";
         $hasError = true;
-    } elseif (strpos($_POST["unamef"], " ")) {
+    } 
+    elseif (strpos($_POST["unamef"], " ")) {
         $err_unamef = "Whitespace is not allowed";
         $hasError = true;
+    }
+    else{
+        $unamef=htmlspecialchars($_POST["unamef"]);
     }
 
 
     if (empty($unamel)) {
         $err_unamel = "Please enter your last name";
         $hasError = true;
-    } elseif (strlen($_POST["unamel"]) < 4) {
+    }
+    elseif (strlen($_POST["unamel"]) < 4) {
         $err_unamel = "Last Name must be more than 4 characters";
         $hasError = true;
-    } elseif (strpos($_POST["unamel"], " ")) {
+    } 
+    elseif (strpos($_POST["unamel"], " ")) {
         $err_unamel = "Whitespace is not allowed";
         $hasError = true;
+    }
+    else{
+        $unamel=htmlspecialchars($_POST["unamel"]);
     }
 
 
@@ -124,10 +134,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $err_pass = "Please enter your password";
         $hasError = true;
     }
+    else{
+        $pass=htmlspecialchars($_POST["pass"]);
+    }
 
     if (empty($_POST["cpass"])) {
         $err_pass = "Please enter confirm password";
         $hasError = true;
+    }
+    else{
+        $cpass=htmlspecialchars($_POST["cpass"]);
     }
 
 
@@ -137,16 +153,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!validatePassword($_POST["pass"])) {
             $err_pass = "Password must contain 1 upper and 1 lower case letter";
             $hasError = true;
-        } elseif (strlen($_POST["pass"]) < 8) {
+        } 
+        elseif (strlen($_POST["pass"]) < 8) {
             $err_pass = "Password must be atleast 8 characters long";
             $hasError = true;
-        } elseif (strpos($_POST["pass"], " ")) {
+        } 
+        elseif (strpos($_POST["pass"], " ")) {
             $err_pass = "Whitespace is not allowed";
             $hasError = true;
-        } elseif ($_POST["cpass"] !== $_POST["pass"]) {
+        } 
+        elseif ($_POST["cpass"] !== $_POST["pass"]) {
             $err_cpass = "Password does not match";
             $hasError = true;
-        } else {
+        } 
+        else {
             $pass = $_POST["pass"];
         }
     }
@@ -155,7 +175,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!isset($_POST["gender"])) {
         $err_gender = "Gender must be selected";
         $hasError = true;
-    } else {
+    } 
+    else {
         $gender = $_POST["gender"];
     }
 
@@ -165,6 +186,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $err_saddress = "Please write your address";
         $hasError = true;
     }
+    else{
+        $saddress=htmlspecialchars($_POST["saddress"]);
+    }
   
 
 
@@ -172,20 +196,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $err_city = "Please enter your city name";
         $hasError = true;
     }
+    else{
+        $city=htmlspecialchars($_POST["city"]);
+    }
 
 
     if (empty($_POST["state"])) {
         $err_state = "Please enter your state";
         $hasError = true;
     }
+    else{
+        $state=htmlspecialchars($_POST["state"]);
+    }
 
 
     if (empty($_POST["postal"])) {
         $err_postal = "Please enter your postal";
         $hasError = true;
-    } elseif (!is_numeric($_POST["postal"])) {
+    } 
+    elseif (!is_numeric($_POST["postal"])) {
         $err_postaln = "Postal code should contain only numeric values";
         $hasError = true;
+    }
+    else{
+        $postal=htmlspecialchars($_POST["postal"]);
     }
 
 
@@ -198,10 +232,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["email"])) {
         $err_email = "Email Required";
         $hasError = true;
-    } elseif (!validateEmail($_POST["email"])) {
+    }
+    elseif(!strpos($_POST["email"],"@")){
+        $err_email="Add @";
+        $has_error=true;
+
+    }
+    elseif (!validateEmail($_POST["email"])) {
         $err_email = "Insert a valid email";
         $hasError = true;
-    } else {
+    }
+    else {
         $email = htmlspecialchars($_POST["email"]);
     }
 
@@ -209,24 +250,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["cont"])) {
         $err_cont = "Please fill this field";
         $hasError = true;
-    } elseif (!is_numeric($_POST["cont"])) {
+    } 
+    elseif (!is_numeric($_POST["cont"])) {
         $err_contn = "This field requires only numeric values";
         $hasError = true;
+    }
+    else{
+        $cont=htmlspecialchars($_POST["cont"]);
     }
 
 
     if (empty($_POST["acode"])) {
         $err_acode = "Please fill this field";
         $hasError = true;
-    } elseif (!is_numeric($_POST["acode"])) {
+    } 
+    elseif (!is_numeric($_POST["acode"])) {
         $err_acoden = "This field requires only numeric values";
         $hasError = true;
+    }
+    else{
+        $acode=htmlspecialchars($_POST["acode"]);
     }
 
     if (!isset($_POST["day"]) || !isset($_POST["month"]) || !isset($_POST["year"])) {
         $err_dob = "Date Of Birth Required";
         $hasError = true;
-    } else {
+    } 
+    else {
         $dob = $_POST["day"] . "-" . $_POST["month"] . "-" . $_POST["year"];
     }
 
@@ -432,3 +482,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 </body>
+</html>
