@@ -57,9 +57,7 @@ th {
 
 </style>
 <body>
-<div class="right">
-        <a href="../Signin/signin.php"  class="right my-font btn-sup"> Log out </a>
-    </div>
+
     
 <div class="right">
         <a href="../Signin/signin.php"  class="right my-font btn-sup"> Log out </a>
