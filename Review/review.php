@@ -77,57 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <html>
     <head>
-        <style>
-            body{
-                background-color:rgb(230,230,230);
-            }
-            .review-div{
-                border:1px solid rgb(245,245,245);
-                margin:auto;
-                width:50%;
-                margin-top:5%;
-                background-color:rgb(255,255,255);
-                padding:20px 0px 20px 0px;
-            }
-
-            .my-font{
-                font-size:22px;
-                font-family:consolas;
-            }
-
-            .err-msg{
-                color:red;
-                font-size:14px;
-                font-family:consolas;
-
-            }
-
-            .btn-mine{
-                background-color:rgb(112,191,65);
-                border:none;
-                color:white;
-                width:100%;
-                border-radius:3px;
-                padding:5px;
-            }
-            .btn-mine:hover{
-                background-color:rgb(100,170,40);
-            }
-            .btn-mine:active{
-                background-color:green;
-            }
-
-            .header{
-                height:40px;
-                background-color:rgb(40,174,252);
-                position:fixed;
-                top:0;
-                left:0;
-                width:100%; 
-                color:white;
-                text-align:center;
-        }
-        </style>
+        
     </head>
     <body>
     <div class="header"><span style="text-align:center"></span>Apartment Finder</div>
