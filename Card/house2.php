@@ -1,30 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <style>
-    img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-    .header{
-            height:40px;
-            background-color:rgb(40,174,252);
-            position:fixed;
-            top:0;
-            left:0;
-            width:100%; 
-            color:white;
-            text-align:center;
-            }
-    </style>
+    
     </head>
     <body>
-    <div class="header"><span style="text-align:center my-font"></span>Appartment Finder</div>
+    <div class="header"><span style="text-align:center my-font"></span>Apartment Finder</div>
     <div>
-        <h2 align="center">Appartment id1</h2>
-        <img src="room1.jpg" alt="Trulli"  style="width:50%;">
-        <p align="center" style="font-size:20px;">This luxuriously large one bedroom apartment is a convenient choice for couples, individualsor even smaller families looking for a fully equipped apartment</br>
+        
+        <img src="room2.jpg" alt="Trulli"  style="width:50%;">
+        <p align="center" style="font-size:20px;"><b>Apartment id:2</b></br>
+        This luxuriously large one bedroom apartment is a convenient choice for couples, individualsor even smaller families looking for a fully equipped apartment</br>
         in a center of Prague. It is close to the most of major sights and surrounded bythe picturesque streets of the historical Jewish quarter. Just one minute</br>
         walk to the Pařížská shopping boulevard and Vltava river. World-famous attractions like the Charles Bridge or the Old Town Square are just 5 minutes from</br>
         the apartment. Whether you want to stay a few days or a couple of months, this apartment has all you need.The centerpiece of the apartment is the spacious</br>

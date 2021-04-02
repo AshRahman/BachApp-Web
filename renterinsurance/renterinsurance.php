@@ -125,7 +125,10 @@
                 $err_nid="NID should not contain whitespace";
             }
 
-
+            else
+            {
+                $nid=$_POST["nid"];
+            }
 
             $nv=$_POST["nid"];
             for($i=0;$i<strlen($nv);$i++)
@@ -176,6 +179,9 @@
 <head>
 </head>
 <body>
+<div class="right">
+        <a href="../Signin/signin.php"  class="right my-font btn-sup"> Log out </a>
+    </div>
         <fieldset style ="width:600px">
         <h2 align="center">RENTER INSURANCE</h2>
             <form action="" method="post">

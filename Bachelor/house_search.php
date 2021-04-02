@@ -13,6 +13,7 @@
 
     $ad_rent="";
     $err_ad_rent="";
+    $has_error=false;
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -20,6 +21,7 @@
 
         if(!isset($_POST["selected_location"])){
             $err_location="Location is required";
+            $has_error=true;
             }
         else{
             $selected_location=$_POST["selected_location"];  
@@ -28,6 +30,7 @@
 
             if(!isset($_POST["floor"])){
                 $err_floor="floor is required";
+                $has_error=true;
                 }
             else{
                 $floor=$_POST["floor"];  
@@ -36,6 +39,7 @@
 
         if(!isset($_POST["hmate"])){
                 $err_hmate="This must be selected";
+                $has_error=true;
                 }
             else{
                 $hmate=$_POST["hmate"];  
@@ -43,6 +47,7 @@
 
         if(!isset($_POST["rent"])){
                 $err_rent="Rent must be selected";
+                $has_error=true;
                 }
             else{
                 $rent=$_POST["rent"];  
@@ -51,61 +56,26 @@
 
         if(!isset($_POST["ad_rent"])){
                 $err_ad_rent="Advance Payment must be selected";
+                $has_error=true;
                 }
             else{
                 $ad_rent=$_POST["ad_rent"];  
                 }
+                if($has_error===false){
+                    header("Location:http://localhost/BachApp-Web/Bachelor/Searched_house.php");
+                }
 
 
         }
+
+        
 
 
 ?>
 
 <html>
 <head>
-    <style>
-    .right {
-    display: flex;
-  justify-content: flex-end;
-}
-            body{
-                background-color:rgb(240,240,240);
-            }
-            .search-div{
-                border:1px solid rgb(245,245,245);
-                margin:auto;
-                width:30%;
-                margin-top:5%;
-                background-color:rgb(255,255,255);
-                padding:20px;
 
-            }
-            .my-font{
-                font-size:20px;
-                font-family:consolas;
-            }
-            .btn-sup{
-                background-color:rgb(112,191,65);
-                border:none;
-                color:white;
-                width:100%;
-                border-radius:3px;
-                padding:5px;
-            }
-            .btn-sup:hover{
-                background-color:rgb(100,170,40);
-            }
-            .btn-sup:active{
-                background-color:green;
-            }
-            .err-msg{
-                color:red;
-                font-size:15px;
-                font-family:consolas;
-
-            }
-        </style>
     <title>Search House</title>
 </head>
     <body>

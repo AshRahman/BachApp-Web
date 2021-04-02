@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <style>
-    img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-    </style>
+    
     </head>
     <body>
-
-    <h2 align="center">Appartment id3</h2>
-    <img src="room3.jpg" alt="Trulli"  style="width:50%;">
-    <p align="center" style="font-size:20px;">This luxuriously large one bedroom apartment is a convenient choice for couples, individualsor even smaller families looking for a fully equipped apartment</br>
+    <div class="header"><span style="text-align:center my-font"></span>Apartment Finder</div>
+    <div>
+        
+        <img src="room1.jpg" alt="Trulli"  style="width:50%;">
+        <p align="center" style="text-align:justify-center; font-size:20px;"><b>Apartment id:1</b></br>
+        This luxuriously large one bedroom apartment is a convenient choice for couples, individualsor even smaller families looking for a fully equipped apartment</br>
         in a center of Prague. It is close to the most of major sights and surrounded bythe picturesque streets of the historical Jewish quarter. Just one minute</br>
         walk to the Pařížská shopping boulevard and Vltava river. World-famous attractions like the Charles Bridge or the Old Town Square are just 5 minutes from</br>
         the apartment. Whether you want to stay a few days or a couple of months, this apartment has all you need.The centerpiece of the apartment is the spacious</br>
@@ -23,5 +19,6 @@
         after a long day.The one bedroom apartments are located on the 1st, 2nd, 3rd and 4th floor and all of them offer a small balcony. The majestic art nouveau hall</br>
         of the residence features an elevator for an easy access to your apartment. The house porter is available 12 hours a day, our 24/7 management office </br>
         is ready to assist you anytime you need. The apartment is one of the top rated apartment rentals in Dhaka.</p>
+    </div>
     </body>
 </html>
