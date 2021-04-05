@@ -37,6 +37,8 @@ $postal="";
 $err_postal="";
 $err_postaln="";
 
+$hasError=false;
+
 
 function validateEmail($email){
     $pos_at=strpos($email,"@");
@@ -60,16 +62,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(empty($_POST["nid"])){
         $err_nid="Please fill this field";
+        $hasError=true;
     }
     elseif(!is_numeric($_POST["nid"])){
         $err_nid="Please insert only numeric value";
+        $hasError=true;
+    }
+    else{
+        $nid=$_POST["nid"];
     }
 
     if(empty($_POST["email"])){
         $err_email="Email Required";
+        $hasError=true;
     }
     elseif(!validateEmail($_POST["email"])){
         $err_email="Insert a valid email";
+        $hasError=true;
     }
     else{
         $email=htmlspecialchars($_POST["email"]);
@@ -77,20 +86,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(empty($_POST["fno"])){
         $err_fno="Please fill this field";
+        $hasError=true;
     }
     elseif(!is_numeric($_POST["fno"])){
         $err_fno="Only Numeric values";
+        $hasError=true;
+    }
+    else{
+        $fno=$_POST["fno"];
     }
 
     if(empty($_POST["floor"])){
         $err_floor="Please fill this field";
+        $hasError=true;
     }
     elseif(!is_numeric($_POST["floor"])){
         $err_floor="Only Numeric values";
+        $hasError=true;
+    }
+    else{
+        $floor=$_POST["floor"];
     }
 
     if(!isset($_POST["ftype"])){
         $err_ftype= "Please answer this question";
+        $hasError=true;
     }
     else{
         $ftype=$_POST["ftype"];
@@ -98,6 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(!isset($_POST["gender"])){
         $err_gender="Gender must be selected";
+        $hasError=true;
     }
     else{
         $gender=$_POST["gender"];
@@ -105,31 +126,59 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(empty($_POST["rent"])){
         $err_rent="Please fill this field";
+        $hasError=true;
     }
     elseif(!is_numeric($_POST["rent"])){
         $err_rent="Only Numeric values";
+        $hasError=true;
+    }
+    else{
+        $rent=$_POST["rent"];
     }
 
     if(empty($_POST["saddress"])){
         $err_saddress="Please write your address";
+        $hasError=true;
+    }
+    else{
+        $saddress=$_POST["saddress"];
     }
     
     
     if(empty($_POST["city"])){
         $err_city="Please enter your city name";
+        $hasError=true;
+    }
+    else{
+        $city=$_POST["city"];
     }
     
     
     if(empty($_POST["state"])){
         $err_state="Please enter your state";
+        $hasError=true;
+    }
+    else{
+        $state=$_POST["state"];
     }
     
     
     if(empty($_POST["postal"])){
         $err_postal="Please enter your postal";
+        $hasError=true;
     }
     elseif(!is_numeric($_POST["postal"])){
         $err_postaln="Postal code should contain only numeric values";
+        $hasError=true;
+    }
+    else{
+        $postal=$_POST["postal"];
+    }
+
+    if($hasError===false){
+        header("Location:review.php");
+       
+        
     }
 
    
@@ -139,18 +188,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <html>
     <head>
-
+    
     </head>
     <body>
-    
-        <div class="header"><span style="text-align:center my-font"></span>Appartment Finder</div>
+        <div class="header"><span style="text-align:center my-font"></span>Apartment Finder</div>
         <div class="left-menu">
             <ul>
                 <li class="plain-bullet my-font"><a href="">Home</a></li>
-                <li class="plain-bullet my-font"><a href="">Dashboard</a></li>
+                <li class="plain-bullet my-font"><a href="card.php">Apartments</a></li>
                 <li class="plain-bullet my-font"><a href="review.php">Review</a></li>
-                <li class="plain-bullet my-font"><a href="">FAQ</a></li>
-                <li class="plain-bullet my-font"><a href="">Logout</a></li>
+                <li class="plain-bullet my-font"><a href="signin.php">Logout</a></li>
             </ul>
         </div>
         <div class="add-div">
