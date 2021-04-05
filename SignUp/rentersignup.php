@@ -99,7 +99,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($unamef)) {
         $err_unamef = "Please enter your first name";
         $hasError = true;
-
     }
     elseif (strlen($_POST["unamef"]) < 4) {
         $err_unamef = "First Name must be more than 4 characters";
@@ -114,11 +113,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-
     if (empty($unamel)) {
         $err_unamel = "Please enter your last name";
         $hasError = true;
-
     }
     elseif (strlen($_POST["unamel"]) < 4) {
         $err_unamel = "Last Name must be more than 4 characters";
@@ -133,7 +130,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-
     if (empty($_POST["pass"])) {
         $err_pass = "Please enter your password";
         $hasError = true;
@@ -141,7 +137,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else{
         $pass=htmlspecialchars($_POST["pass"]);
     }
-
 
     if (empty($_POST["cpass"])) {
         $err_pass = "Please enter confirm password";
@@ -154,12 +149,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-
     if (!empty($_POST["pass"]) && !empty($_POST["cpass"])) {
         if (!validatePassword($_POST["pass"])) {
             $err_pass = "Password must contain 1 upper and 1 lower case letter";
             $hasError = true;
-
         } 
         elseif (strlen($_POST["pass"]) < 8) {
             $err_pass = "Password must be atleast 8 characters long";
@@ -174,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $hasError = true;
         } 
         else {
-      $pass = $_POST["pass"];
+            $pass = $_POST["pass"];
         }
     }
 
@@ -182,9 +175,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!isset($_POST["gender"])) {
         $err_gender = "Gender must be selected";
         $hasError = true;
-    }
- else {
-
+    } 
+    else {
         $gender = $_POST["gender"];
     }
 
@@ -194,11 +186,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $err_saddress = "Please write your address";
         $hasError = true;
     }
-
     else{
         $saddress=htmlspecialchars($_POST["saddress"]);
     }
-
   
 
 
@@ -206,11 +196,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $err_city = "Please enter your city name";
         $hasError = true;
     }
-
     else{
         $city=htmlspecialchars($_POST["city"]);
     }
-
 
 
     if (empty($_POST["state"])) {
@@ -220,7 +208,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else{
         $state=htmlspecialchars($_POST["state"]);
     }
-
 
 
     if (empty($_POST["postal"])) {
@@ -236,7 +223,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-
     if (!isset($_POST["country"])) {
         $err_country = "Please select your country";
         $hasError = true;
@@ -246,7 +232,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["email"])) {
         $err_email = "Email Required";
         $hasError = true;
-
     }
     elseif(!strpos($_POST["email"],"@")){
         $err_email="Add @";
@@ -257,8 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $err_email = "Insert a valid email";
         $hasError = true;
     }
- else {
-
+    else {
         $email = htmlspecialchars($_POST["email"]);
     }
 
@@ -276,7 +260,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-
     if (empty($_POST["acode"])) {
         $err_acode = "Please fill this field";
         $hasError = true;
@@ -289,13 +272,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $acode=htmlspecialchars($_POST["acode"]);
     }
 
-
     if (!isset($_POST["day"]) || !isset($_POST["month"]) || !isset($_POST["year"])) {
         $err_dob = "Date Of Birth Required";
         $hasError = true;
     } 
-
-else {
+    else {
         $dob = $_POST["day"] . "-" . $_POST["month"] . "-" . $_POST["year"];
     }
 
@@ -311,51 +292,7 @@ else {
 <html>
 
 <head>
-    <style>
-        body {
-            background-color: rgb(240, 240, 240);
-        }
-
-        .signup-div {
-            border: 1px solid rgb(245, 245, 245);
-            margin: auto;
-            width: 30%;
-            margin-top: 5%;
-            background-color: rgb(255, 255, 255);
-            padding: 20px 0px 20px 0px;
-
-        }
-
-        .my-font {
-            font-size: 22px;
-            font-family: consolas;
-        }
-
-        .btn-sup {
-            background-color: rgb(112, 191, 65);
-            border: none;
-            color: white;
-            width: 100%;
-            border-radius: 3px;
-            padding: 5px;
-        }
-
-        .btn-sup:hover {
-            background-color: rgb(100, 170, 40);
-        }
-
-        .btn-sup:active {
-            background-color: green;
-        }
-
-        .err-msg {
-            color: red;
-            font-size: 20px;
-            font-family: consolas;
-
-
-        }
-    </style>
+ 
 </head>
 
 <body>
@@ -502,4 +439,3 @@ else {
     </div>
 </body>
 </html>
-

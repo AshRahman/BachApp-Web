@@ -75,48 +75,7 @@
 
 <html>
 <head>
-    <style>
-    .right {
-    display: flex;
-  justify-content: flex-end;
-}
-            body{
-                background-color:rgb(240,240,240);
-            }
-            .search-div{
-                border:1px solid rgb(245,245,245);
-                margin:auto;
-                width:30%;
-                margin-top:5%;
-                background-color:rgb(255,255,255);
-                padding:20px;
 
-            }
-            .my-font{
-                font-size:20px;
-                font-family:consolas;
-            }
-            .btn-sup{
-                background-color:rgb(112,191,65);
-                border:none;
-                color:white;
-                width:100%;
-                border-radius:3px;
-                padding:5px;
-            }
-            .btn-sup:hover{
-                background-color:rgb(100,170,40);
-            }
-            .btn-sup:active{
-                background-color:green;
-            }
-            .err-msg{
-                color:red;
-                font-size:15px;
-                font-family:consolas;
-
-            }
-        </style>
     <title>Search House</title>
 </head>
     <body>

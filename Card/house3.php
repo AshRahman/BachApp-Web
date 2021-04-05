@@ -1,23 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <style>
-    img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-    .header{
-            height:40px;
-            background-color:rgb(40,174,252);
-            position:fixed;
-            top:0;
-            left:0;
-            width:100%; 
-            color:white;
-            text-align:center;
-            }
-    </style>
+   
     </head>
     <body>
     <div class="header"><span style="text-align:center my-font"></span>Apartment Finder</div>
