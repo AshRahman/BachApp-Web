@@ -1,189 +1,5 @@
 <?php
-
-$nid="";
-$err_nid="";
-
-$email="";
-$err_email="";
-
-$fno="";
-$err_fno="";
-
-$floor="";
-$err_floor="";
-
-$ftype="";
-$err_ftype="";
-
-$gender="";
-$err_gender="";
-
-$rent="";
-$err_rent="";
-
-$saddress="";
-$err_saddress="";
-
-$city="";
-$err_city="";
-
-$city="";
-$err_state="";
-
-$state="";
-$err_state="";
-
-$postal="";
-$err_postal="";
-$err_postaln="";
-
-$hasError=false;
-
-
-function validateEmail($email){
-    $pos_at=strpos($email,"@");
-    $pos_dot=strpos($email,".",$pos_at+1);
-    if($pos_at<$pos_dot){
-        return true;
-    }
-    return false;
-}
-
-
-
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    $saddress=$_POST["saddress"];
-    $city=$_POST["city"];
-    $state=$_POST["state"];
-    $postal=$_POST["postal"];
-
-
-    if(empty($_POST["nid"])){
-        $err_nid="Please fill this field";
-        $hasError=true;
-    }
-    elseif(!is_numeric($_POST["nid"])){
-        $err_nid="Please insert only numeric value";
-        $hasError=true;
-    }
-    else{
-        $nid=$_POST["nid"];
-    }
-
-    if(empty($_POST["email"])){
-        $err_email="Email Required";
-        $hasError=true;
-    }
-    elseif(!validateEmail($_POST["email"])){
-        $err_email="Insert a valid email";
-        $hasError=true;
-    }
-    else{
-        $email=htmlspecialchars($_POST["email"]);
-    }
-
-    if(empty($_POST["fno"])){
-        $err_fno="Please fill this field";
-        $hasError=true;
-    }
-    elseif(!is_numeric($_POST["fno"])){
-        $err_fno="Only Numeric values";
-        $hasError=true;
-    }
-    else{
-        $fno=$_POST["fno"];
-    }
-
-    if(empty($_POST["floor"])){
-        $err_floor="Please fill this field";
-        $hasError=true;
-    }
-    elseif(!is_numeric($_POST["floor"])){
-        $err_floor="Only Numeric values";
-        $hasError=true;
-    }
-    else{
-        $floor=$_POST["floor"];
-    }
-
-    if(!isset($_POST["ftype"])){
-        $err_ftype= "Please answer this question";
-        $hasError=true;
-    }
-    else{
-        $ftype=$_POST["ftype"];
-    }
-
-    if(!isset($_POST["gender"])){
-        $err_gender="Gender must be selected";
-        $hasError=true;
-    }
-    else{
-        $gender=$_POST["gender"];
-    }
-
-    if(empty($_POST["rent"])){
-        $err_rent="Please fill this field";
-        $hasError=true;
-    }
-    elseif(!is_numeric($_POST["rent"])){
-        $err_rent="Only Numeric values";
-        $hasError=true;
-    }
-    else{
-        $rent=$_POST["rent"];
-    }
-
-    if(empty($_POST["saddress"])){
-        $err_saddress="Please write your address";
-        $hasError=true;
-    }
-    else{
-        $saddress=$_POST["saddress"];
-    }
-    
-    
-    if(empty($_POST["city"])){
-        $err_city="Please enter your city name";
-        $hasError=true;
-    }
-    else{
-        $city=$_POST["city"];
-    }
-    
-    
-    if(empty($_POST["state"])){
-        $err_state="Please enter your state";
-        $hasError=true;
-    }
-    else{
-        $state=$_POST["state"];
-    }
-    
-    
-    if(empty($_POST["postal"])){
-        $err_postal="Please enter your postal";
-        $hasError=true;
-    }
-    elseif(!is_numeric($_POST["postal"])){
-        $err_postaln="Postal code should contain only numeric values";
-        $hasError=true;
-    }
-    else{
-        $postal=$_POST["postal"];
-    }
-
-    if($hasError===false){
-        header("Location:review.php");
-       
-        
-    }
-
-   
-}
-
+    include "Controller/houserentController.php";
 ?>
 
 <html>
@@ -191,92 +7,84 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     </head>
     <body>
-        <div class="header"><span style="text-align:center my-font"></span>Apartment Finder</div>
-        <div class="left-menu">
-            <ul>
-                <li class="plain-bullet my-font"><a href="">Home</a></li>
-                <li class="plain-bullet my-font"><a href="card.php">Apartments</a></li>
-                <li class="plain-bullet my-font"><a href="review.php">Review</a></li>
-                <li class="plain-bullet my-font"><a href="signin.php">Logout</a></li>
-            </ul>
-        </div>
-        <div class="add-div">
-            <h1 align="center" style="font-family:cambria">Add Property</h1>
+        
+            <h1 align="center">Add Property</h1>
             <form action="" method="post">
                 <table align="center">
+
+                <tr>
+                    <td><span>User Name</span></td>
+                </tr>
                     <tr>
-                        <td><span class="my-font">NID</span></td>
+
+                    <td><input type="text" name="user_name" value="<?php echo $user_name; ?>" placeholder="Username">
+                        <span><?php echo $err_user_name; ?></span></br>
+                    </td>
+
                     </tr>
                     <tr>
-                        <td><input type="text" name="nid" value="<?php echo $nid;?>">
-                            <span class="err-msg"><?php echo $err_nid;?></span></br>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="my-font">Email</span></td>
+                        <td><span>Email</span></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="email" value="<?php echo $email;?>" placeholder="Email">
-                            <span class="err-msg"><?php echo $err_email;?></span></br>
+                            <span><?php echo $err_email;?></span></br>
                         </td>
                     </tr>
                     <tr>
-                        <td><span class="my-font">Flat No.</span></td>
+                    <td><span>Contact Number</span></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="fno" value="<?php echo $fno;?>" placeholder="Flat">
-                            <span class="err-msg"><?php echo $err_fno;?></span></br>
+                        <td>
+                            <input type="text" name="contact_number" value="<?php echo $contact_number; ?>" placeholder="Phone / Mobile">
+                            <span><?php echo $err_contact_number; ?></span>
+                        </td>
                     </tr>
                     <tr>
-                        <td><span class="my-font">Floor</span></td>
+                        <td><span>Floor</span></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="floor" value="<?php echo $floor;?>" placeholder="Floor">
-                            <span class="err-msg"><?php echo $err_floor;?></span></br>
+                            <span><?php echo $err_floor;?></span></br>
                     </tr>
                     <tr>
-                        <td><span class="my-font">Flat Type</span></td>
+                        <td><span>Flat Type</span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox" name="ftype[]" value="Studio">Studio
-                            <input type="checkbox" name="ftype[]" value="Single">Single
-                            <input type="checkbox" name="ftype[]" value="Two Shared">Shared Two
-                            <input type="checkbox" name="ftype[]" value="Three Shared">Shared three</br>
-                            <span class="err-msg"><?php echo $err_ftype; ?></span></td>
+                        <td><select name="flat_type">
+                                <option disabled selected>Choose one</option>
+                                <option>Studio</option>
+                                <option>Single</option>
+                                <option>Shared Two</option> 
+                                <option>Shared Three</option>
+                                <option>Full Flat</option>
+                                
+                            </select>
+                            <span><?php echo $err_flat_type;?></span>
+                        </td>
                     </tr>
                     <tr>
-                        <td><span class="my-font">Preferred Gender<span></td>
+                        <td><span>Preferred Gender<span></td>
                     </tr>
                     <tr>
                         <td><input type="radio" name="gender" value="male">Male
                             <input type="radio" name="gender" value="female">Female
                             <input type="radio" name="gender" value="both">Both
-                            <span class="err-msg"><?php echo $err_gender; ?></span></td>
+                            <span><?php echo $err_gender; ?></span></td>
                     </tr>
                     <tr>
-                        <td><span class="my-font">Rent</span></td>
+                        <td><span>Rent</span></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="rent" value="<?php echo $rent;?>" placeholder="Rent">
-                            <span class="err-msg"><?php echo $err_rent;?></span></br>
+                            <span><?php echo $err_rent;?></span></br>
                         </td>
                     </tr>
                     <tr>
-                        <td><span class="my-font">Address</span></td>
+                        <td><span>Address</span></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="saddress" value="<?php echo $saddress; ?>" placeholder="Street Address">
-                            <span class="err-msg"><?php echo $err_saddress;?></span></br>
-
-                            <input type="text" name="city" value="<?php echo $city; ?>" placeholder="City">
-                            <span class="err-msg"><?php echo $err_city;?></span>
-                            
-                            <input type="text" name="state" value="<?php echo $state; ?>" placeholder="State / Provience">
-                            <span class="err-msg"><?php echo $err_state;?></span></br>
-
-                            <input type="text" size="4" name="postal" value="<?php echo $postal; ?>" placeholder="Zip">
-                            <span class="err-msg"><?php echo $err_postal;?></span>
-                            <span class="err-msg"><?php echo $err_postaln;?></span>
+                        <td><input type="text" name="address" value="<?php echo $address; ?>" placeholder="Address">
+                            <span><?php echo $err_address;?></span></br>
                         </td>
                     </tr>
                     <tr>
