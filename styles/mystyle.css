@@ -1,0 +1,136 @@
+
+body{
+	background-color:white;
+	padding:0px;
+	
+}
+.card{
+	border:1px solid black;
+	width:300px;
+	height:50px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
+	border-radius: 5px;
+	text-align: center;
+	background-color:black;
+	padding:5px;
+	
+	
+}
+.text{
+	font-family:consolas;
+	color:black;
+}
+.text-white{
+	font-family:consolas;
+	color:white;
+}
+.footer{
+	position:fixed;
+	left:0;
+	bottom:0;
+	width: 100%;
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-family:consolas;
+	
+}
+.header{
+	position:relative;
+	left:0;
+	top:0;
+	width: 100%;
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-family:consolas;
+	padding:5px;
+	
+}
+.center{
+	margin: 0 auto;
+    width:50% ;
+	padding:20px;
+	
+	
+}	
+.header-index{
+	position:relative;
+	left:0;
+	top:0;
+	width: 100%;
+	background-color: black;
+	color: white;
+	font-family:consolas;
+	padding:5px;
+	
+}
+.name{
+	font-family:consolas;
+	font-size:16px;
+}
+
+.card-product{
+	border:1px solid;
+	width:200px;
+	height:300px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:10px;
+	border-radius: 5px;
+	text-align: center;
+	padding:5px;
+	
+	
+}
+.card-image{
+	width:190px;
+	height:190px;
+	border-radius: 5px;
+}
+.card-text{
+	text-align:center;
+	
+}
+.price-label{
+	width:185px;
+	padding:3px;
+	margin-left:2px;
+	background-color:black;
+	color:white;
+	border-radius: 5px;
+}
+.center-index{
+	margin: 0 auto;
+    width:90% ;
+	padding:20px;
+			
+}
+.item-image{
+	width:200px;
+	height:250px;
+	border-radius: 5px;
+}
+.center-login{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	padding-left:100px;
+	padding-right:100px;
+	padding-bottom:10px;
+	border:1px solid black;
+	border-radius:10px;
+	vertical-align:center;
+	
+			
+}
+.btn{
+	font-family:consolas;
+}
+
+
+
