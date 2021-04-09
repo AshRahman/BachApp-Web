@@ -1,5 +1,7 @@
 <?php
 
+require_once"Model/db_config.php";
+
 $name = "";
 $err_name = "";
 
@@ -22,8 +24,8 @@ $contact_number = "";
 $err_contact_number = "";
 //$err_contn = "";
 
-$dob = "";
-$err_dob = "";
+// $dob = "";
+// $err_dob = "";
 
 $hasError = false;
 
@@ -65,7 +67,7 @@ function validateEmail($email)
 
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if(isset($_POST["signup"])){
 
     $name = $_POST["name"];
     $user_name= $_POST["user_name"];
@@ -73,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    if (empty($name)) {
+    if(empty($_POST["name"])) {
         $err_name = "Please enter your first name";
         $hasError = true;
     }
@@ -89,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $name=htmlspecialchars($_POST["name"]);
     }
 
-    if (empty($user_name)) {
+    if (empty($_POST["user_name"])) {
         $err_user_name = "Please enter your first name";
         $hasError = true;
     }
@@ -129,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $err_pass = "Password must contain 1 upper and 1 lower case letter";
             $hasError = true;
         } 
-        elseif (strlen($_POST["pass"]) < 8) {
+        elseif (strlen($_POST["pass"]) < 2) {
             $err_pass = "Password must be atleast 8 characters long";
             $hasError = true;
         } 
@@ -154,7 +156,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
         $gender = $_POST["gender"];
     }
-
 
     if (empty($_POST["email"])) {
         $err_email = "Email Required";
@@ -187,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $contact_number=htmlspecialchars($_POST["contact_number"]);
     }
 
-    if (!isset($_POST["day"]) || !isset($_POST["month"]) || !isset($_POST["year"])) {
+    /*if (!isset($_POST["day"]) || !isset($_POST["month"]) || !isset($_POST["year"])) {
         $err_dob = "Date Of Birth Required";
         $hasError = true;
     } 
@@ -195,11 +196,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $dob = $_POST["day"] . "-" . $_POST["month"] . "-" . $_POST["year"];
     }
 
-    if ($hasError === false) {
-        header("Location:http://localhost/BachApp-Web/renteradvertisement.php");
-    }
+    /*if ($hasError === false) {
+        //header("Location:http://localhost/BachApp-Web/renteradvertisement.php");
+        insertUser($user_name,$name,$pass,$gender,$email,$contact_number);
+    }*/
+    
+    if($hasError === false)
+            {
+               
+                $query="INSERT INTO `landlord`(`username`, `name`, `password`, `gender`, `email`, `phone`) VALUES ('$user_name','$name','$pass','$gender','$email','$contact_number')";
+                //$query="insert into property (username,email,phone,floor,flat,gender,rent,address,image) values ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img')";
+                execute($query);
+                
+                
+            }
+            else{
+                echo "WRONG";
+            }
 }
 
 ?>
-
 

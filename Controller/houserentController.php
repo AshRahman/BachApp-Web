@@ -1,4 +1,9 @@
 <?php
+/*session_start();
+if(!isset($_SESSION["logedin"])){
+    header("Location:rentersignup.php");
+}*/
+require_once"Model/db_config.php";
 
 $user_name="";
 $err_user_name="";
@@ -24,6 +29,9 @@ $err_rent="";
 $address="";
 $err_address="";
 
+$img="";
+$err_img="";
+
 $hasError=false;
 
 
@@ -35,11 +43,11 @@ function validateEmail($email){
     }
     return false;
 }
+//echo $_SESSION["loggedinuser"]."<br>"; 
 
 
 
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($_POST["add_property"])){
 
     $user_name= $_POST["user_name"];
     $contact_number = $_POST["contact_number"];
@@ -135,11 +143,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $address=$_POST["address"];
     }
 
-    if($hasError===false){
-        header("Location:review.php");
-       
-        
+    if(empty($_POST["img"])){
+        $err_img="Please write your address";
+        $hasError=true;
     }
+    else{
+        $img=$_POST["img"];
+    }
+
+    //if($hasError===false){
+    //    header("Location:review.php");}
+    
+    if($hasError === false)
+            {
+                echo "'$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img'";
+                $query="INSERT INTO `property`(`username`, `email`, `phone`, `floor`, `flat`, `gender`, `rent`, `address`, `image`) VALUES ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$img')";
+                //$query="insert into property (username,email,phone,floor,flat,gender,rent,address,image) values ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img')";
+                execute($query);
+                
+            }
+            else{
+                echo "WRONG";
+            }
 
    
 }

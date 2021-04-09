@@ -1,5 +1,5 @@
 <?php
-    include "Controller/rentersignupController.php";
+    require_once "Controller/rentersignupController.php";
 ?>
 
 <html>
@@ -57,10 +57,11 @@
                 <tr>
                     <td><input type="radio" name="gender" value="male">Male
                         <input type="radio" name="gender" value="female">Female
-                        <span><?php echo $err_gender; ?></span></td>
-                    
+                        <span><?php echo $err_gender; ?></span>
+                    </td>
+
                 </tr>
-                
+
                 <tr>
                     <td><span>E-mail</span></td>
                 </tr>
@@ -74,14 +75,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="contact_number" value="<?php echo $contact_number; ?>" placeholder="Phone / Mobile">
+                        <input type="text" name="contact_number" value="<?php echo $contact_number; ?>"
+                            placeholder="Phone / Mobile">
                         <span><?php echo $err_contact_number; ?></span>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td><span>Date Of Birth</span></td>
-                </tr>
-                <tr>
+                </tr> -->
+                <!-- <tr>
                     <td>
                         <select name="day">
                             <option disabled selected>Day</option>
@@ -111,14 +113,15 @@
                             ?>
                         </select><?php echo $err_dob; ?><br>
                     </td>
-                </tr>
+                </tr> -->
 
 
                 <tr>
-                    <td colspan="2"><input type="submit" class="my-font btn-sup" name="signup" value="Create My Account"></td>
+                    <td colspan="2"><input type="submit" name="signup" value="Create My Account"></td>
                 </tr>
             </table>
         </form>
     </div>
 </body>
+
 </html>
