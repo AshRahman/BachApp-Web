@@ -8,7 +8,10 @@
 </head>
 <body>
 <div class="topnav">
-           <p style="text-align:center;"><input type="text" " value="<?php echo $search;?>" placeholder="Search"><input type="submit" class="search" name="Search" value="Search"> </p>
+      <a href=http://localhost/BachApp-Web/searchflat.php>Search Flat</a>
+	  <a href=http://localhost/BachApp-Web/search.php>Search House</a>
+	  <a href=http://localhost/BachApp-Web/search.php>Search Tenants</a>
+	  <a href=http://localhost/BachApp-Web/search.php>Search Landlords</a>
     </div>
 
     <div class="roommate-search-div">

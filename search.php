@@ -6,11 +6,11 @@
 <body>
 
 <div class="topnav">
-      <a href=http://localhost/BachApp-Web/searchflat.php>Search</a>
-      <a href="#about">CRUD landlord</a>
-	  <a href="#about">CRUD Tanent</a>
-	  <a href=http://localhost/BachApp-Web/crudflat.php>CRUD Flat</a>
-	  <a href=http://localhost/BachApp-Web/crudhouse.php>CRUD House</a>
+      <a href=http://localhost/BachApp-Web/searchflat.php>Search Flat</a>
+	  <a href=http://localhost/BachApp-Web/search.php>Search House</a>
+	  <a href=http://localhost/BachApp-Web/search.php>Search Tenants</a>
+	  <a href=http://localhost/BachApp-Web/search.php>Search Landlords</a>
+      
   
   <div style="text-align:right;"> 
   <input type="submit" class="my-font btn-sup" name="Logout" value="log out"></div>

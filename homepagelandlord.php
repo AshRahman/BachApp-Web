@@ -7,7 +7,7 @@
 <body>
 
 <div class="topnav">
-      <a href=http://localhost/homepage/search.php>Search</a>
+      <a href=http://localhost/BachApp-Web/search.php>Search</a>
       <a href="#about">Profile</a>
 	  <a href="#about">Edit House info</a>
       <a href="#about">Notification</a>
