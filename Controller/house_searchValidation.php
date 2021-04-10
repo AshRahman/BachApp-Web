@@ -18,6 +18,8 @@
     $err_ad_rent="";
     $has_error=false;
 
+    
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         
@@ -40,13 +42,13 @@
                 }
 
 
-        if(!isset($_POST["hmate"])){
-                $err_hmate="This must be selected";
-                $has_error=true;
-                }
-            else{
-                $hmate=$_POST["hmate"];  
-                }
+        // if(!isset($_POST["hmate"])){
+        //         $err_hmate="This must be selected";
+        //         $has_error=true;
+        //         }
+        //     else{
+        //         $hmate=$_POST["hmate"];  
+        //         }
 
         if(!isset($_POST["rent"])){
                 $err_rent="Rent must be selected";
@@ -65,14 +67,14 @@
                     }
         
 
-        if(!isset($_POST["ad_rent"])){
-                $err_ad_rent="Advance Payment must be selected";
-                $has_error=true;
-                }
-            else{
-                $ad_rent=$_POST["ad_rent"];  
-                }
-                if($has_error===false){
+        // if(!isset($_POST["ad_rent"])){
+        //         $err_ad_rent="Advance Payment must be selected";
+        //         $has_error=true;
+        //         }
+        //     else{
+        //         $ad_rent=$_POST["ad_rent"];  
+        //         }
+                if($has_error === false && isset($_POST["submit"])){
                     header("Location:http://localhost/BachApp-Web/Bachelor/Searched_house.php");
                 }
 

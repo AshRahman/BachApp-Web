@@ -24,18 +24,18 @@
         $gender="";
         $err_gender="";
 
-
         $mail="";
         $err_mail="";
 
-        $nid="";
-        $err_nid="";
-
         $phone="";
         $err_phone="";
+
+        // $nid="";
+       // $err_nid="";
        
         $hasError = false;
 
+        include "Models/db_config.php";
 
 
         if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -223,6 +223,7 @@
 
             if(empty($_POST["gender"])){
                 $err_gender="Gender must be selected";
+                $hasError = true;
             }
             else{
                 $gender=$_POST["gender"];
@@ -244,44 +245,44 @@
             }
 
 
-//NID CARD VALIDATION
-            if(empty($_POST["nid"]))
-            {
-                $err_nid="Enter NID number";
-                $hasError = true;
-            }
-            else if(strlen($_POST["nid"])<10)
-            {
-                $err_nid="NID must contain 10 digits ";
-                $hasError = true;
-            }
-            else if(strlen($_POST["nid"])>10)
-            {
-                $err_nid="NID should not contain more than 10 digits ";
-                $hasError = true;
-            }
-            else if(strpos($_POST["nid"]," "))
-            {
-                $err_nid="NID should not contain whitespace";
-                $hasError = true;
-            }
+// //NID CARD VALIDATION
+//             if(empty($_POST["nid"]))
+//             {
+//                 $err_nid="Enter NID number";
+//                 $hasError = true;
+//             }
+//             else if(strlen($_POST["nid"])<10)
+//             {
+//                 $err_nid="NID must contain 10 digits ";
+//                 $hasError = true;
+//             }
+//             else if(strlen($_POST["nid"])>10)
+//             {
+//                 $err_nid="NID should not contain more than 10 digits ";
+//                 $hasError = true;
+//             }
+//             else if(strpos($_POST["nid"]," "))
+//             {
+//                 $err_nid="NID should not contain whitespace";
+//                 $hasError = true;
+//             }
 
-            else
-            {
-                $nid=$_POST["nid"];
-            }
+//             else
+//             {
+//                 $nid=$_POST["nid"];
+//             }
 
-            $nv=$_POST["nid"];
-            for($i=0;$i<strlen($nv);$i++)
-            {
-                if(!is_numeric($nv[$i]))
-                {
-                  $nv=true;
-                  $err_nid="NID should not contain letters";
-                  $hasError = true;
-                  break;
-                }
-            }
+//             $nv=$_POST["nid"];
+//             for($i=0;$i<strlen($nv);$i++)
+//             {
+//                 if(!is_numeric($nv[$i]))
+//                 {
+//                   $nv=true;
+//                   $err_nid="NID should not contain letters";
+//                   $hasError = true;
+//                   break;
+//                 }
+//             }
 
 //PNONE NUMBER VALIDATION
             if(empty($_POST["phone"]))
@@ -314,11 +315,52 @@
                   $hasError = true;
                   break;
                 }
+              
             }
 
- 
+       
+
+            if($hasError == false && isset($_POST["submit"]))
+            {
+                
+                $query="insert into bachelorsignup (firstname,lastname,username,email,password,gender,phone) values ('$fname','$lname','$uname','$mail','$pass','$gender','$phone')";
+                $result = execute($query);
+
+
+                $fname="";
+                $err_fname="";
         
-        }
+                $lname="";
+                $err_lname="";
+        
+                $uname="";
+                $err_uname="";
+        
+                $pass="";
+                $err_pass="";
+        
+                $err_upass="";
+                $err_lpass="";
+                $err_npass="";
+                $err_spass="";
+        
+                $cpass="";
+                $err_cpass="";
+        
+                $gender="";
+                $err_gender="";
+        
+                $mail="";
+                $err_mail="";
+        
+                $phone="";
+                $err_phone="";
+                
+            }
+        }   
+        
+
+       
  ?>
     
 

@@ -1,6 +1,6 @@
 <?php
 include 'main_header.php';
-require_once 'Controller/house_searchValidation.php';
+include 'Controller/house_searchValidation.php';
 
 ?>
 
@@ -79,7 +79,7 @@ require_once 'Controller/house_searchValidation.php';
                 </select><?php echo $err_rent;?><br>
             </td>
             </tr>
-
+<!-- 
             <tr>
                 <td><br><span class="my-font">Advance Payment:</span></td>
 
@@ -101,7 +101,7 @@ require_once 'Controller/house_searchValidation.php';
                 <td><br><input type="radio" name="hmate" value="Yes">Yes
                 <input type="radio" name="hmate" value="No">No
                 <span class="err-msg"><?php echo $err_hmate; ?></span></td>
-            </tr>
+            </tr> -->
 
             
             <tr>

@@ -18,7 +18,8 @@
 
 <?php
 include 'main_header.php';
-require_once 'Controller/bachelorsignupValidation.php';
+include 'Controller/bachelorsignupValidation.php';
+
 
 ?>
 
@@ -81,11 +82,11 @@ require_once 'Controller/bachelorsignupValidation.php';
                     </td>
                     </tr>
 
-                    <tr>
+                    <!-- <tr>
                         <td><br><span>National ID:</span></td>
                         <td><br><input type="text" name="nid" value="<?php echo $nid; ?>" placeholder ="NID">
                         <span><?php echo $err_nid;?></span></td>
-                    </tr>
+                    </tr> -->
 
                     <tr>
                         <td><br><span>Phone:</span></td>
