@@ -6,7 +6,7 @@
        if($_SESSION["username"]!=="admin"){
             header("Location:signin.php");
        }
-       include "Controller/adminaddmemberValidation.php";
+       include "Controller/adminaddbachelorValidation.php";
         
  ?>
     
@@ -18,10 +18,10 @@
 </head>
 <body>
 <div class="right">
-        <input type="submit" class="right my-font btn-sup" name="submit" value="Log-out">
+        <input type="submit" class="right my-font btn-sup" name="submit" value="Log-out">  
         <form action="homepageadmin.php">
-    <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
-    </form>  
+        <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
+        </form>
         <div id="add-div" >
         <h1 align="center">Edit Profile</h1>
 
