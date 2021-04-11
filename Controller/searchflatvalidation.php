@@ -1,7 +1,7 @@
 <?php
 include "DB/db_config.php";
 
-$location="";
+$selected_location="";
 $err_location="";
 
 $size="";
@@ -18,7 +18,7 @@ $has_error=false;
 
 $result=[];
 if(isset($_POST["filterbtn"])){
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         
 
@@ -74,8 +74,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
 
-    $conn = mysqli_connect($server,$user,$pass,$db);
+    $conn = mysqli_connect($db_server,$db_user,$db_password,$db_name);
     $result=mysqli_query($conn,$sql);
+    // $result=get($sql);
     return $result;
     }
     

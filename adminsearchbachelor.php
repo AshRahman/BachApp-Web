@@ -1,5 +1,5 @@
 <?php
-      include "Controller/adminsearchmemberValidation.php";
+      include "Controller/adminsearchbachelorValidation.php";
     //    session_start();
     //    $_SESSION["username"]="admin";
     //    $_SESSION["uname"]=$uname;
@@ -32,14 +32,13 @@
     <form action="homepageadmin.php">
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
     </form>
-    <form action="adminaddbachelor.php">
+    <form action="adminaddmember.php">
     <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Add Member">
     </form>
 
-
     <div id="search_div">
         <fieldset style="width:600px">
-            <h2 align="center">SEARCH MEMBER</h2>
+            <h2 align="center">SEARCH BACHELOR</h2>
 
             <form action="" method="post">
                 <table align="center">
@@ -70,8 +69,6 @@
                         echo    "<td>".$row["gender"]."</td>";
                         echo    "<td>".$row["email"]."</td>";
                         echo    "<td>".$row["phone"]."</td>";
-                        // echo    '<td><button name="updateBtn" value="Update" class="updateBtn" onclick="hideDiv()" >Update</button></td>';
-                        // echo    '<td><span><input type="submit" name="deleteBtn" value="Delete" ></span></td>';
                             echo "</tr>";
                         
                      }
@@ -79,11 +76,7 @@
                        
                      echo "</table></td></tr>";
                     ?>
-                    <!-- <tr>
-                       <td><button name="rahatvonda" value="Update" class="updateBtn" onclick="hideDiv()" >Update</button></td>
-                       <td><span><input type="submit" name="deleteBtn" value="Delete" ></span></td>
-
-                    </tr> -->
+                  
                 </table>
 
 
@@ -134,6 +127,7 @@
                         <span><?php echo $err_pass; ?></span>
                     </td>
                 </tr>
+                
                 <tr>
                     <td><span>Gender<span></td>
                 </tr>

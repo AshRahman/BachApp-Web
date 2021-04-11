@@ -6,9 +6,9 @@
 <body>
 
 <div class="topnav">
-      <a href=http://localhost/homepage/search.php>Search</a>
-      <a href="#about">CRUD landlord</a>
-	  <a href="#about">CRUD Tanent</a>
+      <a href=http://localhost/BachApp-Web/searchflat.php>Search</a>
+      <a href=http://localhost/BachApp-Web/adminsearchmember.php>CRUD landlord</a>
+	  <a href=http://localhost/BachApp-Web/adminsearchbachelor.php>CRUD Tanent</a>
 	  <a href=http://localhost/homepage/crudflat.php>CRUD Flat</a>
 	  <a href=http://localhost/homepage/crudhouse.php>CRUD House</a>
   

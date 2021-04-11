@@ -9,9 +9,9 @@
     
     
     $pass = "";
-    $confirm_pass = "";
+
     $err_pass = "";
-    $err_confirm_pass = "";
+    
     
     $gender = "";
     $err_gender = "";
@@ -169,7 +169,7 @@ if(isset($_POST["saveBtn"])){
 
 
             if(!$hasError){
-            $query="UPDATE users SET username='$user_name', name='$name',password='$pass', gender='$gender',email='$email',phone='$contact_number' WHERE username='$user_name'";
+            $query="UPDATE bachelor SET username='$user_name', name='$name',password='$pass', gender='$gender',email='$email',phone='$contact_number' WHERE username='$user_name'";
             execute($query);
             }
             
@@ -198,7 +198,7 @@ if(isset($_POST["searchBtn"])){
                 $user_name=htmlspecialchars($_POST["user_name"]);
             }
             if(!$hasErrorsearch){
-                $query="SELECT * from users where username='$user_name'";
+                $query="SELECT * from bachelor where username='$user_name'";
                 $result=get($query);
                 foreach($result as $rows){
                    

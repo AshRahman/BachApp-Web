@@ -7,9 +7,13 @@
 <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
+<form action="homepageadmin.php">
+    <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Go-Back">
+    </form>
 <div class="topnav">
            <p style="text-align:center;"><input type="text" " value="<?php echo $search;?>" placeholder="Search"><input type="submit" class="search" name="Search" value="Search"> </p>
     </div>
+    
 
     <div class="roommate-search-div">
     
@@ -92,7 +96,7 @@
                ";
 	 
 				if($result){ 
-       foreach($result as $row) {
+                foreach($result as $row) {
 
 
                 echo
@@ -115,7 +119,7 @@
           echo '</table></td></tr>';
             }	  
 	  ?>
-	  <p style="text-align:ce
+	  <p style="text-align:center">
 	  
 	  </div>
      </p>
