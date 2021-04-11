@@ -2,11 +2,6 @@
     
     require_once"Model/db_config.php";
 
-    $server ="localhost";
-    $user ="root";
-    $password ="";
-    $db= "houserent";
-    $conn = mysqli_connect($server,$user,$password,$db);
     $query = "Select * from property";
     $result = get($query);
 ?>
