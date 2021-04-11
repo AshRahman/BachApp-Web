@@ -108,13 +108,13 @@ if(isset($_POST["saveBtn"])){
             $pass=htmlspecialchars($_POST["pass"]);
         }
     
-        // if (empty($_POST["confirm_pass"])) {
-        //     $err_pass = "Please enter confirm password";
-        //     $hasError = true;
-        // }
-        // else{
-        //     $confirm_pass=htmlspecialchars($_POST["confirm_pass"]);
-        // }
+            // if (empty($_POST["confirm_pass"])) {
+            //     $err_pass = "Please enter confirm password";
+            //     $hasError = true;
+            // }
+            // else{
+            //     $confirm_pass=htmlspecialchars($_POST["confirm_pass"]);
+            // }
     
     
     
@@ -201,9 +201,7 @@ if(isset($_POST["saveBtn"])){
             echo $name;
             echo $pass;
             }
-            else{
-                echo "rudba vonda";
-            }
+            
         }
         
       
