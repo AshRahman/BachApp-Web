@@ -1,10 +1,11 @@
 <?php
     
     require_once"Model/db_config.php";
+    include "homepagelandlord.php";
 
     $query = "Select * from property";
     $result = get($query);
-?>
+    ?>
     <table border="1" style="border-collapse:collapse">
         <tr>
             <th>Username</th>
@@ -15,7 +16,6 @@
             <th>Gender</th>
             <th>Rent</th>
             <th>Address</th>
-            <th>IMG</th>
         </tr>
 <?php
     foreach($result as $row){
@@ -28,7 +28,6 @@
             echo "<td>".$row["gender"]."</td>";
             echo "<td>".$row["rent"]."</td>";
             echo "<td>".$row["address"]."</td>";
-            echo "<td>".$row["image"]."</td>";
         echo "</tr>";
     }
 ?>

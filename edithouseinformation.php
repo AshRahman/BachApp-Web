@@ -1,5 +1,6 @@
 <?php
 include "Controller/edithouseinformationController.php";
+include "homepagelandlord.php";
 
 
 

@@ -1,14 +1,13 @@
 <?php
 include "Controller/editrenterprofileController.php";
-
-
+include "homepagelandlord.php";
 
 ?>
 
 <html>
 <body>
 <div id="tview-div">
-<fieldset  style="width:1316px;height:100x">
+<fieldset  style="width:1316px">
     <h1 align="center">Profile</h1><br>
     <form action="" method="post">
         <table align="center" border="4" >

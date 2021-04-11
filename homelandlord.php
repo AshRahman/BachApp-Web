@@ -18,7 +18,7 @@
   
 </div>
 	 
-<!--   
+
 <div style="display:flex;">
 <div class="tren">
 
@@ -49,7 +49,7 @@
 		</div>
 		</div>
 	</div>
-</div>	  -->
+</div>	
 	<!-- <p>  
 	<div class="topnav">
 	  <legend style="text-align:center;"><h1 style="color:orange" ></h1></legend>

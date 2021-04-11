@@ -1,5 +1,6 @@
 <?php
     require_once "Controller/rentersignupController.php";
+    include "homepagelandlord.php";
 ?>
 
 <html>
