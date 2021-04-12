@@ -3,6 +3,7 @@
     $user ="root";
     $password ="";
     $db= "houserent";
+    $conn = mysqli_connect($server,$user,$password,$db);
 
     function execute ($query){
         global $server,$user,$password,$db;

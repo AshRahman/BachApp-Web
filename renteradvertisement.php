@@ -1,5 +1,6 @@
 <?php
     require_once "Controller/houserentController.php";
+    include "homepagelandlord.php";
 ?>
 
 <html>

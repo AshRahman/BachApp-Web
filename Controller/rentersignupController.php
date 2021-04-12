@@ -79,8 +79,8 @@ if(isset($_POST["signup"])){
         $err_name = "Please enter your first name";
         $hasError = true;
     }
-    elseif (strlen($_POST["name"]) < 4) {
-        $err_name = "First Name must be more than 4 characters";
+    elseif (strlen($_POST["name"]) < 2) {
+        $err_name = "Name must be more than 4 characters";
         $hasError = true;
     } 
     elseif (strpos($_POST["name"], " ")) {
@@ -92,11 +92,11 @@ if(isset($_POST["signup"])){
     }
 
     if (empty($_POST["user_name"])) {
-        $err_user_name = "Please enter your first name";
+        $err_user_name = "Please enter your username";
         $hasError = true;
     }
-    elseif (strlen($_POST["user_name"]) < 4) {
-        $err_user_name = "First Name must be more than 4 characters";
+    elseif (strlen($_POST["user_name"]) < 2) {
+        $err_user_name = "Username must be more than 4 characters";
         $hasError = true;
     } 
     elseif (strpos($_POST["user_name"], " ")) {
