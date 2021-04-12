@@ -202,7 +202,7 @@ if(isset($_POST["saveBtn"])){
             echo $pass;
             }
             else{
-                echo "rudba vonda";
+                echo "rahat ";
             }
         }
         
