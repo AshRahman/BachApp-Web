@@ -21,10 +21,7 @@
     
     $contact_number = "";
     $err_contact_number = "";
-    //$err_contn = "";
     
-    $dob = "";
-    $err_dob = "";
     
     $hasError = false;
 
@@ -108,14 +105,7 @@ if(isset($_POST["saveBtn"])){
             $pass=htmlspecialchars($_POST["pass"]);
         }
     
-        // if (empty($_POST["confirm_pass"])) {
-        //     $err_pass = "Please enter confirm password";
-        //     $hasError = true;
-        // }
-        // else{
-        //     $confirm_pass=htmlspecialchars($_POST["confirm_pass"]);
-        // }
-    
+       
     
     
     
@@ -132,10 +122,6 @@ if(isset($_POST["saveBtn"])){
                 $err_pass = "Whitespace is not allowed";
                 $hasError = true;
             } 
-            // elseif ($_POST["confirm_pass"] !== $_POST["pass"]) {
-            //     $err_confirm_pass = "Password does not match";
-            //     $hasError = true;}
-            
             else {
                 $pass = $_POST["pass"];
             }
@@ -173,7 +159,6 @@ if(isset($_POST["saveBtn"])){
             $hasError = true;
         } 
         elseif (!is_numeric($_POST["contact_number"])) {
-            //$err_contn = "This field requires only numeric values";
             $err_contact_number = "This field requires only numeric values";
             $hasError = true;
         }
@@ -181,29 +166,13 @@ if(isset($_POST["saveBtn"])){
             $contact_number=htmlspecialchars($_POST["contact_number"]);
         }
     
-        // if (!isset($_POST["day"]) || !isset($_POST["month"]) || !isset($_POST["year"])) {
-        //     $err_dob = "Date Of Birth Required";
-        //     $hasError = true;
-        // } 
-        // else {
-        //     $dob = $_POST["day"] . "-" . $_POST["month"] . "-" . $_POST["year"];
-        // }
 
-        // search username and go to profile
-
-         
-             
-            
 
             if(!$hasError){
             $query="UPDATE users SET username='$user_name', name='$name',password='$pass', gender='$gender',email='$email',phone='$contact_number' WHERE username='$user_name'";
             execute($query);
-            echo $name;
-            echo $pass;
             }
-            else{
-                echo "rahat ";
-            }
+            
         }
         
       
@@ -244,6 +213,7 @@ if(isset($_POST["searchBtn"])){
             }
          }
 }
+
 
 
 ?>
