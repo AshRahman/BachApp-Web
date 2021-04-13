@@ -1,5 +1,5 @@
 <?php
-include "DB/db_config.php";
+include "Model/db_config.php";
 
 $location="";
 $err_location="";

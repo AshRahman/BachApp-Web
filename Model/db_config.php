@@ -1,25 +1,25 @@
 <?php
-    $server ="localhost";
-    $user ="root";
-    $password ="";
-    $db= "houserent";
-    $conn = mysqli_connect($server,$user,$password,$db);
+    $db_server="localhost";
+    $db_user="root";
+    $db_password="";
+    $db_name="dummy";
+    function execute($query){
+        global $db_server,$db_user,$db_password,$db_name;
+        $conn=mysqli_connect($db_server,$db_user,$db_password,$db_name);
+        mysqli_query($conn,$query);
+    }
 
-    function execute ($query){
-        global $server,$user,$password,$db;
-        $conn = mysqli_connect($server,$user,$password,$db);
-        mysqli_query ($conn,$query);
-    }
-    function get ($query){
-        global $server,$user,$password,$db;
-        $conn = mysqli_connect($server,$user,$password,$db);
-        $result = mysqli_query ($conn,$query);
-        $data = array();
-        if(mysqli_num_rows($result) > 0){
-            while($row = mysqli_fetch_assoc($result)){
-                $data[] = $row; //numeric array of associative array
+    function get($query){
+        global $db_server,$db_user,$db_password,$db_name;
+        $conn=mysqli_connect($db_server,$db_user,$db_password,$db_name);
+        $result=mysqli_query($conn,$query);
+        $data=array();
+            while($row=mysqli_fetch_assoc($result)){
+                $data[] =$row;
             }
-        }
-        return $result;
+        
+        return $data;
     }
+    
+    
 ?>

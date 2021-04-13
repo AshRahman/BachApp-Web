@@ -1,6 +1,6 @@
 <?php
        
-       include "DB/db_config.php";
+       include "Model/db_config.php";
        session_start();
        $_SESSION["loggedInUser"]="Galactico";
 

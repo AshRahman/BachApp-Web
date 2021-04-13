@@ -35,7 +35,7 @@
        
         $hasError = false;
 
-        include "Models/db_config.php";
+        include "Model/db_config.php";
 
 
         if($_SERVER["REQUEST_METHOD"]=="POST")
