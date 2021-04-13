@@ -1,6 +1,6 @@
 <?php
 
-require_once"DB/db_config.php";
+require_once"Model/db_config.php";
 
 session_start();
     $_SESSION["loggedInUser"]="tk7";

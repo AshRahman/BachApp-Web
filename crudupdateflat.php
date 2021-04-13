@@ -1,5 +1,5 @@
 <?php
-include "Controller/crudhousevalidation.php";
+include "Controller/crudupdateflatvalidation.php";
 ?>
 
 
@@ -13,11 +13,14 @@ include "Controller/crudhousevalidation.php";
 <table>
 <div class="search">
 <div class="topnav">
-      <a href=http://localhost/homepage/homepageadmin.php >Back</a> <h1 style="text-align:center;color:orange">CRUD HOUSE</h1>
+      <a href=http://localhost/homepage/homepageadmin.php >Back</a>
+	  <a href=http://localhost/homepage/crudaddflat.php >Add</a>
+      <a href=http://localhost/homepage/crudupdateflat.php >Update</a>
+	  <h1 style="text-align:center;color:orange">CRUD FLAT</h1>
     </div>               
 				   
                     
-
+<form action="/" method="post">
 					<tr>
 					
 					<p style="text-align:center;">
@@ -43,7 +46,8 @@ include "Controller/crudhousevalidation.php";
 					<p style="text-align:center;"><span class="err-msg"><?php echo $err_contact; ?></span>
 					</p>
 					
-					<<p style="text-align:center;"><input type="submit" class="my-font btn-sup" name="addBtn" value="Add"></p>
+					<p style="text-align:center;"><input type="submit" class="my-font btn-sup" name="addBtn" value="update"></p>
+					
 					</tr>
 					</div>
 					
@@ -51,7 +55,7 @@ include "Controller/crudhousevalidation.php";
 
 <p>
 	  <div class="tren">
-	  <h1>Available House</h1> 
+	  <h1>Available Flat</h1> 
 	  <?php
 	  if ($result) {
               
@@ -59,7 +63,7 @@ include "Controller/crudhousevalidation.php";
             }
             if ($rowCount < 1) {
               echo '<div class="container container2 title-border">
-                    <h4>No house Yet!</h4>
+                    <h4>No Flats Yet!</h4>
                   </div>';
             } else {
 				
@@ -93,7 +97,8 @@ include "Controller/crudhousevalidation.php";
 						  <td>' . $row["Location"] . '</td>
 						  <td>' . $row["Size"] . '</td>
 						  <td>' . $row["Contact"] . '</td>
-
+						  <td>  <a href="http://localhost/homepage/crudupdateflat.php> EDIT</a></td>
+                           
                         </tr>
                       </tbody>';
 
@@ -104,7 +109,6 @@ include "Controller/crudhousevalidation.php";
 	  ?>
 	  <p style="text-align:center;"><input type="submit" class="my-font btn-sup" name="showBtn" value="Show"></p>
 	  </div>
-	  
      </p>
 	 
 </body>
