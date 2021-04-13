@@ -1,10 +1,11 @@
 <?php
 include "Model/db_config.php";
-$conn = mysqli_connect($server,$user,$pass,$db);
+$conn = mysqli_connect($db_server,$db_user,$db_password,$db_name);
 
 
 $query = "SELECT * FROM house";
 $result=mysqli_query($conn,$query);
+
 if(isset($_POST["showBtn"]))
 {
     $result=mysqli_query($conn,$query);
@@ -28,17 +29,19 @@ $hasError=false;
 if(isset($_POST["addBtn"]))
 {
 
+
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	if(empty($_POST["owner"])){
-    $err_owner="[insert owner name]";
-    $hasError=true;
-}
-
-if(empty($_POST["location"])){
-    $err_location="[insert location]";
-    $hasError=true;
-}
+        $err_owner="[insert owner name]";
+        $hasError=true;
+    }
+	
+	if(empty($_POST["location"])){
+        $err_location="[insert location]";
+        $hasError=true;
+    }
 	
 	
 	if (!is_numeric($_POST["price"])) {
@@ -73,11 +76,12 @@ if(empty($_POST["location"])){
 	$size = $_POST['size'];
 	$contact = $_POST['contact'];
 	
-  if($hasError === false){
+  if(!$hasError){
     $insert_query = "insert into house values ('$id','$owner','$price','$location','$size','$contact')";
-    if(mysqli_query($conn,$insert_query)){
-        echo "values inserted";
-		
+    
+    if(execute($inset_query)){
+        echo "house added";
+        
 $id="";
 $err_id="";
 $owner="";
@@ -90,14 +94,15 @@ $price="";
 $size="";
 $err_price="";
 $err_size="";
+	
 
 
     }
     else{
-        echo "problem not inserted";
+        echo "house not added";
     }
   }
+	
 }
 }
-
 ?>

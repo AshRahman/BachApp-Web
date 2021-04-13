@@ -1,8 +1,17 @@
 <?php
 include "Controller/crudupdateflatvalidation.php";
-require 'Controller/crudupdateflatvalidation.php';
-$id = $_GET["ID"];
-$flat= getflat($ID);
+
+$id = $_GET["id"];
+$query ="SELECT * FROM flat WHERE ID='$id'";
+$result=get($query);
+foreach($result as $rows){
+	$owner=$rows["Owner"];
+	$price=$rows["Price"];
+	$location=$rows["Location"];
+	$size=$rows["Size"];
+	$contact=$rows["Contact"];
+}
+
 ?>
 
 
@@ -16,9 +25,9 @@ $flat= getflat($ID);
 <table>
 <div class="search">
 <div class="topnav">
-      <a href=http://localhost/BachApp-Web/homepageadmin.php >Back</a>
-	  <a href=http://localhost/BachApp-Web/crudaddflat.php >Add</a>
-      <a href=http://localhost/BachApp-Web/crudupdateflat.php >Update</a>
+      
+	  <a href=http://localhost/BachApp-Web/crudaddflat.php >Back</a>
+      
 	  <h1 style="text-align:center;color:orange">CRUD FLAT</h1>
     </div>               
 				   
@@ -27,7 +36,11 @@ $flat= getflat($ID);
 					<tr>
 					
 					<p style="text-align:center;">
-					<label style="color:brown">owner:</label> <input type="text" name="owner" value="<?php echo $flat;?>" placeholder="owner name">
+				    <input style="display:none" type="text" name="id" value="<?php echo $id;?>" placeholder="id">
+					<p style="text-align:center;"><span class="err-msg"><?php echo $err_owner; ?></span>
+					</p>
+					<p style="text-align:center;">
+					<label style="color:brown">Owner:</label> <input type="text" name="owner" value="<?php echo $owner;?>" placeholder="owner name">
 					<p style="text-align:center;"><span class="err-msg"><?php echo $err_owner; ?></span>
 					</p>
 					<p style="text-align:center;">
@@ -49,7 +62,7 @@ $flat= getflat($ID);
 					<p style="text-align:center;"><span class="err-msg"><?php echo $err_contact; ?></span>
 					</p>
 					
-					<p style="text-align:center;"><input type="submit" class="my-font btn-sup" name="addBtn" value="update"></p>
+					<p style="text-align:center;"><input type="submit" class="my-font btn-sup" name="updateBtn" value="update"></p>
 					
 					</tr>
 					</div>
@@ -57,61 +70,7 @@ $flat= getflat($ID);
 </table>
 
 <p>
-	  <div class="tren">
-	  <h1>Available Flat</h1> 
-	  <?php
-	  if ($result) {
-              
-              $rowCount = mysqli_num_rows($result);
-            }
-            if ($rowCount < 1) {
-              echo '<div class="container container2 title-border">
-                    <h4>No Flats Yet!</h4>
-                  </div>';
-            } else {
-				
-	  echo
-                '
-                  <table class="table table-hover theme-bg">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Owner</th>
-						<th scope="col">price</th>
-                        <th scope="col">Location</th>
-						<th scope="col">Size</th>
-                        <th scope="col">Contact</th>
-                      </tr>
-                    </thead>
-                  ';
-				  
-       while ($row = mysqli_fetch_assoc($result)) {
-
-
-                echo
-                  '
-
-                      <tbody>
-                        <tr>
-                          
-                          <td>' . $row["ID"] . '</td>
-                          <td>' . $row["Owner"] . '</td>
-						  <td>' . $row["Price"] . '</td>
-						  <td>' . $row["Location"] . '</td>
-						  <td>' . $row["Size"] . '</td>
-						  <td>' . $row["Contact"] . '</td>
-						  <td>  <a href="http://localhost/homepage/crudupdateflat.php?id='. $row["ID"].'"> EDIT</a></td>
-                           
-                        </tr>
-                      </tbody>';
-
-
-              }	 
-          echo '</table>';
-			}		  
-	  ?>
-	  <p style="text-align:center;"><input type="submit" class="my-font btn-sup" name="showBtn" value="Show"></p>
-	  </div>
+	  
      </p>
 	 
 </body>

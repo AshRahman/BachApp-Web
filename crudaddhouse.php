@@ -14,13 +14,12 @@ include "Controller/crudaddhousevalidation.php";
 <div class="search">
 <div class="topnav">
       <a href=http://localhost/BachApp-Web/homepageadmin.php >Back</a>
-	  <a href=http://localhost/BachApp-Web/crudaddhouse.php >Add</a>
-      <a href=http://localhost/BachApp-Web/crudupdatehouse.php >Update</a>
-	  <h1 style="text-align:center;color:orange">CRUD HOUSE</h1>
+	  
+	  <h1 style="text-align:center;color:orange">CRUD house</h1>
     </div>               
 				   
                     
-
+<form action="/" method="post">
 					<tr>
 					
 					<p style="text-align:center;">
@@ -46,7 +45,8 @@ include "Controller/crudaddhousevalidation.php";
 					<p style="text-align:center;"><span class="err-msg"><?php echo $err_contact; ?></span>
 					</p>
 					
-					<<p style="text-align:center;"><input type="submit" class="my-font btn-sup" name="addBtn" value="Add"></p>
+					<p style="text-align:center;"><input type="submit" class="my-font btn-sup" name="addBtn" value="Add"></p>
+					
 					</tr>
 					</div>
 					
@@ -54,7 +54,7 @@ include "Controller/crudaddhousevalidation.php";
 
 <p>
 	  <div class="tren">
-	  <h1>Available House</h1> 
+	  <h1>Available house</h1> 
 	  <?php
 	  if ($result) {
               
@@ -62,7 +62,7 @@ include "Controller/crudaddhousevalidation.php";
             }
             if ($rowCount < 1) {
               echo '<div class="container container2 title-border">
-                    <h4>No house Yet!</h4>
+                    <h4>No houses Yet!</h4>
                   </div>';
             } else {
 				
@@ -96,7 +96,7 @@ include "Controller/crudaddhousevalidation.php";
 						  <td>' . $row["Location"] . '</td>
 						  <td>' . $row["Size"] . '</td>
 						  <td>' . $row["Contact"] . '</td>
-
+                          <td>  <a href="http://localhost/BachApp-Web/crudupdatehouse.php?id='. $row["ID"].'"> EDIT</a></td>
                         </tr>
                       </tbody>';
 
@@ -107,7 +107,6 @@ include "Controller/crudaddhousevalidation.php";
 	  ?>
 	  <p style="text-align:center;"><input type="submit" class="my-font btn-sup" name="showBtn" value="Show"></p>
 	  </div>
-	  
      </p>
 	 
 </body>
