@@ -13,9 +13,9 @@ include "Controller/crudupdatehousevalidation.php";
 <table>
 <div class="search">
 <div class="topnav">
-      <a href=http://localhost/homepage/homepageadmin.php >Back</a>
-	  <a href=http://localhost/homepage/crudaddhouse.php >Add</a>
-      <a href=http://localhost/homepage/crudupdatehouse.php >Update</a>
+      <a href=http://localhost/BachApp-Web/homepageadmin.php >Back</a>
+	  <a href=http://localhost/BachApp-Web/crudaddhouse.php >Add</a>
+      <a href=http://localhost/BachApp-Web/crudupdatehouse.php >Update</a>
 	  <h1 style="text-align:center;color:orange">CRUD HOUSE</h1>
     </div>               
 				   

@@ -13,9 +13,9 @@ include "Controller/crudaddflatvalidation.php";
 <table>
 <div class="search">
 <div class="topnav">
-      <a href=http://localhost/homepage/homepageadmin.php >Back</a>
-	  <a href=http://localhost/homepage/crudaddflat.php >Add</a>
-      <a href=http://localhost/homepage/crudupdateflat.php >Update</a>
+      <a href=http://localhost/BachApp-Web/homepageadmin.php >Back</a>
+	  <a href=http://localhost/BachApp-Web/crudaddflat.php >Add</a>
+      <a href=http://localhost/BachApp-Web/crudupdateflat.php >Update</a>
 	  <h1 style="text-align:center;color:orange">CRUD FLAT</h1>
     </div>               
 				   
@@ -97,7 +97,7 @@ include "Controller/crudaddflatvalidation.php";
 						  <td>' . $row["Location"] . '</td>
 						  <td>' . $row["Size"] . '</td>
 						  <td>' . $row["Contact"] . '</td>
-
+                          <td>  <a href="http://localhost/homepage/crudupdateflat.php?id='. $row["ID"].'"> EDIT</a></td>
                         </tr>
                       </tbody>';
 

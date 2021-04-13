@@ -28,7 +28,14 @@ $hasError=false;
 
 if(isset($_POST["addBtn"]))
 {
-
+ function getflat($ID){
+	 $query = "select * from flat where id=$ID";
+	 $result = get ($query);
+	 if (count ($result)>0){
+		 return $result[0];
+	 }
+	 return false;
+ }
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
