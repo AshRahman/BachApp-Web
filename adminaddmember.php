@@ -24,7 +24,7 @@
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
     </form>  
         <div id="add-div" >
-        <h1 align="center">Edit Profile</h1>
+        <h1 align="center">Edit Member Profile</h1>
 
         <form action="" method="post">
             <table align="center">

@@ -29,7 +29,7 @@
     <form action="homepageadmin.php">
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
     </form>
-    <form action="adminaddbachelor.php">
+    <form action="adminaddmember.php">
     <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Add Member">
     </form>
 

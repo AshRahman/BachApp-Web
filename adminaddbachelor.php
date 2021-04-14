@@ -26,7 +26,7 @@
         </form>
         
         <div id="add-div" >
-        <h1 align="center">Edit Profile</h1>
+        <h1 align="center">Edit Bachelor Profile</h1>
 
         <form action="" method="post">
             <table align="center">

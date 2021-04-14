@@ -142,7 +142,7 @@ if(isset($_POST["add-Btn"])){
         }
         elseif(!strpos($_POST["email"],"@")){
             $err_email="Add @";
-            $has_error=true;
+            $hasError=true;
     
         }
         elseif (!validateEmail($_POST["email"])) {
@@ -169,7 +169,7 @@ if(isset($_POST["add-Btn"])){
 
 
             if(!$hasError){
-                $query="INSERT INTO users (id, name, username, password, gender, email, phone) VALUES (NULL, '$name', '$user_name', '$pass', '$gender', '$email', '$contact_number');";
+                $query="INSERT INTO bachelors (id, name, username, password, gender, email, phone) VALUES (NULL, '$name', '$user_name', '$pass', '$gender', '$email', '$contact_number');";
                 $result = execute($query);
 
 

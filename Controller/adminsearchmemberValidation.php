@@ -142,7 +142,7 @@ if(isset($_POST["saveBtn"])){
         }
         elseif(!strpos($_POST["email"],"@")){
             $err_email="Add @";
-            $has_error=true;
+            $hasError=true;
     
         }
         elseif (!validateEmail($_POST["email"])) {
