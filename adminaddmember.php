@@ -1,12 +1,11 @@
 
 <?php
-       session_start();
-       $_SESSION["username"]="admin";
-
-       if($_SESSION["username"]!=="admin"){
-            header("Location:signin.php");
-       }
        include "Controller/adminaddmemberValidation.php";
+       include "Controller/logoutValidation.php";
+	session_start(); 
+	if(!isset($_SESSION["user_type"])){
+		header("Location:userError.php");
+	}
         
  ?>
     
@@ -18,7 +17,9 @@
 </head>
 <body>
 <div class="right">
-        <input type="submit" class="right my-font btn-sup" name="submit" value="Log-out">
+        <form action="" method="post">
+        <input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> 
+        </form> 
         <form action="homepageadmin.php">
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
     </form>  

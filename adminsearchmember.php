@@ -1,13 +1,10 @@
 <?php
       include "Controller/adminsearchmemberValidation.php";
-    //    session_start();
-    //    $_SESSION["username"]="admin";
-    //    $_SESSION["uname"]=$uname;
-
-    //    if($_SESSION["username"]!=="admin"){
-    //         header("Location:signin.php");
-    //    }
-       //$row="";
+      include "Controller/logoutValidation.php";
+      session_start(); 
+      if(!isset($_SESSION["user_type"])){
+          header("Location:userError.php");
+      }
 
  ?>
 
@@ -26,9 +23,9 @@
 </head>
 
 <body>
-    <div id="yolo">
-        <input type="submit" class="right my-font btn-sup" name="submit" value="Log-out">
-    </div>
+<form action="" method="post">
+        <input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> 
+        </form> 
     <form action="homepageadmin.php">
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
     </form>
@@ -79,11 +76,9 @@
                        
                      echo "</table></td></tr>";
                     ?>
-                    <!-- <tr>
-                       <td><button name="rahatvonda" value="Update" class="updateBtn" onclick="hideDiv()" >Update</button></td>
-                       <td><span><input type="submit" name="deleteBtn" value="Delete" ></span></td>
-
-                    </tr> -->
+                    <tr>
+                    <td colspan="2"><input type="submit" class="deleteBtn" id="deleteBtn" name="deleteBtn" value="Delete"></td>
+                    </tr>
                 </table>
 
 
