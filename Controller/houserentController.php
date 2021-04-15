@@ -156,7 +156,7 @@ if(isset($_POST["add_property"])){
     
     if($hasError === false)
             {
-                //echo "'$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img'";
+                echo "'$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img'";
                 $query="INSERT INTO `property`(`username`, `email`, `phone`, `floor`, `flat`, `gender`, `rent`, `address`, `image`) VALUES ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$img')";
                 //$query="insert into property (username,email,phone,floor,flat,gender,rent,address,image) values ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img')";
                 execute($query);

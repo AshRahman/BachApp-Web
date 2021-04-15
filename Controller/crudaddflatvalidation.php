@@ -1,6 +1,6 @@
 <?php
 include "Model/db_config.php";
-$conn = mysqli_connect($server,$user,$pass,$db);
+$conn = mysqli_connect($db_server,$db_user,$db_password,$db_name);
 
 
 $query = "SELECT * FROM flat";
@@ -76,10 +76,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$size = $_POST['size'];
 	$contact = $_POST['contact'];
 	
-  if($hasError === false){
+  if(!$hasError){
     $insert_query = "insert into flat values ('$id','$owner','$price','$location','$size','$contact')";
     
-    if(mysqli_query($conn,$insert_query)){
+    if(execute($inset_query)){
         echo "flat added";
         
 $id="";

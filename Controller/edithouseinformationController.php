@@ -1,7 +1,8 @@
 <?php
        
        include "Model/db_config.php";
-       //$_SESSION["loggedInUser"]="toukirA";
+       session_start();
+       $_SESSION["loggedInUser"]="Galactico";
 
         $id="";
         $loggedInUser=$_SESSION["loggedInUser"];
@@ -79,7 +80,7 @@ if(isset($_POST["saveBtn"])){
         {
 
     if (empty($user_name)) {
-        $err_user_name = "Please enter your username";
+        $err_user_name = "Please enter your first name";
         $hasError = true;
     }
     elseif (strlen($_POST["user_name"]) < 4) {

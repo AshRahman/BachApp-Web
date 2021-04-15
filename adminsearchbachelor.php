@@ -1,13 +1,10 @@
 <?php
       include "Controller/adminsearchbachelorValidation.php";
-    //    session_start();
-    //    $_SESSION["username"]="admin";
-    //    $_SESSION["uname"]=$uname;
-
-    //    if($_SESSION["username"]!=="admin"){
-    //         header("Location:signin.php");
-    //    }
-       //$row="";
+      include "Controller/logoutValidation.php";
+      session_start(); 
+      if(!isset($_SESSION["user_type"])){
+          header("Location:userError.php");
+      }
 
  ?>
 
@@ -26,14 +23,14 @@
 </head>
 
 <body>
-    <div id="yolo">
-        <input type="submit" class="right my-font btn-sup" name="submit" value="Log-out">
-    </div>
+    <form action="" method="post">
+        <input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> 
+        </form> 
     <form action="homepageadmin.php">
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
     </form>
-    <form action="adminaddmember.php">
-    <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Add Member">
+    <form action="adminaddbachelor.php">
+    <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Add Bachelor">
     </form>
 
     <div id="search_div">
@@ -79,9 +76,12 @@
                   
                 </table>
 
-
+                    <tr>
+                    <td colspan="2"><input type="submit" class="deleteBtn" id="deleteBtn" name="deleteBtn" value="Delete"></td>
+                    </tr>
             </form>
             <button name="updateBtn" value="Update" class="updateBtn" id="updateBtn" onclick="hideDiv()" >Update</button>
+            
         </fieldset>
     </div>
 

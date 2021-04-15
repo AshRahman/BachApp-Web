@@ -2,7 +2,7 @@
      if(isset($_POST["logoutBtn"])){
         session_start();
         session_destroy();
-        header("Location:loginrenter.php"); 
+        header("Location:login.php"); 
     }
 
 ?>

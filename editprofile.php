@@ -1,10 +1,6 @@
 <?php
-session_start(); 
-if(!isset($_SESSION["loggedInUser"])){
-    header("Location:userError.php");
-}
 include "Controller/editrenterprofileController.php";
-include "homelandlord.php";
+include "homepagelandlord.php";
 
 ?>
 

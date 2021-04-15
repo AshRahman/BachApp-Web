@@ -2,7 +2,8 @@
 
 require_once"Model/db_config.php";
 
-    //$_SESSION["loggedInUser"]="tk7";
+session_start();
+    $_SESSION["loggedInUser"]="tk7";
 
 $id="";
 $loggedInUser=$_SESSION["loggedInUser"];
@@ -73,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
 
     if(empty($_POST["name"])) {
-        $err_name = "Please enter your name";
+        $err_name = "Please enter your first name";
         $hasError = true;
     }
     elseif (strlen($_POST["name"]) < 2) {
@@ -89,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     }
 
     if (empty($_POST["user_name"])) {
-        $err_user_name = "Please enter your username";
+        $err_user_name = "Please enter your first name";
         $hasError = true;
     }
     elseif (strlen($_POST["user_name"]) < 2) {

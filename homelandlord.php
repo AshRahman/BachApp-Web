@@ -1,11 +1,3 @@
-<?php
-	include "Controller/logoutValidation.php";
-   // session_start(); 
-   //  if(!isset($_SESSION["loggedInUser"])){
-   //      header("Location:userError.php");
-   //  }
-?>
-
 <!DOCTYPE html>
 <html>
 <title>Home</title>
@@ -20,16 +12,63 @@
 	  <a href=http://localhost/bachApp-Web/edithouseinformation.php>Edit House info</a>
       <a href=http://localhost/bachApp-Web/houselist.php>House List</a>
 	  <a href=http://localhost/bachApp-Web/renteradvertisement.php>Post for rent</a>
-	  <!-- <div style="text-align:right;"><input type="submit" class="my-font btn-sup" name="Logout" value="log out"></div> -->
+	  <div style="text-align:right;"><input type="submit" class="my-font btn-sup" name="Logout" value="log out"></div>
       
   
   
 </div>
+	 
 
-<form method="post">
-	<div style="text-align:right;"><input type="submit" class="my-font btn-sup" name="logoutBtn" value="log out"></div>
-</form>
+<div style="display:flex;">
+<div class="tren">
 
+<br><div style="border: 1px solid #2994F2; width: 18rem; border-radius: 5px;" class="card" >
+		<img width="100%" src="Resources/h1.jpg" class="" alt="...">
+		<div style="padding: 5px; " class="">
+		<h5 class="">Your Title</h5>
+		<p class="">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+		<a href="Resources/house1.php" class="">View</a>
+		</div>
+	</div><br>
+
+	<div style="border: 1px solid #2994F2; width: 18rem; border-radius: 5px;" class="card" >
+		<img width="100%" src="Resources/h4.jpg" class="" alt="...">
+		<div style="padding: 5px; " class="">
+		<h5 class="">Your Title</h5>
+		<p class="">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+		<a href="Resources/house2.php" class="">View</a>
+		</div>
+	</div><br>
+
+	<div style="border: 1px solid #2994F2; width: 18rem; border-radius: 5px;" class="card" >
+		<img width="100%" src="Resources/h3.jpg" class="" alt="...">
+		<div style="padding: 5px; " class="">
+		<h5 class="">Your Title</h5>
+		<p class="">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+		<a href="Resources/house3.php" class="">View</a>
+		</div>
+		</div>
+	</div>
+</div>	
+	<!-- <p>  
+	<div class="topnav">
+	  <legend style="text-align:center;"><h1 style="color:orange" ></h1></legend>
+	  <p></p>
+	  <p></p>
+	  <p></p>
+	  <p></p>
+	  </div>
+	  <p>
+	  <div class="tren">
+	  <p>.</p>
+	  <p>.</p>
+	  <p>.</p>
+	  <p>.</p>
+	  <p>.</p>
+	  <p>.</p>
+	  </div>
+     </p>
+	 </p> -->
      </body>
    </head>
    

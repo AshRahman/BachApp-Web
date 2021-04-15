@@ -1,14 +1,12 @@
 <?php
 include "Model/db_config.php";
-$conn = mysqli_connect($server,$user,$pass,$db);
-
 
 $query = "SELECT * FROM flat";
-$result=mysqli_query($conn,$query);
+$result=get($query);
 
 if(isset($_POST["showBtn"]))
 {
-    $result=mysqli_query($conn,$query);
+    $result=get($query);
 }
 
 
@@ -26,9 +24,11 @@ $err_price="";
 $err_size="";
 $hasError=false;
 
-if(isset($_POST["addBtn"]))
+if(isset($_POST["updateBtn"]))
 {
 
+ 
+ 
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -70,39 +70,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $contact=htmlspecialchars($_POST["contact"]);
     }
 	
+	$id = $_POST['id'];
 	$owner = $_POST['owner'];
 	$price = $_POST['price'];
 	$location = $_POST['location'];
 	$size = $_POST['size'];
 	$contact = $_POST['contact'];
 	
-  if($hasError === false){
-    $insert_query = "insert into flat values ('$id','$owner','$price','$location','$size','$contact')";
-    
-    if(mysqli_query($conn,$insert_query)){
-        echo "flat added";
-        
-$id="";
-$err_id="";
-$owner="";
-$err_owner="";
-$location="";
-$err_location="";
-$contact="";
-$err_contact="";
-$price="";
-$size="";
-$err_price="";
-$err_size="";
-	
+  if(!$hasError){
+    $update_query = "UPDATE flat SET Owner='$owner',Price='$price',Location='$location',Size='$size',Contact='$contact' WHERE ID='$id'";
+     
+    execute($update_query);
+        echo "flat updated";
 
-
-    }
-    else{
-        echo "flat not added";
-    }
-  }
 	
-}
+    }
+    }
 }
 ?>

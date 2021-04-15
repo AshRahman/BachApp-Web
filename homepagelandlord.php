@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <title>Home</title>
@@ -16,15 +15,11 @@
       <a href=http://localhost/bachApp-Web/houselist.php>House List</a>
 	  <a href=http://localhost/bachApp-Web/renteradvertisement.php>Post for rent</a>
 
-	  
+	  <div style="text-align:right;"><input type="submit" class="my-font btn-sup" name="Logout" value="log out"></div>
       
   
   
 </div>
-
-<form method="post">
-	<div style="text-align:right;"><input type="submit" class="my-font btn-sup" name="logoutBtn" value="log out"></div>
-</form>
 	 
  
 <div style="display:flex;">
