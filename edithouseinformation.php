@@ -1,6 +1,10 @@
 <?php
+session_start(); 
+if(!isset($_SESSION["loggedInUser"])){
+    header("Location:userError.php");
+}
 include "Controller/edithouseinformationController.php";
-include "homepagelandlord.php";
+include "homelandlord.php";
 
 
 

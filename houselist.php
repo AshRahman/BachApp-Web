@@ -1,7 +1,10 @@
 <?php
-    
+    session_start(); 
+    if(!isset($_SESSION["loggedInUser"])){
+        header("Location:userError.php");
+    }
     require_once"Model/db_config.php";
-    include "homepagelandlord.php";
+    include "homelandlord.php";
 
     $query = "Select * from property";
     $result = get($query);

@@ -1,6 +1,10 @@
 <?php
+    session_start(); 
+    if(!isset($_SESSION["loggedInUser"])){
+        header("Location:userError.php");
+    }
     require_once "Controller/houserentController.php";
-    include "homepagelandlord.php";
+    include "homelandlord.php";
 ?>
 
 <html>
