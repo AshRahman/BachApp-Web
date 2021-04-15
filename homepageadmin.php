@@ -22,9 +22,8 @@
 			
 			<div style="text-align:right;"> 
 				<input type="submit" class="logoutBtn" id="logoutBtn" name="logoutBtn" value="log out">
-			</div>
-			
-			</div>
+	
+
 
 	  	</form>
     </body>
