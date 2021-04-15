@@ -169,7 +169,7 @@ if(isset($_POST["add-Btn"])){
 
 
             if(!$hasError){
-                $query="INSERT INTO bachelors (id, name, username, password, gender, email, phone) VALUES (NULL, '$name', '$user_name', '$pass', '$gender', '$email', '$contact_number');";
+                $query="INSERT INTO bachelor (id, name, username, password, gender, email, phone) VALUES (NULL, '$name', '$user_name', '$pass', '$gender', '$email', '$contact_number');";
                 $result = execute($query);
 
 
