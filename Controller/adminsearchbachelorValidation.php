@@ -214,6 +214,28 @@ if(isset($_POST["searchBtn"])){
          }
 }
 
+if(isset($_POST["deleteBtn"])){
+    if (empty($_POST["user_name"])) {
+        $err_user_name = "Please enter your user name";
+        $hasErrorsearch = true;
+    }
+    elseif (strlen($_POST["user_name"]) < 4) {
+        $err_user_name = "First Name must be more than 4 characters";
+        $hasErrorsearch = true;
+    } 
+    elseif (strpos($_POST["user_name"], " ")) {
+        $err_user_name = "Whitespace is not allowed";
+        $hasErrorsearch= true;
+    }
+    else{
+        $user_name=htmlspecialchars($_POST["user_name"]);
+    }
+    $del_query="DELETE FROM bachelor WHERE username='$user_name'";
+    echo $user_name;
+    execute($del_query);
+    echo "deleted successfully";
+}
+
 
 
 ?>
