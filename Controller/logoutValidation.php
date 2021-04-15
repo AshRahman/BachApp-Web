@@ -1,3 +1,4 @@
+
 <?php
      if(isset($_POST["logoutBtn"])){
         session_start();
