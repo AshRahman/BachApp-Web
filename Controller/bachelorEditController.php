@@ -1,5 +1,9 @@
 <?php
        
+       include "Model/db_config.php";
+
+       session_start();
+       $loggedInUser=$_SESSION["loggedInUser"];
        
         $fname="";
         $err_fname="";
@@ -10,16 +14,16 @@
         $uname="";
         $err_uname="";
 
-        $pass="";
-        $err_pass="";
+        // $pass="";
+        // $err_pass="";
 
-        $err_upass="";
-        $err_lpass="";
-        $err_npass="";
-        $err_spass="";
+        // $err_upass="";
+        // $err_lpass="";
+        // $err_npass="";
+        // $err_spass="";
 
-        $cpass="";
-        $err_cpass="";
+        // $cpass="";
+        // $err_cpass="";
 
         $gender="";
         $err_gender="";
@@ -30,14 +34,45 @@
         $phone="";
         $err_phone="";
 
+        
+
         // $nid="";
        // $err_nid="";
        
         $hasError = false;
+       
 
-        include "Model/db_config.php";
+        $query = "Select * from bachelorsignup where username='$loggedInUser'";
+        $result = get($query);
+        foreach($result as $rows)
+        {
+          $fname= $rows["firstname"];
+          $lname= $rows["lastname"];
+          $uname= $rows["username"];
+          $mail= $rows["email"];
+          //$pass= $rows["password"];
+          $gender=$rows["gender"];
+          $phone= $rows["phone"];
+        }
 
 
+
+
+        // if(isset($_POST["refreshBtn"])){
+        // $result = get($query);
+        // foreach($result as $rows){
+        //           $fname= $rows["firstname"];
+        //           $lname= $rows["lastname"];
+        //           $uname= $rows["username"];
+        //           $mail= $rows["email"];
+        //           //$pass= $rows["password"];
+        //           $gender=$rows["gender"];
+        //           $phone= $rows["phone"];
+        // }
+    // }
+
+
+if(isset($_POST["saveBtn"])){
         if($_SERVER["REQUEST_METHOD"]=="POST")
         {
 //FIRST_NAME VALIDATION
@@ -108,117 +143,8 @@
 
             }
 
-//PASSWORD VALIDATION
-            $up=$_POST["pass"];
-            for($i=0;$i<strlen($up);$i++)
-            {
-                if(ctype_upper($up[$i]))
-                {
-                    $upt=true;
-                    break;
-                }
-                else
-                {
-                    $upt=false;
-                }
-            }
-            $low=$_POST["pass"];
-            for($i=0;$i<strlen($up);$i++)
-            {
-                if(ctype_lower($up[$i]))
-                {
-                    $lowt=true;
-                    break;
-                }
-                else
-                {
-                    $lowt=false;
-                }
-            }
 
-
-            $low=$_POST["pass"];
-            for($i=0;$i<strlen($up);$i++)
-            {
-                if(is_numeric($up[$i]))
-                {
-                    $numt=true;
-                    break;
-                }
-                else
-                {
-                    $numt=false;
-                }
-            }
-        
-            if(strpos($_POST["pass"],"?")||strpos($_POST["pass"],"#"))
-            {
-                    $sp=true;
-            }
-            else
-            {
-                $sp=false;
-            }
-
-
-            if(empty($_POST["pass"]))
-            {
-                $err_pass="Enter Password";
-                $hasError = true;
-            }
-            else if(strlen($_POST["pass"])<8)
-            {
-                $err_pass="Password must contain more than 6 characters";
-                $hasError = true;
-            }
-            else if(strpos($_POST["pass"]," "))
-            {
-                $err_pass="Password should not contain whitespace";
-                $hasError = true;
-            }
-            
-            else if($upt==false)
-            {
-                $err_upass="Must contain Uppercase letter";
-                $hasError = true;
-            }
-            else if($lowt==false)
-            {
-                $err_lpass="Must contain Lowercase letter";
-                $hasError = true;
-            }
-            else if($numt==false)
-            {
-                $err_npass="Must contain Number";
-                $hasError = true;
-            }
-            else if($sp==false)
-            {
-                $err_spass="Must contain special character # or ?";
-                $hasError = true;
-            }
-
-            else
-            {   
-                $pass=htmlspecialchars($_POST["pass"]);
-            }
-
-
-//CONFIRM PASSWORD VALIDATION
-            if(empty($_POST["cpass"]))
-            {
-                $err_cpass="Enter Password again";
-                $hasError = true;
-            }
-            else if($_POST["cpass"]!=$pass)
-            {
-                $err_cpass="Password mismatch";
-                $hasError = true;
-            }
-            else
-            {   
-                $cpass=htmlspecialchars($_POST["cpass"]);
-            }
+//             }
 //GENDER VALIDATION
 
             if(empty($_POST["gender"])){
@@ -244,8 +170,6 @@
                 $mail=htmlspecialchars($_POST["mail"]);
             }
 
-
-// //NID CARD VALIDATION
 
 
 //PNONE NUMBER VALIDATION
@@ -282,22 +206,20 @@
               
             }
 
-       
-
-            if($hasError == false && isset($_POST["submit"]))
+            if(!$hasError)
             {
                 
-                $query="INSERT into bachelorsignup (firstname,lastname,username,email,password,gender,phone) values ('$fname','$lname','$uname','$mail','$pass','$gender','$phone')";
-                $result = execute($query);
-
-
+                $query="UPDATE bachelorsignup SET firstname='$fname',lastname='$lname',username='$uname',email='$mail',gender='$gender',phone='$phone' WHERE username='$uname'";
+                execute($query);
                 header("Location:homepagetenant.php");
 
                 
             }
+            
+            
         }   
         
-
+    }
        
  ?>
     
