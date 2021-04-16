@@ -1,7 +1,4 @@
 <?php
-
-    include "Model/db_config.php";
-
         $card="";
         $err_card="";
 
@@ -114,26 +111,26 @@
 
 //CARD DATE SELECTION VALIDATION
  
-            // if(empty($_POST["exmonth"]))
-            // {
-            //     $err_exmonth="Month must be selected   ";
-            //     $hasError = true;
-            // }
-            // else
-            // {
-            //     $exmonth=$_POST["exmonth"];
-            // }
+            if(empty($_POST["exmonth"]))
+            {
+                $err_exmonth="Month must be selected   ";
+                $hasError = true;
+            }
+            else
+            {
+                $exmonth=$_POST["exmonth"];
+            }
 
 
-            // if(empty($_POST["exyear"]))
-            // {
-            //     $err_exyear="Year must be selected";
-            //     $hasError = true;
-            // }
-            // else
-            // {
-            //     $exyear=$_POST["exyear"];
-            // }
+            if(empty($_POST["exyear"]))
+            {
+                $err_exyear="Year must be selected";
+                $hasError = true;
+            }
+            else
+            {
+                $exyear=$_POST["exyear"];
+            }
 
 //SECURITY CODE VALIDATION
 
@@ -185,40 +182,7 @@
                   break;
                 }
             }
-
-            if($hasError == false && isset($_POST["submit"]))
-            {
-                
-                $query="INSERT into payment (cardtype,name,cardnumber,scode,amount) values ('$card','$name','$cnum','$scode','$amount')";
-                $result = execute($query);
-
-                header("Location:homepagetenant.php");
-
-
-
-                // $card="";
-                // $err_card="";
-        
-                // $name="";
-                // $err_name="";
-        
-                // $cnum="";
-                // $err_cnum="";
-                
-        
-                // $exmonth="";
-                // $err_exmonth="";
-        
-                // $exyear="";
-                // $err_exyear="";
-        
-                // $scode="";
-                // $err_scode="";
-                
-                // $amount="";
-                // $err_amount="";
-
-            }
+           
         
         }
     ?>

@@ -17,8 +17,6 @@
 ?>
 
 <?php
-
-
 include 'main_header.php';
 include 'Controller/bachelorsignupValidation.php';
 

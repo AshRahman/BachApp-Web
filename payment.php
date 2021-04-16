@@ -12,23 +12,11 @@
 */
 ?>
 
-
-
-
-
 <?php
-
-session_start(); 
-if(!isset($_SESSION["loggedInUser"]))
-{
-    header("Location:userError.php");
-}
-
 include 'main_header.php';
-include 'Controller/paymentValidation.php';
+require_once 'Controller/paymentValidation.php';
 
 ?>
-
 <html>
 <head></head>
 <body>
@@ -39,7 +27,7 @@ include 'Controller/paymentValidation.php';
             <form  action="" method="post" >
                 <table align="center">
                     <tr>
-                        <td><span>Card Type:</span></td>
+                        <td><span>Choose Card Type:</span></td>
                         <td><input type="radio" name="card"  value="CreditCard"> Credit Card
                             <input type="radio" name="card"  value="DebitCard"> Debit Card
                            
@@ -60,7 +48,7 @@ include 'Controller/paymentValidation.php';
                     </tr>
                    
 
-                    <!-- <tr>
+                    <tr>
                         <td><br><span>Expiry Date:</span></td>
                         <td>
                             <br>
@@ -86,7 +74,7 @@ include 'Controller/paymentValidation.php';
                            <span><?php echo $err_exyear;?></span>
 
                         </td>
-                    </tr> -->
+                    </tr>
                 
                     <tr>
                         <td><br><span>Security Code:</span></td>

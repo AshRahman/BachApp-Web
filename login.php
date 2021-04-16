@@ -19,7 +19,7 @@
             <td><h1 align="center" style="font-family:cambria;color:orange">Sign in</h1></td>
           </div>
 		  
-            <form action="" method="post">
+            <form action="" onsubmit="return validate()" method="post">
                 <table align="center">
                     
                         
@@ -28,8 +28,8 @@
                     </tr>
                     <tr>
 
-                    <td><input type="text" name="user_name" value="<?php echo $user_name; ?>" placeholder="User Name">
-                        <span><?php echo $err_user_name; ?></span></br>
+                    <td><input type="text" name="user_name" id="user_name" value="<?php echo $user_name; ?>" placeholder="User Name">
+                        <span id="err_user_name"><?php echo $err_user_name; ?></span></br>
                     </td>
 
                 </tr>   
@@ -38,8 +38,8 @@
                         <td><span class="my-font"> Password</span></td>
                     </tr>
                     <tr>
-                        <td><input type="password" name="pass" value="<?php echo $pass; ?>" placeholder="Password">
-                        <span class="err-msg"><?php echo $err_pass; ?></span></td>
+                        <td><input type="password" name="pass" id="pass" value="<?php echo $pass; ?>" placeholder="Password">
+                        <span class="err-msg" id="err_pass"><?php echo $err_pass; ?></span></td>
                     </tr>
                     
 
@@ -51,5 +51,6 @@
             </form>
         </div>
     </body>
+    <script src="JS/validateLogin.js"></script>
 
 </html>
