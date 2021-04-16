@@ -287,12 +287,38 @@
             if($hasError == false && isset($_POST["submit"]))
             {
                 
-                $query="INSERT into bachelorsignup (firstname,lastname,username,email,password,gender,phone) values ('$fname','$lname','$uname','$mail','$pass','$gender','$phone')";
+                $query="insert into bachelorsignup (firstname,lastname,username,email,password,gender,phone) values ('$fname','$lname','$uname','$mail','$pass','$gender','$phone')";
                 $result = execute($query);
 
 
-                header("Location:homepagetenant.php");
-
+                $fname="";
+                $err_fname="";
+        
+                $lname="";
+                $err_lname="";
+        
+                $uname="";
+                $err_uname="";
+        
+                $pass="";
+                $err_pass="";
+        
+                $err_upass="";
+                $err_lpass="";
+                $err_npass="";
+                $err_spass="";
+        
+                $cpass="";
+                $err_cpass="";
+        
+                $gender="";
+                $err_gender="";
+        
+                $mail="";
+                $err_mail="";
+        
+                $phone="";
+                $err_phone="";
                 
             }
         }   

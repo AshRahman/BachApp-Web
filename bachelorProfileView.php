@@ -1,83 +1,56 @@
 <?php
-include "Controller/bachelorEditController.php";
-include 'main_header.php';
 
-if(!isset($_SESSION["loggedInUser"]))
-{
-    header("Location:userError.php");
-}
- 
+    include 'main_header.php';
+    require_once"Models/db_config.php";
 
-
-
-
+    $query = "Select * from bachelorsignup where username='labib3435'";
+    $result = get($query);
 ?>
 
 <html>
 <body>
+<div id="tview-div">
+<fieldset  style="width:1316px;height:615px">
+    <h1 align="center">Profile</h1><br><br><br>
+    <form action="" method="post">
+        <table align="center" border="4" >
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>Phone</th>
+            </tr>
+                <?php
+                    foreach($result as $row){
+                        echo "<tr>";
+                            echo "<td>".$row["firstname"]."</td>";
+                            echo "<td>".$row["lastname"]."</td>";
+                            echo "<td>".$row["username"]."</td>";
+                            echo "<td>".$row["email"]."</td>";
+                            echo "<td>".$row["password"]."</td>";
+                            echo "<td>".$row["gender"]."</td>";
+                            echo "<td>".$row["phone"]."</td>";
+                        echo "</tr>";
+                    }
+                ?>
+ 
+        </table><br>
 
-<div id="tedit-div"><br><br><br>
-<h1 align="center"><br>Edit Profile</h1><br>
-<form action="" method="post">
-            <table align="center">
-            <form action="" method="post">
-             <table align="center">
-             <tr>
-                     <td><span>First Name:</span></td>
-                     <td><input type="text" name="fname" value="<?php echo $fname; ?>" placeholder ="<?php echo $fname; ?>">
-                         <span><?php echo $err_fname;?></span></td>
-                 </tr>
+        <p align="center">
+        <span><input type="submit" name= "submit" value="Edit Profile" class="btn btn-success" ></span>
+        </p>                    
 
-                 <tr>
-                     <td><br><span>Last Name:</span></td>
-                     <td><br><input type="text" name="lname" value="<?php echo $lname; ?>" placeholder ="<?php echo $lname; ?>">
-                         <span><?php echo $err_lname;?></span></td>
-                 </tr>
 
-                 <tr>
-                     <td><br><span>Username:</span></td>
-                     <td><br><input type="text" name="uname" value="<?php echo $uname; ?>" placeholder ="<?php echo $uname; ?>">
-                         <span><?php echo $err_uname;?></span></td>
-                 </tr>
-
-                 <tr>
-                     <td><br><span>Email:</span></td>
-                     <td><br><input type="text" name="mail" value="<?php echo $mail; ?>" placeholder ="<?php echo $mail; ?>">
-                     <span><?php echo $err_mail;?></span></td>
-                 </tr>
-
-               
-
-                 <tr>
-                 <td><br><span>Gender</span></td>
-                 <td><br>: <input type="radio" name="gender" value="male">Male
-                           <input type="radio" name="gender" value="male">Female
-                       <span><?php echo $err_gender;?></span>
-                 </td>
-                 </tr>
-
-               
-
-                 <tr>
-                     <td><br><span>Phone:</span></td>
-                     <td><br><input type="text" name="phone" value="<?php echo $phone; ?>" placeholder ="<?php echo $phone; ?>">
-                     <span><?php echo $err_phone;?></span></td>
-                 </tr>
-                 
-                 
-                 <tr>
-                    <td colspan="3" align="center"><br><span><input type="submit" name= "saveBtn" value="Save"  class="btn btn-success" ></span></td>
-                 </tr> 
-
-                 
-
-             </table>
-
-        </form>
+    </form>
+</fieldset>
 </div>
 
+<div id="tedit-div">
 
+</div>
 
 </body>
-
 </html>
