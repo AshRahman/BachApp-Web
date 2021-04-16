@@ -1,5 +1,5 @@
 <?php
-include "Controller/crudflatvalidation.php";
+include "Controller/crudaddhousevalidation.php";
 ?>
 
 
@@ -13,7 +13,9 @@ include "Controller/crudflatvalidation.php";
 <table>
 <div class="search">
 <div class="topnav">
-      <a href=http://localhost/homepage/homepageadmin.php >Back</a> <h1 style="text-align:center;color:orange">CRUD FLAT</h1>
+      <a href=http://localhost/BachApp-Web/homepageadmin.php >Back</a>
+	  
+	  <h1 style="text-align:center;color:orange">CRUD house</h1>
     </div>               
 				   
                     
@@ -52,7 +54,7 @@ include "Controller/crudflatvalidation.php";
 
 <p>
 	  <div class="tren">
-	  <h1>Available Flat</h1> 
+	  <h1>Available house</h1> 
 	  <?php
 	  if ($result) {
               
@@ -60,7 +62,7 @@ include "Controller/crudflatvalidation.php";
             }
             if ($rowCount < 1) {
               echo '<div class="container container2 title-border">
-                    <h4>No Flats Yet!</h4>
+                    <h4>No houses Yet!</h4>
                   </div>';
             } else {
 				
@@ -94,7 +96,7 @@ include "Controller/crudflatvalidation.php";
 						  <td>' . $row["Location"] . '</td>
 						  <td>' . $row["Size"] . '</td>
 						  <td>' . $row["Contact"] . '</td>
-
+                          <td>  <a href="http://localhost/BachApp-Web/crudupdatehouse.php?id='. $row["ID"].'"> EDIT</a></td>
                         </tr>
                       </tbody>';
 

@@ -1,6 +1,6 @@
 
 <?php
-       include "Controller/adminaddmemberValidation.php";
+       include "Controller/adminaddbachelorValidation.php";
        include "Controller/logoutValidation.php";
 	session_start(); 
 	if(!isset($_SESSION["user_type"])){
@@ -20,11 +20,13 @@
         <form action="" method="post">
         <input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> 
         </form> 
+
         <form action="homepageadmin.php">
-    <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
-    </form>  
+        <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
+        </form>
+        
         <div id="add-div" >
-        <h1 align="center">Edit Member Profile</h1>
+        <h1 align="center">Edit Bachelor Profile</h1>
 
         <form action="" method="post">
             <table align="center">

@@ -246,43 +246,7 @@
 
 
 // //NID CARD VALIDATION
-//             if(empty($_POST["nid"]))
-//             {
-//                 $err_nid="Enter NID number";
-//                 $hasError = true;
-//             }
-//             else if(strlen($_POST["nid"])<10)
-//             {
-//                 $err_nid="NID must contain 10 digits ";
-//                 $hasError = true;
-//             }
-//             else if(strlen($_POST["nid"])>10)
-//             {
-//                 $err_nid="NID should not contain more than 10 digits ";
-//                 $hasError = true;
-//             }
-//             else if(strpos($_POST["nid"]," "))
-//             {
-//                 $err_nid="NID should not contain whitespace";
-//                 $hasError = true;
-//             }
 
-//             else
-//             {
-//                 $nid=$_POST["nid"];
-//             }
-
-//             $nv=$_POST["nid"];
-//             for($i=0;$i<strlen($nv);$i++)
-//             {
-//                 if(!is_numeric($nv[$i]))
-//                 {
-//                   $nv=true;
-//                   $err_nid="NID should not contain letters";
-//                   $hasError = true;
-//                   break;
-//                 }
-//             }
 
 //PNONE NUMBER VALIDATION
             if(empty($_POST["phone"]))

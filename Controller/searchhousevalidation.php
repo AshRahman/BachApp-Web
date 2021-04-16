@@ -1,7 +1,7 @@
 <?php
 include "Model/db_config.php";
 
-$selected_location="";
+$location="";
 $err_location="";
 
 $size="";
@@ -18,7 +18,7 @@ $has_error=false;
 
 $result=[];
 if(isset($_POST["filterbtn"])){
-  if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         
 
@@ -50,10 +50,10 @@ if(isset($_POST["filterbtn"])){
             $price=$_POST["price"];  
             }
     
-      echo $selected_location;
+      echo $location;
 
     if(!$has_error){
-    $query = "SELECT * FROM flat";
+    $query = "SELECT * FROM house";
     $conditions = array();
     
     if(!empty($selected_location)) {
@@ -74,9 +74,8 @@ if(isset($_POST["filterbtn"])){
     }
     
 
-    $conn = mysqli_connect($db_server,$db_user,$db_password,$db_name);
+    $conn = mysqli_connect($server,$user,$pass,$db);
     $result=mysqli_query($conn,$sql);
-    // $result=get($sql);
     return $result;
     }
     

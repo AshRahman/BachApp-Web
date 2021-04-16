@@ -1,5 +1,5 @@
 <?php
-      include "Controller/adminsearchmemberValidation.php";
+      include "Controller/adminsearchbachelorValidation.php";
       include "Controller/logoutValidation.php";
       session_start(); 
       if(!isset($_SESSION["user_type"])){
@@ -23,20 +23,19 @@
 </head>
 
 <body>
-<form action="" method="post">
+    <form action="" method="post">
         <input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> 
         </form> 
     <form action="homepageadmin.php">
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
     </form>
-    <form action="adminaddmember.php">
-    <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Add Member">
+    <form action="adminaddbachelor.php">
+    <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Add Bachelor">
     </form>
-
 
     <div id="search_div">
         <fieldset style="width:600px">
-            <h2 align="center">SEARCH MEMBER</h2>
+            <h2 align="center">SEARCH BACHELOR</h2>
 
             <form action="" method="post">
                 <table align="center">
@@ -67,8 +66,6 @@
                         echo    "<td>".$row["gender"]."</td>";
                         echo    "<td>".$row["email"]."</td>";
                         echo    "<td>".$row["phone"]."</td>";
-                        // echo    '<td><button name="updateBtn" value="Update" class="updateBtn" onclick="hideDiv()" >Update</button></td>';
-                        // echo    '<td><span><input type="submit" name="deleteBtn" value="Delete" ></span></td>';
                             echo "</tr>";
                         
                      }
@@ -76,14 +73,15 @@
                        
                      echo "</table></td></tr>";
                     ?>
+                  
+                </table>
+
                     <tr>
                     <td colspan="2"><input type="submit" class="deleteBtn" id="deleteBtn" name="deleteBtn" value="Delete"></td>
                     </tr>
-                </table>
-
-
             </form>
             <button name="updateBtn" value="Update" class="updateBtn" id="updateBtn" onclick="hideDiv()" >Update</button>
+            
         </fieldset>
     </div>
 
@@ -129,6 +127,7 @@
                         <span><?php echo $err_pass; ?></span>
                     </td>
                 </tr>
+                
                 <tr>
                     <td><span>Gender<span></td>
                 </tr>

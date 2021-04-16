@@ -1,5 +1,5 @@
 <?php
-	   include "Controller/searchflatvalidation.php";
+	   include "Controller/searchhousevalidation.php";
 ?>
 <html >
 
@@ -7,13 +7,12 @@
 <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
-<form action="homepageadmin.php">
-    <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Go-Back">
-    </form>
 <div class="topnav">
-           <p style="text-align:center;"><input type="text" " value="<?php echo $search;?>" placeholder="Search"><input type="submit" class="search" name="Search" value="Search"> </p>
+      <a href=http://localhost/homepage/searchflat.php>Search Flat</a>
+	  <a href=http://localhost/homepage/searchhouse.php>Search House</a>
+	  <a href=http://localhost/homepage/search.php>Search Tenants</a>
+	  <a href=http://localhost/homepage/search.php>Search Landlords</a>
     </div>
-    
 
     <div class="roommate-search-div">
     
@@ -96,7 +95,7 @@
                ";
 	 
 				if($result){ 
-                foreach($result as $row) {
+       foreach($result as $row) {
 
 
                 echo
@@ -119,7 +118,7 @@
           echo '</table></td></tr>';
             }	  
 	  ?>
-	  <p style="text-align:center">
+	  <p style="text-align:ce
 	  
 	  </div>
      </p>
