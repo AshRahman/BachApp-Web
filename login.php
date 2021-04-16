@@ -1,9 +1,5 @@
 <?php
     include "Controller/loginValidation.php";
-
-
-
-
 ?>
 
 
