@@ -35,7 +35,7 @@
        
         $hasError = false;
 
-        include "Models/db_config.php";
+        include "Model/db_config.php";
 
 
         if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -323,38 +323,12 @@
             if($hasError == false && isset($_POST["submit"]))
             {
                 
-                $query="insert into bachelorsignup (firstname,lastname,username,email,password,gender,phone) values ('$fname','$lname','$uname','$mail','$pass','$gender','$phone')";
+                $query="INSERT into bachelorsignup (firstname,lastname,username,email,password,gender,phone) values ('$fname','$lname','$uname','$mail','$pass','$gender','$phone')";
                 $result = execute($query);
 
 
-                $fname="";
-                $err_fname="";
-        
-                $lname="";
-                $err_lname="";
-        
-                $uname="";
-                $err_uname="";
-        
-                $pass="";
-                $err_pass="";
-        
-                $err_upass="";
-                $err_lpass="";
-                $err_npass="";
-                $err_spass="";
-        
-                $cpass="";
-                $err_cpass="";
-        
-                $gender="";
-                $err_gender="";
-        
-                $mail="";
-                $err_mail="";
-        
-                $phone="";
-                $err_phone="";
+                header("Location:homepagetenant.php");
+
                 
             }
         }   
