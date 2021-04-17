@@ -1,5 +1,9 @@
 <?php
+
+
+
 include "Controller/crudaddflatvalidation.php";
+
 ?>
 
 
@@ -97,6 +101,7 @@ include "Controller/crudaddflatvalidation.php";
 						  <td>' . $row["Size"] . '</td>
 						  <td>' . $row["Contact"] . '</td>
                           <td>  <a href="http://localhost/BachApp-Web/crudupdateflat.php?id='. $row["ID"].'"> EDIT</a></td>
+						  <td> <a href="http://localhost/BachApp-Web/cruddeleteflat.php?id='. $row["ID"].'"> DELETE</a></td>
                         </tr>
                       </tbody>';
 
