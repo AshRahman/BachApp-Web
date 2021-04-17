@@ -8,6 +8,9 @@ var contact_number=document.getElementById("contact_number");
 function hasWhiteSpace(s) {
     return s.indexOf(' ') >= 0;
   }
+  function hasAttherate(s) {
+    return s.indexOf('@') >= 0;
+  }
 
   function hasSpecialChar(s) {
     if(s.indexOf('@') >= 0 ||s.indexOf("#") >=0){
@@ -119,6 +122,10 @@ function validate(){
     if(email.value==""){
         document.getElementById("err_email").innerHTML="*Email is required";
         hasError=true; 
+    }
+    else if(!hasAttherate(email.value)){
+        document.getElementById("err_email").innerHTML="*Email must contain @";
+        hasError=true;
     }
     else if(!validateEmail(email.value)){
         document.getElementById("err_email").innerHTML="*Email is invalid";
