@@ -47,7 +47,7 @@ if (!isset($_SESSION["user_type"])) {
                     </tr>
                     <tr>
 
-                        <td><input type="text" id="user_name" name="user_name" value="<?php echo $user_name; ?>" placeholder="<?php echo $user_name; ?>">
+                        <td><input type="text" id="user_name" name="user_name" onfocusout="checkUsername(this)" value="<?php echo $user_name; ?>" placeholder="<?php echo $user_name; ?>">
                             <span id="err_user_name"><?php echo $err_user_name; ?></span></br>
                         </td>
 
@@ -65,8 +65,8 @@ if (!isset($_SESSION["user_type"])) {
                         <td><span>Gender<span></td>
                     </tr>
                     <tr>
-                        <td><input type="radio" id="gender" name="gender" value="Male">Male
-                            <input type="radio" id="gender" name="gender" value="Female">Female
+                        <td><input type="radio" id="gender1" name="gender" value="Male">Male
+                            <input type="radio" id="gender2" name="gender" value="Female">Female
                             <span id="err_gender"><?php echo $err_gender; ?></span>
                         </td>
 
@@ -76,7 +76,7 @@ if (!isset($_SESSION["user_type"])) {
                         <td><span>E-mail</span></td>
                     </tr>
                     <tr>
-                        <td><input type="text" id="email" name="email" value="<?php echo $email; ?>">
+                        <td><input type="text" id="email" name="email" onfocusout="checkEmail(this)" value="<?php echo $email; ?>">
                             <span id="err_email"><?php echo $err_email; ?></span>
                         </td>
                     </tr>
@@ -98,6 +98,49 @@ if (!isset($_SESSION["user_type"])) {
             </form>
         </div>
 </body>
-<script src="JS/adminValidation.js"></script>
+<script src="JS/adminValidation.js"> 
+</script>
+
+<script>
+function checkUsername(user_name){
+    //alert(user_name.value);
+  var user_name=user_name.value;
+  var xHttp= new XMLHttpRequest();
+  xHttp.onreadystatechange=function(){
+      if(xHttp.readyState==4 && xHttp.status==200){
+        var rs= xHttp.responseText;
+        if(rs==="true"){
+            document.getElementById("err_user_name").innerHTML="";
+        }
+        else{
+            document.getElementById("err_user_name").innerHTML="Not a valid user";
+        }
+      }
+  };
+  xHttp.open("GET","checkUsernameB.php?user_name="+user_name,true);
+  xHttp.send();
+}
+function checkEmail(email){
+    //alert(email.value);
+    var email=email.value;
+    var xHttp= new XMLHttpRequest();
+    xHttp.onreadystatechange=function(){
+        if(xHttp.readyState==4 && xHttp.status==200){
+          var rs= xHttp.responseText;
+      
+          if(rs==="true"){
+              document.getElementById("err_email").innerHTML="";
+          }
+          else{
+              document.getElementById("err_email").innerHTML="Email already registered";
+          }
+        }
+    };
+    xHttp.open("GET","checkEmailB.php?email="+email,true);
+    xHttp.send();
+  }
+
+
+  </script>
 
 </html>

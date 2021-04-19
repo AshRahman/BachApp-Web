@@ -1,7 +1,8 @@
 var names = document.getElementById("name");
 var user_name = document.getElementById("user_name");
 var pass = document.getElementById("pass");
-var gender = document.getElementById("gender");
+var gender1 = document.getElementById("gender1");
+var gender2 = document.getElementById("gender2");
 var email = document.getElementById("email");
 var contact_number = document.getElementById("contact_number");
 
@@ -108,7 +109,15 @@ function validate() {
   }
 
   //gender checking
-  if (!gender.checked) {
+  if (gender1.checked) {
+    //document.getElementById("err_gender").innerHTML = "*Gender is required";
+    hasError = false;
+  }
+  else if (gender2.checked) {
+    //document.getElementById("err_gender").innerHTML = "*Gender is required";
+    hasError = false;
+  }
+  else {
     document.getElementById("err_gender").innerHTML = "*Gender is required";
     hasError = true;
   }
@@ -174,3 +183,4 @@ function validateSearch() {
 
   return !hasError;
 }
+

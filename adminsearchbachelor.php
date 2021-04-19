@@ -132,8 +132,8 @@
                     <td><span>Gender<span></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" id="gender" name="gender" value="Male">Male
-                        <input type="radio" id="gender" name="gender" value="Female">Female
+                    <td><input type="radio" id="gender1" name="gender" value="Male">Male
+                        <input type="radio" id="gender2" name="gender" value="Female">Female
                         <span id="err_gender"><?php echo $err_gender; ?></span>
                     </td>
 

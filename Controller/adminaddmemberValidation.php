@@ -178,3 +178,25 @@ if (isset($_POST["add-Btn"])) {
         }
     }
 }
+function checkUsername($user_name){
+    $query= "SELECT * FROM users WHERE username='$user_name'";
+    $result=get($query);
+    if($result){
+        return false;
+    }
+    else{
+    return true;
+}
+}
+function checkEmail($email){
+    $query= "SELECT * FROM users WHERE email='$email'";
+    $results=get($query);
+    if($results){
+        return false;
+    }
+    else{
+    return true;
+}
+}
+
+?>
