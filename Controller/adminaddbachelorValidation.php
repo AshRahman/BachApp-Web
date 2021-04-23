@@ -151,8 +151,10 @@ if (isset($_POST["add-Btn"])) {
 
 
         if (!$hasError) {
-            $query = "INSERT INTO bachelor (id, name, username, password, gender, email, phone) VALUES (NULL, '$name', '$user_name', '$pass', '$gender', '$email', '$contact_number');";
-            $result = execute($query);
+            $query = "INSERT INTO tenant(id, name, username, password, gender, email, phone) VALUES (NULL, '$name', '$user_name', '$pass', '$gender', '$email', '$contact_number');";
+            $logQuery="INSERT INTO login(username, password, isAdmin, isLandlord) VALUES ('$user_name','$pass','0','0')";
+            execute($query);
+            execute($logQuery);
 
 
             $name = "";
@@ -179,7 +181,7 @@ if (isset($_POST["add-Btn"])) {
     }
 }
 function checkUsername($user_name){
-    $query= "SELECT * FROM bachelor WHERE username='$user_name'";
+    $query= "SELECT * FROM tenant WHERE username='$user_name'";
     $result=get($query);
     if($result){
         return false;
@@ -189,7 +191,7 @@ function checkUsername($user_name){
 }
 }
 function checkEmail($email){
-    $query= "SELECT * FROM bachelor WHERE email='$email'";
+    $query= "SELECT * FROM tenant WHERE email='$email'";
     $results=get($query);
     if($results){
         return false;

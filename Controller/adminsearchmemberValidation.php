@@ -151,7 +151,7 @@ if (isset($_POST["saveBtn"])) {
 
 
         if (!$hasError) {
-            $query = "UPDATE users SET username='$user_name', name='$name',password='$pass', gender='$gender',email='$email',phone='$contact_number' WHERE username='$user_name'";
+            $query = "UPDATE landlord SET username='$user_name', name='$name',password='$pass', gender='$gender',email='$email',phone='$contact_number' WHERE username='$user_name'";
             execute($query);
         }
     }
@@ -173,7 +173,7 @@ if (isset($_POST["searchBtn"])) {
             $user_name = htmlspecialchars($_POST["user_name"]);
         }
         if (!$hasErrorsearch) {
-            $query = "SELECT * from users where username='$user_name'";
+            $query = "SELECT * from landlord where username='$user_name'";
             $result = get($query);
             foreach ($result as $rows) {
 
@@ -200,7 +200,7 @@ if (isset($_POST["deleteBtn"])) {
     } else {
         $user_name = htmlspecialchars($_POST["user_name"]);
     }
-    $del_query = "DELETE FROM users WHERE username='$user_name'";
+    $del_query = "DELETE FROM landlord WHERE username='$user_name'";
     echo $user_name;
     execute($del_query);
     echo "deleted successfully";
