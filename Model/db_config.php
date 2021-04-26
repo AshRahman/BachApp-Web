@@ -2,7 +2,7 @@
     $db_server="localhost";
     $db_user="root";
     $db_password="";
-    $db_name="dummy";
+    $db_name="houserent";
     function execute($query){
         global $db_server,$db_user,$db_password,$db_name;
         $conn=mysqli_connect($db_server,$db_user,$db_password,$db_name);
@@ -19,6 +19,15 @@
             }
         
         return $data;
+    }
+
+    function getUser($query){
+        global $db_server,$db_user,$db_password,$db_name;
+        $conn=mysqli_connect($db_server,$db_user,$db_password,$db_name);
+        $result=mysqli_query($conn,$query);
+        
+        
+        return $result;
     }
     
     

@@ -1,8 +1,8 @@
 <?php
        
        include "Model/db_config.php";
-       session_start();
-       $_SESSION["loggedInUser"]="Galactico";
+    //    session_start();
+    //    $_SESSION["loggedInUser"]="Galactico";
 
         $id="";
         $loggedInUser=$_SESSION["loggedInUser"];
