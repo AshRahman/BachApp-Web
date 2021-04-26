@@ -1,11 +1,12 @@
 <?php
        
-       
-        $fname="";
-        $err_fname="";
+       include "Model/db_config.php";
 
-        $lname="";
-        $err_lname="";
+        $name="";
+        $err_name="";
+
+        // $lname="";
+        // $err_lname="";
 
         $uname="";
         $err_uname="";
@@ -35,58 +36,58 @@
        
         $hasError = false;
 
-        include "Model/db_config.php";
+       
 
 
         if($_SERVER["REQUEST_METHOD"]=="POST")
         {
-//FIRST_NAME VALIDATION
-            if(empty($_POST["fname"]))
+//NAME VALIDATION
+            if(empty($_POST["name"]))
             {
-                $err_fname="First Name required";
+                $err_name="Name required";
                 $hasError = true;
             }
             
             else
             {   
-                $fname=htmlspecialchars($_POST["fname"]);
+                $name=htmlspecialchars($_POST["name"]);
             }
            
-            $fv=$_POST["fname"];
+            $fv=$_POST["name"];
             for($i=0;$i<strlen($fv);$i++)
             {
                 if(is_numeric($fv[$i]))
                 {
                   $fv=true;
-                  $err_fname="First Name should not contain Numbers";
+                  $err_name="Name should not contain Numbers";
                   $hasError = true;
                   break;
                 }
             }
 
-//LAST_NAME VALIDATION
-            if(empty($_POST["lname"]))
-            {
-                $err_lname="Last Name required";
-                $hasError = true;
-            }
+// //LAST_NAME VALIDATION
+//             if(empty($_POST["lname"]))
+//             {
+//                 $err_lname="Last Name required";
+//                 $hasError = true;
+//             }
             
-            else
-            {   
-                $lname=htmlspecialchars($_POST["lname"]);
-            }
+//             else
+//             {   
+//                 $lname=htmlspecialchars($_POST["lname"]);
+//             }
             
-            $lv=$_POST["lname"];
-            for($i=0;$i<strlen($lv);$i++)
-            {
-                if(is_numeric($lv[$i]))
-                {
-                  $lv=true;
-                  $err_lname="Last Name should not contain Numbers";
-                  $hasError = true;
-                  break;
-                }
-            }
+//             $lv=$_POST["lname"];
+//             for($i=0;$i<strlen($lv);$i++)
+//             {
+//                 if(is_numeric($lv[$i]))
+//                 {
+//                   $lv=true;
+//                   $err_lname="Last Name should not contain Numbers";
+//                   $hasError = true;
+//                   break;
+//                 }
+//             }
 
 //USERNAME VALIDATION
             if(empty($_POST["uname"]))
@@ -168,7 +169,7 @@
             }
             else if(strlen($_POST["pass"])<8)
             {
-                $err_pass="Password must contain more than 6 characters";
+                $err_pass="Password must contain more than 8 characters";
                 $hasError = true;
             }
             else if(strpos($_POST["pass"]," "))
@@ -284,18 +285,21 @@
 
        
 
-            if($hasError == false && isset($_POST["submit"]))
+            if($hasError == false && isset($_POST["signupBtn"]))
             {
                 
-                $query="insert into bachelorsignup (firstname,lastname,username,email,password,gender,phone) values ('$fname','$lname','$uname','$mail','$pass','$gender','$phone')";
-                $result = execute($query);
+                $query="insert into tenant (name,username,email,password,gender,phone) values ('$name','$uname','$mail','$pass','$gender','$phone')";
+                $query1="INSERT INTO login (username,password,isAdmin,isLandlord) VALUES ('$uname','$pass','0','0')";
+                execute($query);
+                execute($query1);
 
 
-                $fname="";
-                $err_fname="";
+
+                $name="";
+                $err_name="";
         
-                $lname="";
-                $err_lname="";
+                // $lname="";
+                // $err_lname="";
         
                 $uname="";
                 $err_uname="";
@@ -319,13 +323,23 @@
         
                 $phone="";
                 $err_phone="";
+
+                header("Location:logintenant.php");
                 
             }
         }   
-        
-
-       
- ?>
     
+    
+        function checkUsername($user_name){
+            $query= "SELECT * FROM tenant WHERE username='$user_name'";
+            $result=get($query);
+            if($result){
+                return false;
+            }
+            else{
+            return true;
+        }
+        }
 
 
+?>
