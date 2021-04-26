@@ -1,4 +1,7 @@
 <?php
+
+        include "Model/db_config.php";
+
         $card="";
         $err_card="";
 
@@ -101,7 +104,7 @@
 //CARD SELECTION VALIDATION
             if(empty($_POST["card"]))
             {
-                $err_card="*Card must be selected";
+                $err_card="Card must be selected";
                 $hasError = true;
             }
             else
@@ -139,9 +142,9 @@
                 $err_scode="Enter Security Code";
                 $hasError = true;
             }
-            else if(strlen($_POST["scode"])>=6)
+            else if(strlen($_POST["scode"])<6)
             {
-                $err_scode="Security code should contain 4 to 6 digits ";
+                $err_scode="Security code should contain 6 digits ";
                 $hasError = true;
             }
             else if(strpos($_POST["scode"]," "))
@@ -182,7 +185,12 @@
                   break;
                 }
             }
-           
+           if($hasError==false){
+        
+            $query="INSERT INTO payment_detail (cardtype, name, cardnumber, scode, amount) VALUES ('$card','$name','$cnum','$scode','$amount')";
+            execute($query);
+        }
+
         
         }
     ?>

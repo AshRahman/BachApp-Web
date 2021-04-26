@@ -1,56 +1,81 @@
 <?php
+include "Controller/bachelorEditController.php";
+include 'main_header.php';
 
-    include 'main_header.php';
-    require_once"Models/db_config.php";
+if (!isset($_SESSION["loggedInUser"])) {
+    header("Location:userError.php");
+}
 
-    $query = "Select * from bachelorsignup where username='labib3435'";
-    $result = get($query);
 ?>
 
 <html>
+
 <body>
-<div id="tview-div">
-<fieldset  style="width:1316px;height:615px">
-    <h1 align="center">Profile</h1><br><br><br>
-    <form action="" method="post">
-        <table align="center" border="4" >
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>User Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Gender</th>
-                <th>Phone</th>
-            </tr>
-                <?php
-                    foreach($result as $row){
-                        echo "<tr>";
-                            echo "<td>".$row["firstname"]."</td>";
-                            echo "<td>".$row["lastname"]."</td>";
-                            echo "<td>".$row["username"]."</td>";
-                            echo "<td>".$row["email"]."</td>";
-                            echo "<td>".$row["password"]."</td>";
-                            echo "<td>".$row["gender"]."</td>";
-                            echo "<td>".$row["phone"]."</td>";
-                        echo "</tr>";
-                    }
-                ?>
- 
-        </table><br>
 
-        <p align="center">
-        <span><input type="submit" name= "submit" value="Edit Profile" class="btn btn-success" ></span>
-        </p>                    
+    <div id="tedit-div"><br><br><br>
+        <h1 align="center"><br>Edit Profile</h1><br>
 
 
-    </form>
-</fieldset>
-</div>
+        <form action="" onsubmit="return validate()" method="post">
+            <table align="center">
+                <tr>
+                    <td><span>Name:</span></td>
+                    <td><input type="text" id="name" name="name" value="<?php echo $name; ?>" placeholder="<?php echo $name; ?>">
+                        <span id="err_name"><?php echo $err_name; ?></span>
+                    </td>
+                </tr>
 
-<div id="tedit-div">
 
-</div>
+
+                <tr>
+                    <td><br><span>Username:</span></td>
+                    <td><br><input type="text" id="uname" name="uname" value="<?php echo $uname; ?>" placeholder="<?php echo $uname; ?>" readonly>
+                        <span id="err_uname"><?php echo $err_uname; ?></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><br><span>Email:</span></td>
+                    <td><br><input type="text" id="email" name="mail" value="<?php echo $mail; ?>" placeholder="<?php echo $mail; ?>">
+                        <span id="err_email"><?php echo $err_mail; ?></span>
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td><br><span>Gender</span></td>
+                    <td><br>: <input type="radio" id="gender1" name="gender" value="male">Male
+                        <input type="radio" id="gender2" name="gender" value="female">Female
+                        <span id="err_gender"><?php echo $err_gender; ?></span>
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td><br><span>Phone:</span></td>
+                    <td><br><input type="text" id="contact_number" name="phone" value="<?php echo $phone; ?>" placeholder="<?php echo $phone; ?>">
+                        <span id="err_contact_number"><?php echo $err_phone; ?></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="3" align="center"><br><span><input type="submit" name="saveBtn" value="Save" class="btn btn-success"></span></td>
+                </tr>
+
+
+
+            </table>
+
+        </form>
+    </div>
+
+
 
 </body>
+
+<script src="JS/bachelorProfileView.js"></script>
+
 </html>
