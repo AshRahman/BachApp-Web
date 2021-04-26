@@ -5,11 +5,11 @@
        session_start();
        $loggedInUser=$_SESSION["loggedInUser"];
        
-        $fname="";
-        $err_fname="";
+        $name="";
+        $err_name="";
 
-        $lname="";
-        $err_lname="";
+        // $lname="";
+        // $err_lname="";
 
         $uname="";
         $err_uname="";
@@ -34,20 +34,17 @@
         $phone="";
         $err_phone="";
 
-        
 
-        // $nid="";
-       // $err_nid="";
        
         $hasError = false;
        
 
-        $query = "Select * from bachelorsignup where username='$loggedInUser'";
+        $query = "Select * from tenant where username='$loggedInUser'";
         $result = get($query);
         foreach($result as $rows)
         {
-          $fname= $rows["firstname"];
-          $lname= $rows["lastname"];
+          $name= $rows["name"];
+        //   $lname= $rows["lastname"];
           $uname= $rows["username"];
           $mail= $rows["email"];
           //$pass= $rows["password"];
@@ -75,53 +72,31 @@
 if(isset($_POST["saveBtn"])){
         if($_SERVER["REQUEST_METHOD"]=="POST")
         {
-//FIRST_NAME VALIDATION
-            if(empty($_POST["fname"]))
+//NAME VALIDATION
+            if(empty($_POST["name"]))
             {
-                $err_fname="First Name required";
+                $err_name="Name required";
                 $hasError = true;
             }
             
             else
             {   
-                $fname=htmlspecialchars($_POST["fname"]);
+                $name=htmlspecialchars($_POST["name"]);
             }
            
-            $fv=$_POST["fname"];
+            $fv=$_POST["name"];
             for($i=0;$i<strlen($fv);$i++)
             {
                 if(is_numeric($fv[$i]))
                 {
                   $fv=true;
-                  $err_fname="First Name should not contain Numbers";
+                  $err_name="Name should not contain Numbers";
                   $hasError = true;
                   break;
                 }
             }
 
-//LAST_NAME VALIDATION
-            if(empty($_POST["lname"]))
-            {
-                $err_lname="Last Name required";
-                $hasError = true;
-            }
-            
-            else
-            {   
-                $lname=htmlspecialchars($_POST["lname"]);
-            }
-            
-            $lv=$_POST["lname"];
-            for($i=0;$i<strlen($lv);$i++)
-            {
-                if(is_numeric($lv[$i]))
-                {
-                  $lv=true;
-                  $err_lname="Last Name should not contain Numbers";
-                  $hasError = true;
-                  break;
-                }
-            }
+
 
 //USERNAME VALIDATION
             if(empty($_POST["uname"]))
@@ -209,7 +184,7 @@ if(isset($_POST["saveBtn"])){
             if(!$hasError)
             {
                 
-                $query="UPDATE bachelorsignup SET firstname='$fname',lastname='$lname',username='$uname',email='$mail',gender='$gender',phone='$phone' WHERE username='$uname'";
+                $query="UPDATE tenant SET  name='$name',username='$uname',email='$mail',gender='$gender',phone='$phone' WHERE username='$uname'";
                 execute($query);
                 header("Location:homepagetenant.php");
 
