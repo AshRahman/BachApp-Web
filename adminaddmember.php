@@ -44,7 +44,7 @@
                 </tr>
                 <tr>
 
-                    <td><input type="text" id="user_name" name="user_name" value="<?php echo $user_name; ?>" placeholder="<?php echo $user_name; ?>">
+                    <td><input type="text" id="user_name" name="user_name" onfocusout="checkUsername(this)" value="<?php echo $user_name; ?>" placeholder="">
                         <span id="err_user_name"><?php echo $err_user_name; ?></span></br>
                     </td>
 
@@ -54,7 +54,7 @@
                     <td><span>Password</span></td>
                 </tr>
                 <tr>
-                    <td><input type="password" id="pass" name="pass" value="<?php echo $pass; ?>" placeholder="<?php echo $pass; ?>">
+                    <td><input type="password" id="pass" name="pass" value="<?php echo $pass; ?>" placeholder="">
                         <span id="err_pass"><?php echo $err_pass; ?></span>
                     </td>
                 </tr>
@@ -62,8 +62,8 @@
                     <td><span>Gender<span></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" id="gender" name="gender" value="Male">Male
-                        <input type="radio" id="gender" name="gender" value="Female">Female
+                    <td><input type="radio" id="gender1" name="gender" value="Male">Male
+                        <input type="radio" id="gender2" name="gender" value="Female">Female
                         <span id="err_gender"><?php echo $err_gender; ?></span>
                     </td>
 
@@ -73,7 +73,7 @@
                     <td><span>E-mail</span></td>
                 </tr>
                 <tr>
-                    <td><input type="text" id="email" name="email" value="<?php echo $email; ?>" >
+                    <td><input type="text" id="email" name="email" onfocusout="checkEmail(this)" value="<?php echo $email; ?>" >
                         <span id="err_email"><?php echo $err_email; ?></span>
                     </td>
                 </tr>
@@ -97,4 +97,45 @@
     </div>
 </body>
 <script src="JS/adminValidation.js"></script>
+<script>
+function checkUsername(user_name){
+    //alert(user_name.value);
+  var user_name=user_name.value;
+  var xHttp= new XMLHttpRequest();
+  xHttp.onreadystatechange=function(){
+      if(xHttp.readyState==4 && xHttp.status==200){
+        var rs= xHttp.responseText;
+        if(rs==="true"){
+            document.getElementById("err_user_name").innerHTML="";
+        }
+        else{
+            document.getElementById("err_user_name").innerHTML="Username Already taken";
+        }
+      }
+  };
+  xHttp.open("GET","checkUsernameL.php?user_name="+user_name,true);
+  xHttp.send();
+}
+function checkEmail(email){
+    
+  var email=email.value;
+  var xHttp= new XMLHttpRequest();
+  xHttp.onreadystatechange=function(){
+      if(xHttp.readyState==4 && xHttp.status==200){
+        var rs= xHttp.responseText;
+    
+        if(rs==="true"){
+            document.getElementById("err_email").innerHTML="";
+        }
+        else{
+            document.getElementById("err_email").innerHTML="Email already registered";
+        }
+      }
+  };
+  xHttp.open("GET","checkEmail.php?email="+email,true);
+  xHttp.send();
+}
+
+  </script>
+ 
 </html>

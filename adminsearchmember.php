@@ -43,12 +43,16 @@
 
                     <tr>
                         <td><span>Username:</span></td>
-                        <td><input type="text" id="user_name" name="user_name" value="<?php echo $user_name; ?>" placeholder="Username">
+                        <td><input type="text" id="user_name" name="user_name" onkeyup="suggest(this)" value="<?php echo $user_name; ?>" placeholder="Username">
                         <span id="err_user_name"><?php echo $err_user_name; ?></span></br>
                     </td>
                         <td colspan="3" align="center"><span><button id="searchBtn" name="searchBtn"
                                     value="Search">Search</button></span></td>
                     </tr>
+                    <div id="">
+                    <p id="suggestion">
+                    </p>
+                    </div>
                     <?php
                         echo "<tr><td>
                         <table>
@@ -133,8 +137,8 @@
                     <td><span>Gender<span></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" id="gender" name="gender" value="Male">Male
-                        <input type="radio" id="gender" name="gender" value="Female">Female
+                    <td><input type="radio" id="gender1" name="gender" value="Male">Male
+                        <input type="radio" id="gender2" name="gender" value="Female">Female
                         <span id="err_gender"><?php echo $err_gender; ?></span>
                     </td>
 
@@ -170,6 +174,19 @@
 
     <script src="JS/App.js"></script>
     <script src="JS/adminValidation.js"></script>
+    <!-- <script>
+        function suggest(control){
+            var key = control.value;
+            var xHttp = new XMLHttpRequest();
+            xHttp.onreadystatechange=function(){
+                if(this.readyState==4  &&  this.status==200){
+                    document.getElementById("suggestion").innerHTML=this.responseText;
+                }
+            };
+            xHttp.open("GET","searchMemberUname.php?key="+key,true);
+            xHttp.send();
+        }
+    </script> -->
 </body>
 
 </html>

@@ -1,3 +1,7 @@
+<?php
+
+include "Controller/logoutValidation.php";
+?>
 <html>
 
 	<head>
@@ -8,8 +12,10 @@
 		<div class="header-index">
 			
 			<div class="pull-right">
-				<a class="btn btn-success" href="index.php">Home</a>
-				<a class="btn btn-danger" href="login.php">Login</a>	
+			<a class="btn btn-success" href=http://localhost/BachApp-Web/homepagetenant.php>Home</a>
+			<form action="" method="post">
+        <input type="submit" class="btn btn-danger" name="logoutBtn" value="Log-out"> 
+        </form> 
 			</div>
 		</div>
 		
