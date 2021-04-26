@@ -204,9 +204,11 @@ if(isset($_POST["signup"])){
     if($hasError === false)
             {
                
-                $query="INSERT INTO `landlord`(`username`, `name`, `password`, `gender`, `email`, `phone`) VALUES ('$user_name','$your_name','$pass','$gender','$email','$contact_number')";
-                //$query="insert into property (username,email,phone,floor,flat,gender,rent,address,image) values ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img')";
+                $query="INSERT INTO landlord (`username`, `name`, `password`, `gender`, `email`, `phone`) VALUES ('$user_name','$your_name','$pass','$gender','$email','$contact_number')";
+                $logquery="INSERT INTO `login`(`username`, `password`, `isAdmin`, `isLandlord`) VALUES ('$user_name','$pass','0','1')";
                 execute($query);
+                execute($logquery);
+
                 
                 
             }

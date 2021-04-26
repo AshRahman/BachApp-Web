@@ -6,7 +6,7 @@ require_once"Model/db_config.php";
 //     $_SESSION["loggedInUser"]="tk7";
 
 $id="";
-$loggedInUser=$_SESSION["loggedInUser"];
+$loggedInUser=$_SESSION["user_name"];
 
 $your_name = "";
 $err_your_name = "";

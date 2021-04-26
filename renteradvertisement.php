@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-if(!isset($_SESSION["loggedInUser"])){
+if(!isset($_SESSION["user_type"])){
     header("Location:userError.php");
 }
     require_once "Controller/houserentController.php";
