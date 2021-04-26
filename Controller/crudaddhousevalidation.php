@@ -79,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   if(!$hasError){
     $insert_query = "insert into house values ('$id','$owner','$price','$location','$size','$contact')";
     
-    if(execute($inset_query)){
+    if(execute($insert_query)){
         echo "house added";
         
 $id="";

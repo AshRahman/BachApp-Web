@@ -1,5 +1,11 @@
 <?php
 include "Controller/crudaddhousevalidation.php";
+
+session_start();
+	if(!isset($_SESSION["user"])){
+		header("Location: loginadmin.php");
+	}
+
 ?>
 
 
@@ -97,6 +103,7 @@ include "Controller/crudaddhousevalidation.php";
 						  <td>' . $row["Size"] . '</td>
 						  <td>' . $row["Contact"] . '</td>
                           <td>  <a href="http://localhost/BachApp-Web/crudupdatehouse.php?id='. $row["ID"].'"> EDIT</a></td>
+						  <td> <a href="http://localhost/BachApp-Web/cruddeletehouse.php?id='. $row["ID"].'"> DELETE</a></td>
                         </tr>
                       </tbody>';
 

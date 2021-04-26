@@ -38,17 +38,21 @@
         <fieldset style="width:600px">
             <h2 align="center">SEARCH MEMBER</h2>
 
-            <form action="" method="post">
+            <form action="" onsubmit="return validateSearch()" method="post">
                 <table align="center">
 
                     <tr>
                         <td><span>Username:</span></td>
-                        <td><input type="text" name="user_name" value="<?php echo $user_name; ?>" placeholder="Username">
-                        <span><?php echo $err_user_name; ?></span></br>
+                        <td><input type="text" id="user_name" name="user_name" onkeyup="suggest(this)" value="<?php echo $user_name; ?>" placeholder="Username">
+                        <span id="err_user_name"><?php echo $err_user_name; ?></span></br>
                     </td>
                         <td colspan="3" align="center"><span><button id="searchBtn" name="searchBtn"
                                     value="Search">Search</button></span></td>
                     </tr>
+                    <div id="">
+                    <p id="suggestion">
+                    </p>
+                    </div>
                     <?php
                         echo "<tr><td>
                         <table>
@@ -97,15 +101,15 @@
         else{echo "display:none";}?>>
         <h1 align="center">Edit Profile</h1>
 
-        <form action="" method="post">
+        <form action="" onsubmit="return validate()" method="post">
             <table align="center">
                 <tr>
                     <td><span>Name</span></td>
                 </tr>
                 <tr>
 
-                    <td><input type="text" name="name" value="<?php echo $name; ?>" placeholder="<?php echo $name; ?>">
-                        <span><?php echo $err_name; ?></span></br>
+                    <td><input type="text" id="name" name="name" value="<?php echo $name; ?>" placeholder="<?php echo $name; ?>">
+                        <span id="err_name"><?php echo $err_name; ?></span></br>
                     </td>
 
                 </tr>
@@ -115,8 +119,8 @@
                 </tr>
                 <tr>
 
-                    <td><input type="text" name="user_name" value="<?php echo $user_name; ?>" placeholder="<?php echo $user_name; ?>">
-                        <span><?php echo $err_user_name; ?></span></br>
+                    <td><input type="text" id="user_name" name="user_name" value="<?php echo $user_name; ?>" placeholder="<?php echo $user_name; ?>">
+                        <span id="err_user_name"><?php echo $err_user_name; ?></span></br>
                     </td>
 
                 </tr>
@@ -125,17 +129,17 @@
                     <td><span>Password</span></td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="pass" value="<?php echo $pass; ?>" placeholder="<?php echo $pass; ?>">
-                        <span><?php echo $err_pass; ?></span>
+                    <td><input type="password" id="pass" name="pass" value="<?php echo $pass; ?>" placeholder="<?php echo $pass; ?>">
+                        <span id="err_pass"><?php echo $err_pass; ?></span>
                     </td>
                 </tr>
                 <tr>
                     <td><span>Gender<span></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="gender" value="Male">Male
-                        <input type="radio" name="gender" value="Female">Female
-                        <span><?php echo $err_gender; ?></span>
+                    <td><input type="radio" id="gender1" name="gender" value="Male">Male
+                        <input type="radio" id="gender2" name="gender" value="Female">Female
+                        <span id="err_gender"><?php echo $err_gender; ?></span>
                     </td>
 
                 </tr>
@@ -144,8 +148,8 @@
                     <td><span>E-mail</span></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="email" value="<?php echo $email; ?>" >
-                        <span><?php echo $err_email; ?></span>
+                    <td><input type="text" id="email" name="email" value="<?php echo $email; ?>" >
+                        <span id="err_email"><?php echo $err_email; ?></span>
                     </td>
                 </tr>
                 <tr>
@@ -153,9 +157,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="contact_number" value="<?php echo $contact_number; ?>"
+                        <input type="text" id="contact_number" name="contact_number" value="<?php echo $contact_number; ?>"
                             placeholder="<?php echo $contact_number; ?>">
-                        <span><?php echo $err_contact_number; ?></span>
+                        <span id="err_contact_number"><?php echo $err_contact_number; ?></span>
                     </td>
                 </tr>
              
@@ -169,6 +173,20 @@
 
 
     <script src="JS/App.js"></script>
+    <script src="JS/adminValidation.js"></script>
+    <!-- <script>
+        function suggest(control){
+            var key = control.value;
+            var xHttp = new XMLHttpRequest();
+            xHttp.onreadystatechange=function(){
+                if(this.readyState==4  &&  this.status==200){
+                    document.getElementById("suggestion").innerHTML=this.responseText;
+                }
+            };
+            xHttp.open("GET","searchMemberUname.php?key="+key,true);
+            xHttp.send();
+        }
+    </script> -->
 </body>
 
 </html>
