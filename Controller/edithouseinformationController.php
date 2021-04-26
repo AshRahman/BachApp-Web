@@ -5,7 +5,7 @@
     //    $_SESSION["loggedInUser"]="Galactico";
 
         $id="";
-        $loggedInUser=$_SESSION["loggedInUser"];
+        $loggedInUser=$_SESSION["user_name"];
 
         $user_name="";
         $err_user_name="";

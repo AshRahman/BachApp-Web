@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Login. <a href="http://localhost/BachApp-Web/loginrentar.php">Go to Sign-In page</a></h1>
+<h1>Login. <a href="http://localhost/BachApp-Web/login.php">Go to Sign-In page</a></h1>
 
     
 </body>
