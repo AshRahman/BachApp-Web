@@ -2,8 +2,8 @@
 include "Controller/bachelorEditController.php";
 include 'main_header.php';
 
-if (!isset($_SESSION["loggedInUser"])) {
-    header("Location:userError.php");
+if (!isset($_SESSION["user_type"])) {
+    header("Location:login.php");
 }
 
 ?>

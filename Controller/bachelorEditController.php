@@ -3,7 +3,7 @@
        include "Model/db_config.php";
 
        session_start();
-       $loggedInUser=$_SESSION["loggedInUser"];
+       $loggedInUser=$_SESSION["user_name"];
        
         $name="";
         $err_name="";

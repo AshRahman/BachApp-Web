@@ -9,7 +9,7 @@
 			
 			<div class="pull-right">
 			<a class="btn btn-success" href=http://localhost/BachApp-Web/homepagetenant.php>Home</a>
-				<a class="btn btn-danger" href=http://localhost/BachApp-Web/logintenant.php>Logout</a>	
+				<a class="btn btn-danger" href=http://localhost/BachApp-Web/login.php>Logout</a>	
 			</div>
 		</div>
 		

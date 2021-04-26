@@ -1,20 +1,10 @@
 <?php
-/*
-    if(isset($_POST["submit"])){
-        echo $_POST["card"]."<br>";
-        echo $_POST["name"]."<br>";
-        echo $_POST["cnum"]."<br>";
-        echo $_POST["exmonth"]."<br>";
-        echo $_POST["exyear"]."<br>";
-        echo $_POST["scode"]."<br>";
-        echo $_POST["amount"]."<br>";
-    }
-*/
-?>
-
-<?php
 include 'main_header.php';
 include 'Controller/paymentValidation.php';
+session_start();
+if (!isset($_SESSION["user_type"])) {
+    header("Location:login.php");
+}
 
 ?>
 <html>
