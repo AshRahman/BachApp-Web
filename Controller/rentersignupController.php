@@ -2,8 +2,8 @@
 
 require_once"Model/db_config.php";
 
-$name = "";
-$err_name = "";
+$your_name = "";
+$err_your_name = "";
 
 $user_name="";
 $err_user_name="";
@@ -69,26 +69,26 @@ function validateEmail($email)
 
 if(isset($_POST["signup"])){
 
-    $name = $_POST["name"];
+    $your_name = $_POST["your_name"];
     $user_name= $_POST["user_name"];
     $contact_number = $_POST["contact_number"];
 
 
 
-    if(empty($_POST["name"])) {
-        $err_name = "Please enter your first name";
+    if(empty($_POST["your_name"])) {
+        $err_your_name = "Please enter your first name";
         $hasError = true;
     }
-    elseif (strlen($_POST["name"]) < 2) {
-        $err_name = "Name must be more than 4 characters";
+    elseif (strlen($_POST["your_name"]) < 2) {
+        $err_your_name = "Name must be more than 4 characters";
         $hasError = true;
     } 
-    elseif (strpos($_POST["name"], " ")) {
-        $err_name = "Whitespace is not allowed";
+    elseif (strpos($_POST["your_name"], " ")) {
+        $err_your_name = "Whitespace is not allowed";
         $hasError = true;
     }
     else{
-        $name=htmlspecialchars($_POST["name"]);
+        $your_name=htmlspecialchars($_POST["your_name"]);
     }
 
     if (empty($_POST["user_name"])) {
@@ -204,7 +204,7 @@ if(isset($_POST["signup"])){
     if($hasError === false)
             {
                
-                $query="INSERT INTO `landlord`(`username`, `name`, `password`, `gender`, `email`, `phone`) VALUES ('$user_name','$name','$pass','$gender','$email','$contact_number')";
+                $query="INSERT INTO `landlord`(`username`, `name`, `password`, `gender`, `email`, `phone`) VALUES ('$user_name','$your_name','$pass','$gender','$email','$contact_number')";
                 //$query="insert into property (username,email,phone,floor,flat,gender,rent,address,image) values ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img')";
                 execute($query);
                 
@@ -215,5 +215,25 @@ if(isset($_POST["signup"])){
             }
 }
 
-?>
+function checkUsername($user_name){
+    $query= "SELECT * FROM landlord WHERE username='$user_name'";
+    $result=get($query);
+    if($result){
+        return false;
+    }
+    else{
+    return true;
+    }
+}
 
+function checkPhone($contact_number){
+    $query= "SELECT * FROM landlord WHERE phone='$contact_number'";
+    $result=get($query);
+    if($result){
+        return false;
+    }
+    else{
+    return true;
+    }
+}
+?>

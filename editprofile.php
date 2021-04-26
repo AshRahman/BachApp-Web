@@ -1,6 +1,10 @@
 <?php
+session_start(); 
+if(!isset($_SESSION["loggedInUser"])){
+    header("Location:userError.php");
+}
 include "Controller/editrenterprofileController.php";
-include "homepagelandlord.php";
+include "homelandlord.php";
 
 ?>
 
@@ -49,7 +53,7 @@ include "homepagelandlord.php";
 
 <div id="tedit-div">
 <h1 align="center">Edit Profile</h1>
-<form action="" method="post">
+<form action="" onsubmit="return validate()" method="post">
             <table align="center">
             <form action="" method="post">
              <table align="center">
@@ -58,8 +62,8 @@ include "homepagelandlord.php";
                 </tr>
                 <tr>
 
-                    <td><input type="text" name="name" value="<?php echo $name; ?>" placeholder="Your Name">
-                        <span><?php echo $err_name; ?></span></br>
+                    <td><input type="text" name="your_name" id="your_name" value="<?php echo $your_name; ?>" placeholder="Your Name">
+                        <span id="err_your_name"><?php echo $err_your_name; ?></span></br>
                     </td>
 
                 </tr>
@@ -69,8 +73,8 @@ include "homepagelandlord.php";
                 </tr>
                 <tr>
 
-                    <td><input type="text" name="user_name" value="<?php echo $user_name; ?>" placeholder="Username">
-                        <span><?php echo $err_user_name; ?></span></br>
+                    <td><input type="text" name="user_name" id="user_name" value="<?php echo $user_name; ?>" placeholder="Username">
+                        <span id="err_user_name"><?php echo $err_user_name; ?></span></br>
                     </td>
 
                 </tr>
@@ -78,9 +82,9 @@ include "homepagelandlord.php";
                     <td><span>Gender<span></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="gender" value="male">Male
-                        <input type="radio" name="gender" value="female">Female
-                        <span><?php echo $err_gender; ?></span>
+                    <td><input type="radio" name="gender" id="gender1" value="male">Male
+                        <input type="radio" name="gender" id="gender2" value="female">Female
+                        <span id="err_gender"><?php echo $err_gender; ?></span>
                     </td>
 
                 </tr>
@@ -90,8 +94,8 @@ include "homepagelandlord.php";
                 </tr>
 
                 <tr>
-                    <td><input type="text" name="email" value="<?php echo $email; ?>">
-                        <span><?php echo $err_email; ?></span>
+                    <td><input type="text" name="email" id="email" value="<?php echo $email; ?>">
+                        <span id="err_email"><?php echo $err_email; ?></span>
                     </td>
                 </tr>
                 <tr>
@@ -99,9 +103,8 @@ include "homepagelandlord.php";
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="contact_number" value="<?php echo $contact_number; ?>"
-                            placeholder="Phone / Mobile">
-                        <span><?php echo $err_contact_number; ?></span>
+                        <input type="text" name="contact_number" id="contact_number" value="<?php echo $contact_number; ?>" placeholder="Phone / Mobile">
+                        <span id="err_contact_number"><?php echo $err_contact_number; ?></span>
                     </td>
                 </tr>
                  
@@ -117,8 +120,6 @@ include "homepagelandlord.php";
         </form>
 </div>
 
-
-
 </body>
-
+<script src="JS/editRenterProfileValidation.js"></script>
 </html>
