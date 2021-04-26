@@ -131,6 +131,8 @@ body{
 .btn{
 	font-family:consolas;
 }
-
+.err-msg{
+	color: red ;
+  }
 
 

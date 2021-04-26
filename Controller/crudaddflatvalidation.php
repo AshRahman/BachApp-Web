@@ -77,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$contact = $_POST['contact'];
 	
   if(!$hasError){
-    $insert_query = "INSERT INTO flat (Owner,Price,Location,Size,Contact) VALUES ('$owner','$price','$location','$size','$contact')";
+    $insert_query = "INSERT INTO flat (Owner,Price,location,Size,Contact) VALUES ('$owner','$price','$location','$size','$contact')";
     
     if(execute($insert_query)){
         echo "flat added";

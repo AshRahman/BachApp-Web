@@ -1,5 +1,5 @@
 body {
-  background-color: #ddd;
+  background-color: rgb(54, 54, 54);
 }
 
 /* {
@@ -9,7 +9,7 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(28, 30, 53);
 }
 
 .topnav a {

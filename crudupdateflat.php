@@ -1,10 +1,6 @@
 <?php
 
-session_start();
-	if(!isset($_SESSION["user"])){
-		header("Location: loginadmin.php");
-	}
-	
+
 include "Controller/crudupdateflatvalidation.php";
 
 $id = $_GET["id"];

@@ -1,9 +1,9 @@
 <?php
 
-session_start();
-	if(!isset($_SESSION["user"])){
-		header("Location: loginadmin.php");
-	}
+//session_start();
+	//if(!isset($_SESSION["user"])){
+		//header("Location: loginadmin.php");
+	//}
 	
 include "Controller/cruddeletehousevalidation.php";
 
