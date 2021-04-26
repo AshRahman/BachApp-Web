@@ -32,6 +32,7 @@ if (isset($_POST["signinBtn"])) {
                 foreach ($result as $row) {
                     $uid = $row["id"];
                     $is_Admin = $row["isAdmin"];
+                    $is_Landlord= $row["isLandlord"];
                 }
                 if ($is_Admin == 1) {
                     session_start();
@@ -44,16 +45,30 @@ if (isset($_POST["signinBtn"])) {
                     $err_pass = "";
                     header("Location:homepageadmin.php");
                 } else {
+                    if($is_Landlord==1){
                     //here we will further down in line add isLandlord check
-                    session_start();
-                    $_SESSION["id"] = $uid;
-                    $_SESSION["user_type"] = "Landlord";
-                    $_SESSION["user_name"] = $user_name;
-                    $user_name = "";
-                    $err_user_name = "";
-                    $pass = "";
-                    $err_pass = "";
-                    header("Location:homepagelandlord.php");
+                                session_start();
+                                $_SESSION["id"] = $uid;
+                                $_SESSION["user_type"] = "Landlord";
+                                $_SESSION["user_name"] = $user_name;
+                                $user_name = "";
+                                $err_user_name = "";
+                                $pass = "";
+                                $err_pass = "";
+                                header("Location:homepagelandlord.php");
+                    }
+                    else{
+                        session_start();
+                        $_SESSION["id"] = $uid;
+                        $_SESSION["user_type"] = "Bachelor";
+                        $_SESSION["user_name"] = $user_name;
+                        $user_name = "";
+                        $err_user_name = "";
+                        $pass = "";
+                        $err_pass = "";
+                        header("Location:homepagetenant.php");
+
+                    }
                 }
             } else {
                 echo "enter valid user name/Password";

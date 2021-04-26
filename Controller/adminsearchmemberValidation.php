@@ -205,3 +205,8 @@ if (isset($_POST["deleteBtn"])) {
     execute($del_query);
     echo "deleted successfully";
 }
+
+function searchMemberUname($key){
+    $query="SELECT username from landlord where username like '%$key%'";
+    $result=get($query);
+}
