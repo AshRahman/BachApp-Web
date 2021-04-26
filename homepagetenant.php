@@ -1,9 +1,9 @@
 <?php
 include "Controller/logoutValidation.php";
 session_start(); 
-if(!isset($_SESSION["loggedInUser"]))
+if(!isset($_SESSION["user_type"]))
 {
-    header("Location:logintenant.php");
+    header("Location:login.php");
 }
 
 ?>
