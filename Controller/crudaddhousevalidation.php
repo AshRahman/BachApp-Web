@@ -173,15 +173,6 @@ if(isset($_POST["add_property"])){
 
    
 }
-//<div class="header"><span style="text-align:center my-font"></span>Apartment Finder</div>
- //       <div class="left-menu">
-//<div class="add-div">
-//<ul>
-//<li class="plain-bullet my-font"><a href="">Home</a></li>
-//<li class="plain-bullet my-font"><a href="card.php">Apartments</a></li>
-//<li class="plain-bullet my-font"><a href="review.php">Review</a></li>
-//<li class="plain-bullet my-font"><a href="signin.php">Logout</a></li>
-//</ul>
-//</div>
+
 
 ?>
