@@ -12,7 +12,7 @@
         <h1 align="center">Renter Sign Up</h1>
         <h4 align="center">Where Searching House Becomes Easier</h4>
 
-        <form action="" onsubmit="return validate()" method="post">
+        <form action="" onsubmit="return validateSignup()" method="post">
             <table align="center">
                 <tr>
                     <td><span>Name</span></td>
@@ -56,8 +56,8 @@
                     <td><span>Gender<span></td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="gender" id="gender" value="male">Male
-                        <input type="radio" name="gender" id="gender" value="female">Female
+                    <td><input type="radio" name="gender" id="gender1" value="male">Male
+                        <input type="radio" name="gender" id="gender2" value="female">Female
                         <span id="err_gender"><?php echo $err_gender; ?></span>
                     </td>
 
@@ -166,4 +166,5 @@ function checkPhone(contact_number){
 
 </script> 
 <script src="JS/signuprenterValidation.js"></script>
+
 </html>

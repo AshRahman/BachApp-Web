@@ -20,6 +20,7 @@
             <th>Rent</th>
             <th>Address</th>
         </tr>
+<div>
 <?php
     foreach($result as $row){
         echo "<tr>";
@@ -34,4 +35,5 @@
         echo "</tr>";
     }
 ?>
+</div>
     <table>
