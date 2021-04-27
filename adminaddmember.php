@@ -14,18 +14,21 @@
 
 <html>
 <head>
+<link rel="stylesheet" href="homepage.css">
 </head>
 <body>
 <div class="right">
+<div class="topnav">
+<a href=http://localhost/BachApp-Web/adminsearchmember.php>Back</a>
         <form action="" method="post">
-        <input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> 
+        <p style="text-align:right;"><input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> </p>
         </form> 
-        <form action="homepageadmin.php">
+        <!-- <form action="homepageadmin.php">
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
     </form>  
-        <div id="add-div" >
-        <h1 align="center">Edit Member Profile</h1>
-
+        <div id="add-div" > -->
+        <h1 style="text-align:center;color:orange">Edit Member Profile</h1>
+</div>
         <form action="" onsubmit="return validate()" method="post">
             <table align="center">
                 <tr>
