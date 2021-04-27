@@ -64,15 +64,8 @@ include "Controller/crudaddflatvalidation.php";
 		<div class="tren">
 			<h1>Available Flat</h1>
 			<?php
-			if ($result) {
-
-				$rowCount = mysqli_num_rows($result);
-			}
-			if ($rowCount < 1) {
-				echo '<div class="container container2 title-border">
-                    <h4>No Flats Yet!</h4>
-                  </div>';
-			} else {
+			
+			 if($result) {
 
 				echo
 				'
@@ -89,7 +82,7 @@ include "Controller/crudaddflatvalidation.php";
                     </thead>
                   ';
 
-				while ($row = mysqli_fetch_assoc($result)) {
+				foreach($result as $row) {
 
 
 					echo
@@ -98,14 +91,14 @@ include "Controller/crudaddflatvalidation.php";
                       <tbody>
                         <tr>
                           
-                          <td>' . $row["ID"] . '</td>
-                          <td>' . $row["Owner"] . '</td>
-						  <td>' . $row["Price"] . '</td>
-						  <td>' . $row["Location"] . '</td>
-						  <td>' . $row["Size"] . '</td>
-						  <td>' . $row["Contact"] . '</td>
-                          <td>  <a href="http://localhost/BachApp-Web/crudupdateflat.php?id=' . $row["ID"] . '"> EDIT</a></td>
-						  <td> <a href="http://localhost/BachApp-Web/cruddeleteflat.php?id=' . $row["ID"] . '"> DELETE</a></td>
+                          <td>' . $row["id"] . '</td>
+                          <td>' . $row["owner"] . '</td>
+						  <td>' . $row["price"] . '</td>
+						  <td>' . $row["location"] . '</td>
+						  <td>' . $row["size"] . '</td>
+						  <td>' . $row["contact"] . '</td>
+                          <td>  <a href="http://localhost/BachApp-Web/crudupdateflat.php?id=' . $row["id"] . '"> EDIT</a></td>
+						  <td> <a href="http://localhost/BachApp-Web/cruddeleteflat.php?id=' . $row["id"] . '"> DELETE</a></td>
                         </tr>
                       </tbody>';
 				}
