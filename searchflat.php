@@ -1,5 +1,6 @@
 <?php
 	   include "Controller/searchflatvalidation.php";
+       
 ?>
 <html >
 
@@ -11,7 +12,7 @@
     <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Go-Back">
     </form>
 <div class="topnav">
-           <p style="text-align:center;"><input type="text" " value="<?php echo $search;?>" placeholder="Search"><input type="submit" class="search" name="Search" value="Search"> </p>
+           <p style="text-align:center;"><input type="text" " value="<?php echo $search;?>" placeholder="Search"><input type="submit" class="search" name="searchbtn" value="Search"> </p>
     </div>
     
 
