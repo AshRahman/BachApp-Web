@@ -4,8 +4,9 @@ if(!isset($_SESSION["logedin"])){
     header("Location:rentersignup.php");
 }*/
 require_once"Model/db_config.php";
+session_start();
 
-$user_name="";
+$user_name=$_SESSION["user_name"];
 $err_user_name="";
 
 $email="";
@@ -157,7 +158,7 @@ if(isset($_POST["add_property"])){
     if($hasError === false)
             {
                 echo "'$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img'";
-                $query="INSERT INTO `property`(`username`, `email`, `phone`, `floor`, `flat`, `gender`, `rent`, `address`, `image`) VALUES ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$img')";
+                $query="INSERT INTO `property`(`username`, `email`, `phone`, `floor`, `flat`, `gender`, `rent`, `address`, `image`, booked) VALUES ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$img','available')";
                 //$query="insert into property (username,email,phone,floor,flat,gender,rent,address,image) values ('$user_name','$email','$contact_number','$floor','$flat_type','$gender','$rent','$address','$address','$img')";
                 execute($query);
                 
