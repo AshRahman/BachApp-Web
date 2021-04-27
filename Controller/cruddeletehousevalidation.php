@@ -1,7 +1,7 @@
 <?php
 include "Model/db_config.php";
 
-$query = "SELECT * FROM house";
+$query = "SELECT * FROM property";
 $result=get($query);
 
 if(isset($_POST["showBtn"]))
@@ -20,7 +20,7 @@ $hasError=false;
 
 
     
-        $delete_query="DELETE FROM house WHERE ID='$id'";
+        $delete_query="DELETE FROM property WHERE id='$id'";
         echo $id;
         execute($delete_query);
         echo "deleted successfully";

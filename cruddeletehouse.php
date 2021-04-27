@@ -1,21 +1,26 @@
 <?php
 
-session_start();
-	if(!isset($_SESSION["user"])){
-		header("Location: loginadmin.php");
-	}
+//session_start();
+	//if(!isset($_SESSION["user"])){
+		//header("Location: loginadmin.php");
+	//}
 	
 include "Controller/cruddeletehousevalidation.php";
 
 $id = $_GET["id"];
-$query ="SELECT * FROM house WHERE ID='$id'";
+$query ="SELECT * FROM property WHERE id='$id'";
 $result=get($query);
 foreach($result as $rows){
-	$owner=$rows["Owner"];
-	$price=$rows["Price"];
-	$location=$rows["Location"];
-	$size=$rows["Size"];
-	$contact=$rows["Contact"];
+	              $id= $rows["id"];
+                  $user_name= $rows["username"];
+                  $email= $rows["email"];
+                  $contact_number= $rows["phone"];
+                  $floor= $rows["floor"];
+                  $flat_type=$rows["flat"];
+                  $gender= $rows["gender"];
+                  $rent= $rows["rent"];
+                  $address= $rows["address"];
+                  $img= $rows["image"];
 }
 
 ?>

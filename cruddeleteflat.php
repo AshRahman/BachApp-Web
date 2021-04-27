@@ -1,8 +1,8 @@
 <?php
-session_start();
-	if(!isset($_SESSION["user"])){
-		header("Location: loginadmin.php");
-	}
+//session_start();
+	//if(!isset($_SESSION["user"])){
+		//header("Location: loginadmin.php");
+	//}
 	
 include "Controller/cruddeleteflatvalidation.php";
 
@@ -10,11 +10,11 @@ $id = $_GET["id"];
 $query ="SELECT * FROM flat WHERE ID='$id'";
 $result=get($query);
 foreach($result as $rows){
-	$owner=$rows["Owner"];
-	$price=$rows["Price"];
-	$location=$rows["Location"];
-	$size=$rows["Size"];
-	$contact=$rows["Contact"];
+	$owner=$rows["owner"];
+	$price=$rows["price"];
+	$location=$rows["location"];
+	$size=$rows["size"];
+	$contact=$rows["contact"];
 }
 
 ?>

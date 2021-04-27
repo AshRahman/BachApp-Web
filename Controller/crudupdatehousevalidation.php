@@ -1,90 +1,236 @@
 <?php
-include "Model/db_config.php";
 
-$query = "SELECT * FROM house";
-$result=get($query);
+       include "Model/db_config.php";
+    //    session_start();
+    //    $_SESSION["loggedInUser"]="Galactico";
 
-if(isset($_POST["showBtn"]))
-{
-    $result=get($query);
-}
+        $id=$_GET['id'];
+        // $loggedInUser=$_SESSION["user_name"];
 
+        $user_name="";
+        $err_user_name="";
 
-$id="";
-$err_id="";
-$owner="";
-$err_owner="";
-$location="";
-$err_location="";
-$contact="";
-$err_contact="";
-$price="";
-$size="";
-$err_price="";
-$err_size="";
-$hasError=false;
+        $email="";
+        $err_email="";
 
-if(isset($_POST["updateBtn"]))
-{
+        $contact_number = "";
+        $err_contact_number = "";
 
- 
- 
+        $floor="";
+        $err_floor="";
 
+        $flat_type="";
+        $err_flat_type="";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-	
-	if(empty($_POST["owner"])){
-        $err_owner="[insert owner name]";
+        $gender="";
+        $err_gender="";
+
+        $rent="";
+        $err_rent="";
+
+        $address="";
+        $err_address="";
+
+        $img="";
+        $err_img="";
+
+        $hasError = false;
+
+        function validateEmail($email){
+            $pos_at=strpos($email,"@");
+            $pos_dot=strpos($email,".",$pos_at+1);
+            if($pos_at<$pos_dot){
+                return true;
+            }
+            return false;
+        }
+
+        $query = "SELECT * from property where id='$id'";
+        $result = get($query);
+        foreach($result as $rows){
+                  $id= $rows["id"];
+                  $user_name= $rows["username"];
+                  $email= $rows["email"];
+                  $contact_number= $rows["phone"];
+                  $floor= $rows["floor"];
+                  $flat_type=$rows["flat"];
+                  $gender= $rows["gender"];
+                  $rent= $rows["rent"];
+                  $address= $rows["address"];
+                  $img= $rows["image"];
+        }
+
+        if(isset($_POST["refreshBtn"])){
+        $result = get($query);
+        foreach($result as $rows){
+            $id= $rows["id"];
+            $user_name= $rows["username"];
+            $email= $rows["email"];
+            $contact_number= $rows["phone"];
+            $floor= $rows["floor"];
+            $flat_type=$rows["flat"];
+            $gender= $rows["gender"];
+            $rent= $rows["rent"];
+            $address= $rows["address"];
+            $img= $rows["image"];
+        }
+    }
+if(isset($_POST["saveBtn"])){
+        if($_SERVER["REQUEST_METHOD"]=="POST")
+        {
+
+    if (empty($user_name)) {
+        $err_user_name = "Please enter your first name";
+        $hasError = true;
+    }
+    elseif (strlen($_POST["user_name"]) < 4) {
+        $err_user_name = "First Name must be more than 4 characters";
+        $hasError = true;
+    }
+    elseif (strpos($_POST["user_name"], " ")) {
+        $err_user_name = "Whitespace is not allowed";
+        $hasError = true;
+    }
+    else{
+        $user_name=htmlspecialchars($_POST["user_name"]);
+    }
+
+    if(empty($_POST["email"])){
+        $err_email="Email Required";
         $hasError=true;
     }
-	
-	if(empty($_POST["location"])){
-        $err_location="[insert location]";
+    elseif(!validateEmail($_POST["email"])){
+        $err_email="Insert a valid email";
         $hasError=true;
     }
-	
-	
-	if (!is_numeric($_POST["price"])) {
-        
-        $err_price = "[This field is empty or requires only numeric values]";
-        $hasError = true;
-    }
-	
     else{
-        $price=htmlspecialchars($_POST["price"]);
+        $email=htmlspecialchars($_POST["email"]);
     }
-	if (!is_numeric($_POST["size"])) {
-        
-        $err_size = "[This field is empty or requires only numeric values]";
-        $hasError = true;
-    }
-    else{
-        $size=htmlspecialchars($_POST["size"]);
-    }
-	if (!is_numeric($_POST["contact"])) {
-        
-        $err_contact = "[This field is empty or requires only numeric values]";
-        $hasError = true;
-    }
-    else{
-        $contact=htmlspecialchars($_POST["contact"]);
-    }
-	
-	$id = $_POST['id'];
-	$owner = $_POST['owner'];
-	$price = $_POST['price'];
-	$location = $_POST['location'];
-	$size = $_POST['size'];
-	$contact = $_POST['contact'];
-	
-  if(!$hasError){
-    $update_query = "UPDATE house SET Owner='$owner',Price='$price',Location='$location',Size='$size',Contact='$contact' WHERE ID='$id'";
-     
-    execute($update_query);
-        echo "house updated";
 
-	
+    if (empty($_POST["contact_number"])) {
+        $err_contact_number = "Please fill this field";
+        $hasError = true;
     }
+    elseif (!is_numeric($_POST["contact_number"])) {
+        //$err_contn = "This field requires only numeric values";
+        $err_contact_number = "This field requires only numeric values";
+        $hasError = true;
     }
-}
-?>
+    else{
+        $contact_number=htmlspecialchars($_POST["contact_number"]);
+    }
+
+    if(empty($_POST["floor"])){
+        $err_floor="Please fill this field";
+        $hasError=true;
+    }
+    elseif(!is_numeric($_POST["floor"])){
+        $err_floor="Only Numeric values";
+        $hasError=true;
+    }
+    else{
+        $floor=$_POST["floor"];
+    }
+
+    if(!isset($_POST["flat_type"])){
+        $err_flat_type="Please select a flat type";
+        $hasError=true;
+    }
+    else{
+        $flat_type=$_POST["flat_type"];
+    }
+
+    if(!isset($_POST["gender"])){
+        $err_gender="Gender must be selected";
+        $hasError=true;
+    }
+    else{
+        $gender=$_POST["gender"];
+    }
+
+    if(empty($_POST["rent"])){
+        $err_rent="Please fill this field";
+        $hasError=true;
+    }
+    elseif(!is_numeric($_POST["rent"])){
+        $err_rent="Only Numeric values";
+        $hasError=true;
+    }
+    else{
+        $rent=$_POST["rent"];
+    }
+
+    if(empty($_POST["address"])){
+        $err_address="Please write your address";
+        $hasError=true;
+    }
+    else{
+        $address=$_POST["address"];
+    }
+
+    if(empty($_POST["img"])){
+        $err_img="Please write your address";
+        $hasError=true;
+    }
+    else{
+        $img=$_POST["img"];
+    }
+
+            if(!$hasError)
+            {
+                echo "Data is updating";
+
+                $updateQuery="UPDATE property
+                SET username='$user_name',
+                email='$email',
+                phone='$contact_number',
+                floor='$floor',
+                flat='$flat_type',
+                gender='$gender',
+                rent='$rent',
+                address='$address',
+                image='$img'
+                WHERE id='$id'";
+
+                execute($updateQuery);
+
+
+
+                $user_name="";
+                $err_user_name="";
+
+                $email="";
+                $err_email="";
+
+                $contact_number = "";
+                $err_contact_number = "";
+
+                $floor="";
+                $err_floor="";
+
+                $flat_type="";
+                $err_flat_type="";
+
+                $gender="";
+                $err_gender="";
+
+                $rent="";
+                $err_rent="";
+
+                $address="";
+                $err_address="";
+
+                $img="";
+                $err_img="";
+
+            }
+            else{
+                echo "something went wrong";
+            }
+        }
+
+
+
+    }
+
+ ?>

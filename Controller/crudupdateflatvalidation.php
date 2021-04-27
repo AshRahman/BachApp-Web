@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$contact = $_POST['contact'];
 	
   if(!$hasError){
-    $update_query = "UPDATE flat SET Owner='$owner',Price='$price',Location='$location',Size='$size',Contact='$contact' WHERE ID='$id'";
+    $update_query = "UPDATE flat SET owner='$owner',price='$price',location='$location',size='$size',contact='$contact' WHERE id='$id'";
      
     execute($update_query);
         echo "flat updated";
