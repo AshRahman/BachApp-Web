@@ -12,7 +12,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+<link rel="stylesheet" href="homepage.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,31 +23,36 @@
 </head>
 
 <body>
+<div class="topnav">
+<a href=http://localhost/BachApp-Web/homepageadmin.php>Back</a>
+<a href=http://localhost/BachApp-Web/adminaddbachelor.php>Add Bachelor</a>
     <form action="" method="post">
-        <input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> 
+    <p style="text-align:right;"><input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> </p>
         </form> 
-    <form action="homepageadmin.php">
+        </div>
+    <!-- <form action="homepageadmin.php">
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
     </form>
     <form action="adminaddbachelor.php">
     <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Add Bachelor">
-    </form>
+    </form> -->
 
     <div id="search_div">
-        <fieldset style="width:600px">
+        <!-- <fieldset style="width:600px"> -->
             <h2 align="center">SEARCH BACHELOR</h2>
 
             <form action="" onsubmit="return validateSearch()" method="post">
                 <table align="center">
 
                     <tr>
-                        <td><span>Username:</span></td>
-                        <td><input type="text" id="user_name" name="user_name" value="<?php echo $user_name; ?>" placeholder="Username">
+                        <!-- <td><span>Username:</span></td> -->
+                        <td><p style="text-align:center;"><label>Username:</label><input type="text" id="user_name" name="user_name" value="<?php echo $user_name; ?>" placeholder="Username"><button id="searchBtn" name="searchBtn"
+                                    value="Search">Search</button></p>
                         <span id="err_user_name"><?php echo $err_user_name; ?></span></br>
-                    </td>
+                    <!-- </td>
                         <td colspan="3" align="center"><span><button id="searchBtn" name="searchBtn"
                                     value="Search">Search</button></span></td>
-                    </tr>
+                    </tr> -->
                     <?php
                         echo "<tr><td>
                         <table>
@@ -77,10 +82,10 @@
                 </table>
 
                     <tr>
-                    <td colspan="2"><input type="submit" class="deleteBtn" id="deleteBtn" name="deleteBtn" value="Delete"></td>
+                    <td colspan="2"><p style="text-align:center;"><input type="submit" class="deleteBtn" id="deleteBtn" name="deleteBtn" value="Delete"></p></td>
                     </tr>
             </form>
-            <button name="updateBtn" value="Update" class="updateBtn" id="updateBtn" onclick="hideDiv()" >Update</button>
+            <p style="text-align:center;"><button name="updateBtn" value="Update" class="updateBtn" id="updateBtn" onclick="hideDiv()" >Update</button></p>
             
         </fieldset>
     </div>
