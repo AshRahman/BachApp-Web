@@ -12,7 +12,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+<link rel="stylesheet" href="homepage.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,32 +23,38 @@
 </head>
 
 <body>
-<form action="" method="post">
+<div class="topnav">
+<a href=http://localhost/BachApp-Web/homepageadmin.php>Back</a>
+<a href=http://localhost/BachApp-Web/adminaddmember.php>Add Member</a>
+ <!-- <form action="" method="post">
         <input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> 
         </form> 
-    <form action="homepageadmin.php">
+        <form action="homepageadmin.php">
     <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
-    </form>
-    <form action="adminaddmember.php">
-    <input type="submit" class="addBtn" id="addBtn" name="addBtn" value="Add Member">
-    </form>
+    </form>   -->
+<form action="" method="post">
+       <p style="text-align:right;"> <input  type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> </p>
+        </form> 
+    </div>
 
 
     <div id="search_div">
-        <fieldset style="width:600px">
+        <!-- <fieldset style="width:600px" align="center"> -->
             <h2 align="center">SEARCH MEMBER</h2>
 
             <form action="" onsubmit="return validateSearch()" method="post">
                 <table align="center">
 
                     <tr>
-                        <td><span>Username:</span></td>
-                        <td><input type="text" id="user_name" name="user_name" onkeyup="suggest(this)" value="<?php echo $user_name; ?>" placeholder="Username">
+                        <!-- <td><span>Username:</span></td> -->
+                        <td><p style="text-align:center;"><label>Username:</label><input type="text" id="user_name" name="user_name" onkeyup="suggest(this)" value="<?php echo $user_name; ?>" placeholder="Username"><button id="searchBtn" name="searchBtn"
+                                    value="Search">Search</button></p>
                         <span id="err_user_name"><?php echo $err_user_name; ?></span></br>
-                    </td>
+                    <!-- </td>
                         <td colspan="3" align="center"><span><button id="searchBtn" name="searchBtn"
                                     value="Search">Search</button></span></td>
-                    </tr>
+                    </tr> -->
+                    
                     <div id="">
                     <p id="suggestion">
                     </p>
@@ -71,8 +77,7 @@
                         echo    "<td>".$row["gender"]."</td>";
                         echo    "<td>".$row["email"]."</td>";
                         echo    "<td>".$row["phone"]."</td>";
-                        // echo    '<td><button name="updateBtn" value="Update" class="updateBtn" onclick="hideDiv()" >Update</button></td>';
-                        // echo    '<td><span><input type="submit" name="deleteBtn" value="Delete" ></span></td>';
+                        
                             echo "</tr>";
                         
                      }
@@ -81,14 +86,15 @@
                      echo "</table></td></tr>";
                     ?>
                     <tr>
-                    <td colspan="2"><input type="submit" class="deleteBtn" id="deleteBtn" name="deleteBtn" value="Delete"></td>
+                    <td colspan="2"><input type="submit" class="deleteBtn" id="deleteBtn" name="deleteBtn" value="Delete">
+                   
                     </tr>
                 </table>
 
 
             </form>
-            <button name="updateBtn" value="Update" class="updateBtn" id="updateBtn" onclick="hideDiv()" >Update</button>
-        </fieldset>
+            <button name="updateBtn" value="Update" class="updateBtn" id="updateBtn" onclick="hideDiv()" >Update</button> -->
+        
     </div>
 
 

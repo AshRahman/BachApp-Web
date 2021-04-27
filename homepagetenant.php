@@ -19,7 +19,11 @@ if(!isset($_SESSION["user_type"]))
   <a href=http://localhost/BachApp-Web/searchflat.php>Search</a>
   <a href=http://localhost/BachApp-Web/bachelorProfileView.php>Profile</a>
   <a href=http://localhost/BachApp-Web/payment.php>Payment</a>
+<<<<<<< HEAD
   <a href=http://localhost/BachApp-Web/tenanthouselist.php>House List</a>
+=======
+  <a href="http://localhost/BachApp-Web/booking.php">Request for rent</a>
+>>>>>>> main
   
   
   

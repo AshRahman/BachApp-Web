@@ -12,22 +12,29 @@ if (!isset($_SESSION["user_type"])) {
 
 
 <html>
-
+<link rel="stylesheet" href="homepage.css">
 <head>
 </head>
 
 <body>
     <div class="right">
+    <div class="topnav">
+<a href=http://localhost/BachApp-Web/adminsearchbachelor.php>Back</a>
         <form action="" method="post">
+        <p style="text-align:right;"><input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out"> </p>
+        </form> 
+        <!-- <form action="" method="post">
             <input type="submit" class="right my-font btn-sup" name="logoutBtn" value="Log-out">
         </form>
 
         <form action="homepageadmin.php">
             <input type="submit" class="backBtn" id="backBtn" name="backBtn" value="Go-Back">
-        </form>
+        </form> -->
+        <h1 style="text-align:center;color:orange">Edit Bachelor Profile</h1>
+</div>
 
         <div id="add-div">
-            <h1 align="center">Add Bachelor Profile</h1>
+            <!-- <h1 align="center">Add Bachelor Profile</h1> -->
 
             <form action="" onsubmit="return validate()" method="post">
                 <table align="center">
