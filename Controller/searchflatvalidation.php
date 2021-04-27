@@ -50,20 +50,19 @@ if(isset($_POST["filterbtn"])){
             $price=$_POST["price"];  
             }
     
-      echo $selected_location;
 
     if(!$has_error){
     $query = "SELECT * FROM flat";
     $conditions = array();
     
     if(!empty($selected_location)) {
-      $conditions[] = "Location='$selected_location'";
+      $conditions[] = "location='$selected_location'";
     }
     if(!empty($size)) {
-      $conditions[] = "Size='$size'";
+      $conditions[] = "size='$size'";
     }
     if(!empty($price)) {
-        $conditions[] = "Price='$price'";
+        $conditions[] = "price='$price'";
       }
       
     
@@ -74,9 +73,7 @@ if(isset($_POST["filterbtn"])){
     }
     
 
-    $conn = mysqli_connect($db_server,$db_user,$db_password,$db_name);
-    $result=mysqli_query($conn,$sql);
-    // $result=get($sql);
+    $result=get($query);
     return $result;
     }
     
