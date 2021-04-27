@@ -118,7 +118,7 @@
           echo '</table></td></tr>';
             }	  
 	  ?>
-	  <p style="text-align:ce
+	  <p style="text-align:center>
 	  
 	  </div>
      </p>
