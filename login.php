@@ -45,6 +45,8 @@
                     </tr>
                 </table>
             </form>
+            <a class="btn btn-success" href=http://localhost/BachApp-Web/bachelorsignup.php>Bachelor Signup</a>
+            <a class="btn btn-success" href=http://localhost/BachApp-Web/rentersignup.php>Renter Signup</a>
         </div>
     </body>
     <script src="JS/validateLogin.js"></script>

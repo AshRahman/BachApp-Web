@@ -2,10 +2,10 @@ body {
   background-color: #ddd;
 }
 
-{
+/* {
   margin: 0;
   font-family: Arial;
-}
+} */
 
 .topnav {
   overflow: hidden;
@@ -34,4 +34,7 @@ body {
   overflow: hidden;
   background-color:white;
 }
-</style>
+.err-msg{
+  color: red !important;
+}
+

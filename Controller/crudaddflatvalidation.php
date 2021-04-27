@@ -1,14 +1,14 @@
 <?php
 include "Model/db_config.php";
-$conn = mysqli_connect($db_server,$db_user,$db_password,$db_name);
+
 
 
 $query = "SELECT * FROM flat";
-$result=mysqli_query($conn,$query);
+$result=get($query);
 
 if(isset($_POST["showBtn"]))
 {
-    $result=mysqli_query($conn,$query);
+    $result=get($query);
 }
 
 
@@ -77,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$contact = $_POST['contact'];
 	
   if(!$hasError){
-    $insert_query = "INSERT INTO flat (Owner,Price,Location,Size,Contact) VALUES ('$owner','$price','$location','$size','$contact')";
+    $insert_query = "INSERT INTO flat (owner,price,location,size,contact) VALUES ('$owner','$price','$location','$size','$contact')";
     
     if(execute($insert_query)){
         echo "flat added";

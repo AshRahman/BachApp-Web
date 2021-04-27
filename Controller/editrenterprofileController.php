@@ -2,14 +2,14 @@
 
 require_once"Model/db_config.php";
 
-session_start();
-    $_SESSION["loggedInUser"]="tk7";
+// session_start();
+//     $_SESSION["loggedInUser"]="tk7";
 
 $id="";
-$loggedInUser=$_SESSION["loggedInUser"];
+$loggedInUser=$_SESSION["user_name"];
 
-$name = "";
-$err_name = "";
+$your_name = "";
+$err_your_name = "";
 
 $user_name="";
 $err_user_name="";
@@ -45,7 +45,7 @@ $result = get($query);
 foreach($result as $rows){
           $id= $rows["id"];
           $user_name= $rows["username"];
-          $name= $rows["name"];
+          $your_name= $rows["name"];
           $gender= $rows["gender"];
           $email=$rows["email"];
           $contact_number= $rows["phone"];
@@ -56,7 +56,7 @@ $result = get($query);
 foreach($result as $rows){
         $id= $rows["id"];
         $user_name= $rows["username"];
-        $name= $rows["name"];
+        $your_name= $rows["name"];
         $gender= $rows["gender"];
         $email=$rows["email"];
         $contact_number= $rows["phone"];
@@ -67,26 +67,26 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 {
 // if(isset($_POST["signup"])){
 
-    $name = $_POST["name"];
+    $your_name = $_POST["your_name"];
     $user_name= $_POST["user_name"];
     $contact_number = $_POST["contact_number"];
 
 
 
-    if(empty($_POST["name"])) {
-        $err_name = "Please enter your first name";
+    if(empty($_POST["your_name"])) {
+        $err_your_name = "Please enter your first name";
         $hasError = true;
     }
-    elseif (strlen($_POST["name"]) < 2) {
-        $err_name = "Name must be more than 2 characters";
+    elseif (strlen($_POST["your_name"]) < 2) {
+        $err_your_name = "Name must be more than 2 characters";
         $hasError = true;
     } 
-    elseif (strpos($_POST["name"], " ")) {
-        $err_name = "Whitespace is not allowed";
+    elseif (strpos($_POST["your_name"], " ")) {
+        $err_your_name = "Whitespace is not allowed";
         $hasError = true;
     }
     else{
-        $name=htmlspecialchars($_POST["name"]);
+        $your_name=htmlspecialchars($_POST["your_name"]);
     }
 
     if (empty($_POST["user_name"])) {
@@ -150,7 +150,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 echo "Data is updating";
                 
                 $updateQuery="UPDATE landlord SET username='$user_name',
-                 name='$name',
+                 name='$your_name',
                   gender='$gender',
                    email='$email',
                     phone='$contact_number'
@@ -158,8 +158,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
                 execute($updateQuery);
 
-                $name = "";
-                $err_name = "";
+                $your_name = "";
+                $err_your_name = "";
 
                 $user_name="";
                 $err_user_name="";
