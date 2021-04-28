@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2021 at 03:46 PM
+-- Generation Time: Apr 27, 2021 at 07:37 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `bachapp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `flat`
+--
+
+CREATE TABLE `flat` (
+  `id` int(10) NOT NULL,
+  `owner` varchar(20) NOT NULL,
+  `price` int(20) NOT NULL,
+  `location` varchar(20) NOT NULL,
+  `size` int(20) NOT NULL,
+  `contact` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -62,7 +77,8 @@ CREATE TABLE `landlord` (
 --
 
 INSERT INTO `landlord` (`id`, `name`, `username`, `password`, `gender`, `email`, `phone`) VALUES
-(2, 'ashfaqur', 'rahat01', 'Asdf@0123', 'Male', 'ashfaq0@outlook.com', '01789554260');
+(3, 'Rahat', 'rahat', 'Asdf@0123', 'Male', 'rockashfaq0@outlook.com', '01789554260'),
+(4, 'ashfaq', 'rahat01', 'Asdf@0123', 'Male', 'rockashfaq0@gmail.com', '016834444441');
 
 -- --------------------------------------------------------
 
@@ -86,7 +102,52 @@ INSERT INTO `login` (`id`, `username`, `password`, `isAdmin`, `isLandlord`) VALU
 (1, 'rahat', 'Asdf@0123', 1, 0),
 (2, 'toukir123', 'Asdf@0124', 0, 1),
 (4, 'rahat01', 'Asdf@0123', 0, 1),
-(5, 'labibU', 'Asdf@0123', 0, 0);
+(5, 'labibU', 'Asdf@0123', 0, 0),
+(7, 'rahat01', 'Asdf@0123', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_detail`
+--
+
+CREATE TABLE `payment_detail` (
+  `id` int(30) NOT NULL,
+  `cardtype` char(20) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `cardnumber` int(20) NOT NULL,
+  `scode` int(10) NOT NULL,
+  `amount` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `property`
+--
+
+CREATE TABLE `property` (
+  `id` int(20) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `floor` varchar(20) NOT NULL,
+  `flat` varchar(20) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `rent` varchar(100) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `booked_by` varchar(20) NOT NULL,
+  `booked` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `property`
+--
+
+INSERT INTO `property` (`id`, `username`, `email`, `phone`, `floor`, `flat`, `gender`, `rent`, `address`, `image`, `booked_by`, `booked`) VALUES
+(3, 'rahat01', 'rockashfaq0@outlook.', '01789554260', '21', 'Studio', 'male', '2000', '389/A,north shahjahanpur,opposite of Butterfly kindergarten', 'ASdfASdf', 'labibU', 'unavailable'),
+(4, 'rahat01', 'rockashfaq0@gmail.co', '01789554260', '22', 'Studio', 'female', '2000', 'ramna', 'ASdfASdf', 'labibU', 'unavailable');
 
 -- --------------------------------------------------------
 
@@ -116,6 +177,12 @@ INSERT INTO `tenant` (`id`, `name`, `username`, `password`, `gender`, `email`, `
 --
 
 --
+-- Indexes for table `flat`
+--
+ALTER TABLE `flat`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `flat_advertise`
 --
 ALTER TABLE `flat_advertise`
@@ -134,6 +201,18 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payment_detail`
+--
+ALTER TABLE `payment_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `property`
+--
+ALTER TABLE `property`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tenant`
 --
 ALTER TABLE `tenant`
@@ -142,6 +221,12 @@ ALTER TABLE `tenant`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `flat`
+--
+ALTER TABLE `flat`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `flat_advertise`
@@ -153,13 +238,25 @@ ALTER TABLE `flat_advertise`
 -- AUTO_INCREMENT for table `landlord`
 --
 ALTER TABLE `landlord`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `payment_detail`
+--
+ALTER TABLE `payment_detail`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `property`
+--
+ALTER TABLE `property`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tenant`
