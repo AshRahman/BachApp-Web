@@ -324,7 +324,7 @@
                 $phone="";
                 $err_phone="";
 
-                header("Location:logintenant.php");
+                header("Location:login.php");
                 
             }
         }   
