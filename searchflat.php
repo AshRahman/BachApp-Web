@@ -106,11 +106,11 @@
                       <tbody>
                         <tr>
                           
-                          <td>' . $row["Owner"] . '</td>
-						  <td>' . $row["Price"] . '</td>
-						  <td>' . $row["Location"] . '</td>
-						  <td>' . $row["Size"] . '</td>
-						  <td>' . $row["Contact"] . '</td>
+                          <td>' . $row["owner"] . '</td>
+						  <td>' . $row["price"] . '</td>
+						  <td>' . $row["location"] . '</td>
+						  <td>' . $row["size"] . '</td>
+						  <td>' . $row["contact"] . '</td>
 
                         </tr>
                       </tbody>';
