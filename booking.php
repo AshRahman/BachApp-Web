@@ -2,7 +2,7 @@
     include "Controller/bookingValidation.php";
     session_start();
     $user_name=$_SESSION["user_name"];
-    echo $user_name;
+    //echo $user_name;
 
 
 ?>
