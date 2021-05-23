@@ -25,10 +25,15 @@ if (isset($_POST["signinBtn"])) {
 
 
         if (!$hasError) {
-            $query = "SELECT * FROM login WHERE username='$user_name' AND password='$pass'";
-            $result = get($query);
+            // MySqli prepared statements to avoid SQLInjection.
+            $mysqli=mysqli_connect($db_server,$db_user,$db_password,$db_name);
+            $stmt = $mysqli->prepare("SELECT * FROM login WHERE username=? AND password=?");
+            $stmt->bind_param("si", $user_name, $pass);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-            if (count($result) > 0) {
+
+            if ($result->num_rows > 0) {
                 foreach ($result as $row) {
                     $uid = $row["id"];
                     $is_Admin = $row["isAdmin"];
@@ -70,6 +75,7 @@ if (isset($_POST["signinBtn"])) {
 
                     }
                 }
+		$stmt->close();
             } else {
                 echo "enter valid user name/Password";
             }
